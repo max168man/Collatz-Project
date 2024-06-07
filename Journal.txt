@@ -9,3 +9,4 @@ This file covers what I have done in every day.
           * Created an overarching file, Collatz.pvs, that will contain everything (algorithms, lemmas, theories, etc). Will be broken up if needed.
           * Created a Github
           * Continuing work on proving lemmas 7 and 8.
+          * Current small problem: How to get proofs onto Github
