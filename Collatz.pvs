@@ -11,6 +11,7 @@
 % the union of stairs is equal to the set of natural values. 
 % If we disprove this equality, we will identify a set of values where the Collatz Conjecture doesn't hold. 
 %
+
 %------------------------------------------------------------------------
 Collatz: THEORY
 BEGIN
