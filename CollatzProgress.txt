@@ -27,16 +27,16 @@ Lemma proofs:
 
 Theories:
 * Theorem 12
-* Theorem 13
+* Theorem 13 - Time complexity
 * Theorem 14
 * Theorem 15
-* Theorem 16
+* Theorem 16 - Time complexity
 * Theorem 17
 
 Theory Proofs:
 * Theorem 12
-* Theorem 13
+* Theorem 13 - Time complexity
 * Theorem 14
 * Theorem 15
-* Theorem 16
+* Theorem 16 - Time complexity
 * Theorem 17
