@@ -1,0 +1,42 @@
+This file covers the current goals I am trying to reach, as well as how I am prioritizing what will get done first.
+
+Overall list of things to be done:
+
+Methods:
+* Pcltz
+* R(x)
+* Algorithm 1
+* Algorithm 2
+* Algorithm 3
+
+Lemmas:
+* Lemma 3
+* Lemma 7 (complete)
+* Lemma 8 (complete)
+* Lemma 9
+* Lemma 10
+* Lemma 11
+
+Lemma proofs:
+* Lemma 3
+* Lemma 7 (partial)
+* Lemma 8
+* Lemma 9
+* Lemma 10
+* Lemma 11
+
+Theories:
+* Theorem 12
+* Theorem 13
+* Theorem 14
+* Theorem 15
+* Theorem 16
+* Theorem 17
+
+Theory Proofs:
+* Theorem 12
+* Theorem 13
+* Theorem 14
+* Theorem 15
+* Theorem 16
+* Theorem 17
