@@ -108,7 +108,7 @@ lemma8: LEMMA FORALL (k: oddnat_overone): divides(3, 2^k) = FALSE
 %%%
 
 %%% Theorem 14
-% Algorithm 2 is sounds. It correctly explores the members of each stair j, for j > 0.
+% Algorithm 2 is sound. It correctly explores the members of each stair j, for j > 0.
 %%%
 
 %%% Theorem 15
@@ -126,10 +126,13 @@ lemma8: LEMMA FORALL (k: oddnat_overone): divides(3, 2^k) = FALSE
 
 %%% Corollary 18
 % Every state in the jth stair with respect to Iu will reach a state in the (j - 1)th stair through the execution of the Collatz program.
+% Unsolved
 %%%
 
 %%% Theorem 19
 % Starting from any state/value in any subtree rooted at Yk/3 for some arbitrary k > 1, the Collatz program will eventually reach a state in Iu, and subsequently reach Icltz.
+% Unsolved
+%%%
 
 %------------------------------------------------------------------------
 % Algorithms 1, 2, and 3
