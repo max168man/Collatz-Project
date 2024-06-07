@@ -26,9 +26,10 @@ IMPORTING ints@divides % Used to check if a number there exists a number i such 
 % Essential Defintions and Functions
 %------------------------------------------------------------------------
 
-Icltz:  TYPE = {i: nat | i = 1 OR i = 2 OR i = 4}
+Icltz:  TYPE = {1, 2, 4} % Set of natural values that is inevitably reached by repeated applications of the Collatz function.
+Iu:     TYPE = {k: nat, i: posnat | i = 2^k} % Set of natural values, that when reached, inevitably boils down to Icltz. Could be considered a "weaker" version of Icltz.
 
-%%% fc(x) (function Collatz)
+%%% fcltz(x) (function Collatz)
 % This is the Collatz function.
 %%%
 
