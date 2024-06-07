@@ -1,0 +1,11 @@
+This file covers what I have done in every day.
+
+6/7/2024: * Reviewed Collatz paper in morning, brainstormed how I would go about proving some of the more complex theorems. 
+            Current thoughts are:
+            - Specify Pcltz and R(x) before moving onto specifying stairs.
+            - Specifiy stairs. Perhaps this will be a type that is based on how many repetitions of Pcltz it is from (1, 2, 4).
+            - After this, the way to lemma 3 will be paved.
+
+          * Created an overarching file, Collatz.pvs, that will contain everything (algorithms, lemmas, theories, etc). Will be broken up if needed.
+          * Created a Github
+          * Continuing work on proving lemmas 7 and 8.
