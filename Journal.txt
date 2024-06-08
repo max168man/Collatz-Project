@@ -10,3 +10,9 @@ This file covers what I have done in every day.
           * Created a Github
           * Continuing work on proving lemmas 7 and 8.
           * Current small problem: How to get proofs onto Github
+
+6/8/2024: * Reading through Collatz paper, thinking about which lemmas to first attack after proving lemmas 7 and 8. Current thoughts:
+            - Define the Collatz function, and prove lemma 10. This lemma is the "no two subtrees intersect one", but although this sounds complicated,
+              this can be summed up as "for all computations of f(c), it only has one result". This will required f(c) to be developed first. 
+
+              lemma10 LEMMA: 
