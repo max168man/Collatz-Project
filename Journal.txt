@@ -10,7 +10,6 @@ This file covers what I have done in every day.
           * Created a Github
           * Continuing work on proving lemmas 7 and 8.
           * Current small problem: How to get proofs onto Github
-<<<<<<< HEAD
 
 6/8/2024: * Reading through Collatz paper, thinking about which lemmas to first attack after proving lemmas 7 and 8. Current thoughts:
             - Define the Collatz function, and prove lemma 10. This lemma is the "no two subtrees intersect one", but although this sounds complicated,
@@ -26,6 +25,3 @@ This file covers what I have done in every day.
 
               However, the lemma specified in the paper proves this via contradiction. So should we try contradiction rather than a more direct proof
               like I have outlined?
-=======
-          * Do time complexity theorems need to be proved?
->>>>>>> 268ad5c (	modified:   CollatzProgress.txt)
