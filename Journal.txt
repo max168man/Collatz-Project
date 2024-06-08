@@ -13,6 +13,9 @@ This file covers what I have done in every day.
 
 6/8/2024: * Reading through Collatz paper, thinking about which lemmas to first attack after proving lemmas 7 and 8. Current thoughts:
             - Define the Collatz function, and prove lemma 10. This lemma is the "no two subtrees intersect one", but although this sounds complicated,
-              this can be summed up as "for all computations of f(c), it only has one result". This will required f(c) to be developed first. 
+              this can be summed up as "for all computations of fcltz(c), it only has one result"; in other words, fcltz(c) is one to one. 
+              This will required fcltz(c) to be developed first, which shouldn't be that hard-but how do we mechanically verify it is one to one? 
+              Perhaps there is something in the prelude for this. Line 244 has functions, with an injective boolean:
 
-              lemma10 LEMMA: 
+              injective?(f): bool = (FORALL x1, x2: (f(x1) = f(x2) => (x1 = x2)))
+
