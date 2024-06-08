@@ -22,3 +22,6 @@ This file covers what I have done in every day.
               Based off of this, we could prove lemma 10 via something similar:
 
               lemma10 LEMMA: FORALL x1, x2: (fcltz(x1) = fcltz(x2) => (x1 = x2))
+
+              However, the lemma specified in the paper proves this via contradiction. So should we try contradiction rather than a more direct proof
+              like I have outlined?
