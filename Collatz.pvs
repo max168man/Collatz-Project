@@ -31,13 +31,23 @@ IMPORTING power@log
 Icltz:  TYPE = {1, 2, 4} % Set of natural values that is inevitably reached by repeated applications of the Collatz function.
 Iu:     TYPE = {k: nat, i: posnat | i = 2^k} % Set of natural values, that when reached, inevitably boils down to Icltz. Could be considered a "weaker" version of Icltz.
 
-%%% fcltz(x) (function Collatz)
-% This is the Collatz function.
+%%% Fcltz(x)
+%
 %%%
+
+Fcltz(n: nat): nat = IF even?(n) THEN n/2 ELSE (3*n) + 1 ENDIF
+
+%%% Pcltz_full(x)
+% This is the full Collatz function, recursively calling itself until it reaches one (at least, we think it'll reach one)
+%%%
+
+Pcltz_full(n: nat): RECURSIVE nat = IF n = 1 THEN 1 ELSIF odd?(n) THEN Pcltz_full((3 * n) - 1) ELSE Pcltz_full(n / 2) ENDIF MEASURE n
 
 %%% R(x)
 % This is a one-to-at-most-two relation, which computes the inverse of fc(x).
 %%%
+
+R(n: nat): real = IF odd?(n) THEN (n - 1) / 3 ELSE 2 * n ENDIF
 
 %------------------------------------------------------------------------
 % Theories, Problems, Lemmas, and Corollaries
@@ -94,9 +104,19 @@ lemma8: LEMMA FORALL (k: oddnat_overone): divides(3, 2^k) = FALSE
 % ((Yk/3 - 1) / 3) is not a valid Collatz number
 %%% 
 
+%Yk: TYPE = {k: posnat | 2^(2 * (k + 1)) - 1}
+
 %%% Lemma 10
 % No two subtrees intersect
 %%% 
+
+IMPORTING functions
+
+% @QED lemma10 proved by mmbraine on Wed, 12 Jun 2024 18:00:53 GMT
+lemma10: LEMMA FORALL (x1, x2: nat): Fcltz(x1) /= Fcltz(x2) => (x1 /= x2)
+% Note: The definition for this is directly taken from line 264 in the prelude.
+% Essentially, it is proving Fcltz is injective, which would mean no two numbers have the same
+% result in Fcltz.
 
 %%% Lemma 11
 % For every term in the jth stair, f(j) + q(j) holds

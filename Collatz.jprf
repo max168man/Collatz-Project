@@ -1,0 +1,45 @@
+{
+ "Collatz.lemma10": [
+  {
+   "info": {
+    "theory": "Collatz",
+    "formula": "lemma10",
+    "status": "proved",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "009a73f94193a9648121dd99c6da6e24d59ad404acb99f97160b10f950e0ca14"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "lemma10",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(skeep)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(expand Fcltz)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(expand even?)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(grind)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ]
+}
