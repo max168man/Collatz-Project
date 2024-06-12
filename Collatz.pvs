@@ -114,9 +114,6 @@ IMPORTING functions
 
 % @QED lemma10 proved by mmbraine on Wed, 12 Jun 2024 18:00:53 GMT
 lemma10: LEMMA FORALL (x1, x2: nat): Fcltz(x1) /= Fcltz(x2) => (x1 /= x2)
-% Note: The definition for this is directly taken from line 264 in the prelude.
-% Essentially, it is proving Fcltz is injective, which would mean no two numbers have the same
-% result in Fcltz.
 
 %%% Lemma 11
 % For every term in the jth stair, f(j) + q(j) holds
