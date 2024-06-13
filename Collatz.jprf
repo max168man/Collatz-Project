@@ -41,5 +41,42 @@
     ]
    }
   }
+ ],
+ "Collatz.lemma10mod": [
+  {
+   "info": {
+    "theory": "Collatz",
+    "formula": "lemma10mod",
+    "status": "unfinished",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "7b91165b84eefefb2f8edc75cee86e39ab83893fdb83129037a7a1b1c0cb41a2"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "lemma10mod",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(skeep)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(expand Fcltz)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(expand even?)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
  ]
 }

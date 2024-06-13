@@ -49,6 +49,10 @@ Pcltz_full(n: nat): RECURSIVE nat = IF n = 1 THEN 1 ELSIF odd?(n) THEN Pcltz_ful
 
 R(n: nat): real = IF odd?(n) THEN (n - 1) / 3 ELSE 2 * n ENDIF
 
+IMPORTING sequences
+
+%Rseq(n: nat, s: sequence): sequence = IF even?(n) THEN add((2*n), s) ELSE add(2, s) ENDIF
+
 %------------------------------------------------------------------------
 % Theories, Problems, Lemmas, and Corollaries
 %------------------------------------------------------------------------
@@ -110,8 +114,6 @@ lemma8: LEMMA FORALL (k: oddnat_overone): divides(3, 2^k) = FALSE
 % No two subtrees intersect
 %%% 
 
-IMPORTING functions
-
 % @QED lemma10 proved by mmbraine on Wed, 12 Jun 2024 18:00:53 GMT
 lemma10: LEMMA FORALL (x1, x2: nat): Fcltz(x1) /= Fcltz(x2) => (x1 /= x2)
 
@@ -162,11 +164,10 @@ lemma10: LEMMA FORALL (x1, x2: nat): Fcltz(x1) /= Fcltz(x2) => (x1 /= x2)
 % The verification algorithm
 %%%
  % Under construction
-%verification(x: posnat, l: string): bool =
- %   logResult: real = log(2)(x)
- %   IF x < 1 THEN FALSE ELSIF logResult
- %   
-  %  ENDIF
+verification(x: posnat, l: string): bool =
+   %logResult: real = log(2, x)
+   % IF x < 1 THEN RETURN FALSE ENDIF
+
 
 
 

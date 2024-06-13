@@ -25,3 +25,13 @@ This file covers what I have done in every day.
 
               However, the lemma specified in the paper proves this via contradiction. So should we try contradiction rather than a more direct proof
               like I have outlined?
+
+6/11/2024: * Attempted working on algorithm 1, got a bit overwhelmed so trying R(x) and Pcltz(x).
+           * Created R(x), Fcltz(x), and Pcltz_full, which should be a recursive Collatz function that always boils down to 0.
+
+6/12/2024: * Created lemma10.
+           * (Hopefully) proved lemma10; awaiting approving from Ali
+           * Realized R(x) was wrong after working on lemma 3.
+           - Need to work with an array...
+
+6/13/2024: * Somewhat of a "stumbling around" day, trying to figure out how to complete R(x), need a list, sequence, array, some sort of data structure.

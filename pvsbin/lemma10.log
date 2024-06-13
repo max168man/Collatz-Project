@@ -1,0 +1,11 @@
+Collatz.lemma10 is UNPROVED.
+
+  lemma10 depends on the following definitions:
+
+    Collatz.Fcltz
+
+    integers.even?
+
+    notequal./=
+
+    reals.>=

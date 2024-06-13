@@ -3,8 +3,8 @@ This file covers the current goals I am trying to reach, as well as how I am pri
 Overall list of things to be done:
 
 Methods:
-* Pcltz
-* R(x)
+* Pcltz - Done
+* R(x) - Needs work
 * Algorithm 1
 * Algorithm 2
 * Algorithm 3
@@ -14,15 +14,7 @@ Lemmas:
 * Lemma 7 (complete)
 * Lemma 8 (complete)
 * Lemma 9
-* Lemma 10
-* Lemma 11
-
-Lemma proofs:
-* Lemma 3
-* Lemma 7 (partial)
-* Lemma 8
-* Lemma 9
-* Lemma 10
+* Lemma 10 (complete) (proven)
 * Lemma 11
 
 Theories:
