@@ -1,0 +1,85 @@
+{
+ "pictureFile": "whiteboard.gif",
+ "pictureWidth": 798,
+ "pictureHeight": 598,
+ "widgets": [
+  {
+   "id": "hotspot_wdgW8141",
+   "coords": {
+    "top": 89,
+    "left": 119,
+    "width": 112,
+    "height": 151
+   },
+   "name": "wdgW6200",
+   "kind": "Button",
+   "cons": "ButtonEVO",
+   "opt": {
+    "css": {
+     "background": "transparent",
+     "box-shadow": "0px 0px 10px white",
+     "color": "white",
+     "cursor": "pointer",
+     "font-family": "sans-serif",
+     "font-size": "25px",
+     "overflow": "visible",
+     "text-align": "center",
+     "white-space": "nowrap",
+     "z-index": "1"
+    },
+    "viz": {
+     "visible": "true",
+     "enabled": "true"
+    },
+    "actions": "click",
+    "buttonName": "wdgW6200",
+    "keyCodes": "",
+    "customFunction": "",
+    "customLabel": ""
+   },
+   "evts": [
+    "click"
+   ]
+  },
+  {
+   "id": "hotspot_wdgWf2ce",
+   "coords": {
+    "top": 145,
+    "left": 368,
+    "width": 115,
+    "height": 103
+   },
+   "name": "wdgWf9a0",
+   "kind": "Touchscreen",
+   "cons": "TouchScreenEVO",
+   "opt": {
+    "css": {
+     "background": "steelblue",
+     "box-shadow": "0px 0px 10px white",
+     "color": "white",
+     "cursor": "pointer",
+     "font-color": "white",
+     "font-family": "sans-serif",
+     "font-size": "25px",
+     "overflow": "visible",
+     "text-align": "center",
+     "white-space": "nowrap",
+     "z-index": "1"
+    },
+    "viz": {
+     "visible": "true",
+     "enabled": "true"
+    },
+    "actions": "click",
+    "buttonName": "wdgWf9a0",
+    "displayName": "wdgWb93d",
+    "keyCodes": "",
+    "customFunction": "",
+    "customLabel": ""
+   },
+   "evts": [
+    "click"
+   ]
+  }
+ ]
+}

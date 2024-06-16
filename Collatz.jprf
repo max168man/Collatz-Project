@@ -78,5 +78,79 @@
     ]
    }
   }
+ ],
+ "Collatz.lemma_even": [
+  {
+   "info": {
+    "theory": "Collatz",
+    "formula": "lemma_even",
+    "status": "proved",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "7d905fa31a2bea3a717c555a73a86afa8123b8e010ce9de5b77fb212c68d9380"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "lemma_even",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(skeep)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(expand even?)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(grind)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "Collatz.lemma_odd": [
+  {
+   "info": {
+    "theory": "Collatz",
+    "formula": "lemma_odd",
+    "status": "proved",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "17524c95ccee42aa2f152b69292503e5d44cbc44897bf032c71c7e919f360c1e"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "lemma_odd",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(skeep)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(expand odd?)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(grind)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
  ]
 }

@@ -24,5 +24,6 @@
     "files.readonlyInclude": {
         "**/*.tccs": true,
         "**/*.summary": true
-    }
+    },
+    "workbench.iconTheme": "pvs"
 }

@@ -35,3 +35,14 @@ This file covers what I have done in every day.
            - Need to work with an array...
 
 6/13/2024: * Somewhat of a "stumbling around" day, trying to figure out how to complete R(x), need a list, sequence, array, some sort of data structure.
+           * I have decided the next plan of attack:
+             - Complete R(x): This will require figuring out how a function can have multiple outputs, OR just one.
+               - The best course of action would be for the function to return a data structure, or modify one passed in as a parameter.
+               - I have decided it will return an array. 
+             - Next will be algorithm 1. Although I'll have to figure out logarithms for it, if I have arrays down, this shouldn't be too hard.
+               - However, I would like to test the algorithm, and I don't know how to do something like putting in input and seeing what it does.
+               - I have tried PVSio, but it doesn't seem to work, even for commands like "h;", which should just load help.
+               
+6/14/2024 - 6/15/2024: These days were pretty much solely spent on getting PVSio to work, and eventually testing basic functions with them
+
+6/16/2024: * Created lemma9, creating functions and subtheories to work with it.

@@ -49,7 +49,7 @@ Pcltz_full(n: nat): RECURSIVE nat = IF n = 1 THEN 1 ELSIF odd?(n) THEN Pcltz_ful
 
 R(n: nat): real = IF odd?(n) THEN (n - 1) / 3 ELSE 2 * n ENDIF
 
-IMPORTING sequences
+%IMPORTING sequences
 
 %Rseq(n: nat, s: sequence): sequence = IF even?(n) THEN add((2*n), s) ELSE add(2, s) ENDIF
 
@@ -93,7 +93,23 @@ IMPORTING sequences
 % (2^(2k) - 1) is divisble by 3 and (2^(2k) - 1) / 3 is an odd value, for k > 0
 %%%
 
+k: TYPE = {k: posint | k > 1}
+
+Yk(i: k): int = 
+   ((2^(2*i)) - 1)
+
+% @QED lemma_even proved by mmbraine on Sun, 16 Jun 2024 19:43:31 GMT
+lemma_even: LEMMA FORALL (k: int): even?(2 * k) = TRUE
+
+% @QED lemma_odd proved by mmbraine on Sun, 16 Jun 2024 19:44:53 GMT
+lemma_odd: LEMMA FORALL (k: int): odd?((2 * k) + 1) = TRUE
+
+
+lemma_even_div_three: LEMMA FORALL (k: int): IF even?(k) AND divides(3, k) THEN even?(k / 3) = TRUE ELSE even?(k / 3) = FALSE ENDIF
+
 lemma7: LEMMA FORALL (k: posnat): divides(3, (2^(2 * k) - 1)) = TRUE AND odd?((2^(2 * k) - 1) / 3) = TRUE
+
+lemma7_1: LEMMA FORALL (i: k): divides(3, Yk(i)) = TRUE and odd?(Yk(i)) = TRUE
 
 %%% Lemma 8
 % (2^m - 1) is not divisible by 3 for odd values of m > 1
@@ -103,6 +119,10 @@ lemma7: LEMMA FORALL (k: posnat): divides(3, (2^(2 * k) - 1)) = TRUE AND odd?((2
 oddnat_overone: TYPE = {k: posint | odd?(k) = TRUE AND k > 1}
 
 lemma8: LEMMA FORALL (k: oddnat_overone): divides(3, 2^k) = FALSE
+
+lemma9: LEMMA FORALL (i: k): even?(((((2^(2*i)) - 1)/3) - 1) / 3) = TRUE
+
+lemma9_1: LEMMA FORALL (i: k): even?((Yk(i)/3 - 1)/3) = TRUE
 
 %%% Lemma 9
 % ((Yk/3 - 1) / 3) is not a valid Collatz number
@@ -164,12 +184,38 @@ lemma10: LEMMA FORALL (x1, x2: nat): Fcltz(x1) /= Fcltz(x2) => (x1 /= x2)
 % The verification algorithm
 %%%
  % Under construction
-verification(x: posnat, l: string): bool =
+% verification(x: posnat, l: string): bool =
    %logResult: real = log(2, x)
    % IF x < 1 THEN RETURN FALSE ENDIF
 
+test(n: posint): real = IF even?(n) THEN n * n ELSE (3*n) + 1 ENDIF
 
+importing reals@sqrt
+importing list_props[int]
 
+%l1: list[int] = nil
+%l2: cons(1, l1)
+%l3: cons(2, l2)
+
+test2(n: posint): real = sqrt(n)
+
+is_integer(x: real): bool =
+   floor(x) = x
+   
+is_power_of_two(x: real): RECURSIVE bool = 
+   IF x = 1 THEN TRUE
+      ELSE
+      IF is_integer(x /2) THEN is_power_of_two(x / 2)
+         ELSE FALSE
+      ENDIF
+   ENDIF
+   MEASURE x
+
+verification(x: posnat): bool = 
+   IF is_power_of_two(x) THEN FALSE
+      ELSE
+      TRUE
+   ENDIF
 
 
 %%% Algorithm 2

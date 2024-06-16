@@ -1,0 +1,12 @@
+fac : THEORY
+BEGIN
+
+  factorial(i : nat) : RECURSIVE nat =
+    IF i = 0 THEN
+      1
+    ELSE
+      i * factorial(i - 1)
+    ENDIF
+  MEASURE i
+
+END fac
