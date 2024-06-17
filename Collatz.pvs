@@ -127,12 +127,11 @@ lemma_odd: LEMMA FORALL (k: int): odd?((2 * k) + 1) = TRUE
 %%% 
  % These attempts at specifying lemma 9 only go so far as proving (Yk(i)/3  - 1) / 3 is even, which would imply ((Yk/3 - 1) / 3) isn't a valid Collatz number.
  % These may become "helper lemmas" later on, if going into detail about why this isn't a valid Collatz number requires going further then proving it is even.
- 
+
 lemma9: LEMMA FORALL (i: k): even?(((((2^(2*i)) - 1)/3) - 1) / 3) = TRUE
 
 lemma9_1: LEMMA FORALL (i: k): even?((Yk(i)/3 - 1)/3) = TRUE
 
-%Yk: TYPE = {k: posnat | 2^(2 * (k + 1)) - 1}
 
 %%% Lemma 10
 % No two subtrees intersect
@@ -188,9 +187,6 @@ lemma10: LEMMA FORALL (x1, x2: nat): Fcltz(x1) /= Fcltz(x2) => (x1 /= x2)
 % The verification algorithm
 %%%
  % Under construction
-% verification(x: posnat, l: string): bool =
-   %logResult: real = log(2, x)
-   % IF x < 1 THEN RETURN FALSE ENDIF
 
 test(n: posint): real = IF even?(n) THEN n * n ELSE (3*n) + 1 ENDIF
 
