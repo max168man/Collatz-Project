@@ -152,5 +152,346 @@
     ]
    }
   }
+ ],
+ "Collatz.lemma7": [
+  {
+   "info": {
+    "theory": "Collatz",
+    "formula": "lemma7",
+    "status": "proved",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "88cbe9ca2f05f683b371e8b70691d443de98e056470c7c2fedc08621b651fb1f"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "lemma7",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(induct k)",
+      "type": "proof-command",
+      "rules": [
+       {
+        "branch": "1",
+        "name": "(1)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "1",
+          "name": "(grind)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "2",
+        "name": "(2)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "2",
+          "name": "(grind)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "3",
+        "name": "(3)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "3",
+          "name": "(grind)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "4",
+        "name": "(4)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "4",
+          "name": "(skeep)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "4",
+          "name": "(split)",
+          "type": "proof-command",
+          "rules": [
+           {
+            "branch": "4.1",
+            "name": "(4.1)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "4.1",
+              "name": "(split)",
+              "type": "proof-command",
+              "rules": [
+               {
+                "branch": "4.1.1",
+                "name": "(4.1.1)",
+                "type": "proof-branch",
+                "rules": [
+                 {
+                  "branch": "4.1.1",
+                  "name": "(flatten)",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "4.1.1",
+                  "name": "(expand divides 1)",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "4.1.1",
+                  "name": "(expand divides)",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "4.1.1",
+                  "name": "(expand odd?)",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "4.1.1",
+                  "name": "(skeep)",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "4.1.1",
+                  "name": "(skeep)",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "4.1.1",
+                  "name": "(inst 1 \"(4 * x) + 1\")",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "4.1.1",
+                  "name": "(grind)",
+                  "type": "proof-command",
+                  "rules": []
+                 }
+                ]
+               },
+               {
+                "branch": "4.1.2",
+                "name": "(4.1.2)",
+                "type": "proof-branch",
+                "rules": [
+                 {
+                  "branch": "4.1.2",
+                  "name": "(flatten)",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "4.1.2",
+                  "name": "(expand odd?)",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "4.1.2",
+                  "name": "(expand divides)",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "4.1.2",
+                  "name": "(skeep)",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "4.1.2",
+                  "name": "(skeep)",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "4.1.2",
+                  "name": "(inst 1 \"2 * x\")",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "4.1.2",
+                  "name": "(assert)",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "4.1.2",
+                  "name": "(assert)",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "4.1.2",
+                  "name": "(mult-by 1 \"3\")",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "4.1.2",
+                  "name": "(assert)",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "4.1.2",
+                  "name": "(cross-add 1)",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "4.1.2",
+                  "name": "(assert)",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "4.1.2",
+                  "name": "(grind)",
+                  "type": "proof-command",
+                  "rules": []
+                 }
+                ]
+               }
+              ]
+             }
+            ]
+           },
+           {
+            "branch": "4.2",
+            "name": "(4.2)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "4.2",
+              "name": "(split)",
+              "type": "proof-command",
+              "rules": [
+               {
+                "branch": "4.2.1",
+                "name": "(4.2.1)",
+                "type": "proof-branch",
+                "rules": [
+                 {
+                  "branch": "4.2.1",
+                  "name": "(inst 1 1)",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "4.2.1",
+                  "name": "(grind)",
+                  "type": "proof-command",
+                  "rules": []
+                 }
+                ]
+               },
+               {
+                "branch": "4.2.2",
+                "name": "(4.2.2)",
+                "type": "proof-branch",
+                "rules": [
+                 {
+                  "branch": "4.2.2",
+                  "name": "(inst 1 0)",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "4.2.2",
+                  "name": "(grind)",
+                  "type": "proof-command",
+                  "rules": []
+                 }
+                ]
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "branch": "5",
+        "name": "(5)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "5",
+          "name": "(skeep)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "5",
+          "name": "(expand divides)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "5",
+          "name": "(skeep)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "5",
+          "name": "(inst 1 1)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "5",
+          "name": "(grind)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "6",
+        "name": "(6)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "6",
+          "name": "(grind)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  }
  ]
 }

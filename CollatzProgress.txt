@@ -12,7 +12,7 @@ Methods:
 
 Lemmas:
 * Lemma 3
-* Lemma 7 (complete)
+* Lemma 7 (complete) (proven)
 * Lemma 8 (complete)
 * Lemma 9 (complete)
 * Lemma 10 (likely complete) (proven)

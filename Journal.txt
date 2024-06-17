@@ -46,3 +46,5 @@ This file covers what I have done in every day.
 6/14/2024 - 6/15/2024: These days were pretty much solely spent on getting PVSio to work, and eventually testing basic functions with them
 
 6/16/2024: * Created lemma9, creating functions and subtheories to work with it.
+
+6/17/2024: * Prove lemma7!
