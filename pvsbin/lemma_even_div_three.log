@@ -1,0 +1,9 @@
+Collatz.lemma_even_div_three is UNPROVED.
+
+  lemma_even_div_three depends on the following definitions:
+
+    divides.divides
+
+    integers.even?
+
+    notequal./=

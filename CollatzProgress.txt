@@ -4,6 +4,7 @@ Overall list of things to be done:
 
 Methods:
 * Pcltz - Done
+* Pcltz recursive - Done
 * R(x) - Needs work
 * Algorithm 1
 * Algorithm 2
@@ -13,8 +14,8 @@ Lemmas:
 * Lemma 3
 * Lemma 7 (complete)
 * Lemma 8 (complete)
-* Lemma 9
-* Lemma 10 (complete) (proven)
+* Lemma 9 (complete)
+* Lemma 10 (likely complete) (proven)
 * Lemma 11
 
 Theories:

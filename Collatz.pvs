@@ -93,17 +93,12 @@ R(n: nat): real = IF odd?(n) THEN (n - 1) / 3 ELSE 2 * n ENDIF
 % (2^(2k) - 1) is divisble by 3 and (2^(2k) - 1) / 3 is an odd value, for k > 0
 %%%
 
-k: TYPE = {k: posint | k > 1}
+% A slight modification of k, with it being all positive integers over 1.
+k: TYPE = {k: posint | k > 1} 
 
+% A function that creates a Yk value, as seen in the Collatz paper.
 Yk(i: k): int = 
    ((2^(2*i)) - 1)
-
-% @QED lemma_even proved by mmbraine on Sun, 16 Jun 2024 19:43:31 GMT
-lemma_even: LEMMA FORALL (k: int): even?(2 * k) = TRUE
-
-% @QED lemma_odd proved by mmbraine on Sun, 16 Jun 2024 19:44:53 GMT
-lemma_odd: LEMMA FORALL (k: int): odd?((2 * k) + 1) = TRUE
-
 
 lemma_even_div_three: LEMMA FORALL (k: int): IF even?(k) AND divides(3, k) THEN even?(k / 3) = TRUE ELSE even?(k / 3) = FALSE ENDIF
 
@@ -120,13 +115,22 @@ oddnat_overone: TYPE = {k: posint | odd?(k) = TRUE AND k > 1}
 
 lemma8: LEMMA FORALL (k: oddnat_overone): divides(3, 2^k) = FALSE
 
-lemma9: LEMMA FORALL (i: k): even?(((((2^(2*i)) - 1)/3) - 1) / 3) = TRUE
+% Lemma even and odd are two "helper" lemmas that can hopefully be used for lemma 9.
+% @QED lemma_even proved by mmbraine on Sun, 16 Jun 2024 19:43:31 GMT
+lemma_even: LEMMA FORALL (k: int): even?(2 * k) = TRUE
 
-lemma9_1: LEMMA FORALL (i: k): even?((Yk(i)/3 - 1)/3) = TRUE
+% @QED lemma_odd proved by mmbraine on Sun, 16 Jun 2024 19:44:53 GMT
+lemma_odd: LEMMA FORALL (k: int): odd?((2 * k) + 1) = TRUE
 
 %%% Lemma 9
 % ((Yk/3 - 1) / 3) is not a valid Collatz number
 %%% 
+ % These attempts at specifying lemma 9 only go so far as proving (Yk(i)/3  - 1) / 3 is even, which would imply ((Yk/3 - 1) / 3) isn't a valid Collatz number.
+ % These may become "helper lemmas" later on, if going into detail about why this isn't a valid Collatz number requires going further then proving it is even.
+ 
+lemma9: LEMMA FORALL (i: k): even?(((((2^(2*i)) - 1)/3) - 1) / 3) = TRUE
+
+lemma9_1: LEMMA FORALL (i: k): even?((Yk(i)/3 - 1)/3) = TRUE
 
 %Yk: TYPE = {k: posnat | 2^(2 * (k + 1)) - 1}
 
