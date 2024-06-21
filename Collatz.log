@@ -1,118 +1,99 @@
 
 Context changed to ~/Documents/Collatz_Project/
 Parsing Collatz
-Collatz parsed in 0.01 seconds
+Collatz parsed in 0.02 seconds
 Typechecking Collatz
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/reals/pvsbin/root.bin in 0.13s (load part took 0.02s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/reals/pvsbin/real_fun_preds.bin in 0.07s (load part took 0.01s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/reals/pvsbin/root.bin in 0.09s (load part took 0.01s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/reals/pvsbin/real_fun_preds.bin in 0.08s (load part took 0.01s)
 Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/reals/pvsbin/real_fun_ops.bin in 0.09s (load part took 0.01s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/reals/pvsbin/real_fun_props.bin in 0.08s (load part took 0.01s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/reals/pvsbin/sq.bin in 0.10s (load part took 0.02s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/reals/pvsbin/abs_lems.bin in 0.13s (load part took 0.02s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/reals/pvsbin/real_facts.bin in 0.11s (load part took 0.02s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/reals/pvsbin/intervals_real.bin in 0.09s (load part took 0.00s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/reals/pvsbin/sigma.bin in 0.24s (load part took 0.05s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/reals/pvsbin/real_fun_props.bin in 0.07s (load part took 0.01s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/reals/pvsbin/sq.bin in 0.05s (load part took 0.01s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/reals/pvsbin/abs_lems.bin in 0.10s (load part took 0.02s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/reals/pvsbin/real_facts.bin in 0.07s (load part took 0.01s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/reals/pvsbin/intervals_real.bin in 0.09s (load part took 0.01s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/reals/pvsbin/sigma.bin in 0.17s (load part took 0.04s)
 Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/reals/pvsbin/sigma_below.bin in 0.10s (load part took 0.01s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/reals/pvsbin/sigma_below_sub.bin in 0.11s (load part took 0.01s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/reals/pvsbin/sigma_below_sub.bin in 0.11s (load part took 0.02s)
 Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/reals/pvsbin/sigma_upto.bin in 0.09s (load part took 0.01s)
 Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/reals/pvsbin/sign.bin in 0.09s (load part took 0.01s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/epsilon_lemmas.bin in 0.13s (load part took 0.06s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/convergence_functions.bin in 0.13s (load part took 0.08s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/lim_of_functions.bin in 0.16s (load part took 0.08s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/continuous_functions.bin in 0.15s (load part took 0.07s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/composition_continuous.bin in 0.16s (load part took 0.08s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/real_fun_supinf.bin in 0.11s (load part took 0.05s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/sequence_props.bin in 0.12s (load part took 0.05s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/monotone_subsequence.bin in 0.12s (load part took 0.05s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/convergence_sequences.bin in 0.17s (load part took 0.09s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/convergence_ops.bin in 0.18s (load part took 0.09s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/top_sequences.bin in 0.15s (load part took 0.07s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/continuity_props.bin in 0.15s (load part took 0.07s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/continuity_interval.bin in 0.16s (load part took 0.09s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/continuous_functions_props.bin in 0.16s (load part took 0.08s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/inverse_continuous_functions.bin in 0.15s (load part took 0.07s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/lim_of_composition.bin in 0.15s (load part took 0.07s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/deriv_domain_def.bin in 0.07s (load part took 0.01s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/derivatives_def.bin in 0.15s (load part took 0.08s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/derivatives.bin in 0.17s (load part took 0.08s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/derivatives_alt.bin in 0.17s (load part took 0.09s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/derivative_props.bin in 0.21s (load part took 0.10s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/chain_rule.bin in 0.18s (load part took 0.09s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/derivative_inverse.bin in 0.18s (load part took 0.09s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/deriv_domain.bin in 0.12s (load part took 0.01s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/deriv_domains.bin in 0.08s (load part took 0.01s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/unif_cont_fun.bin in 0.17s (load part took 0.09s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/continuous_functions_more.bin in 0.17s (load part took 0.08s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/lib/finite_sets/pvsbin/finite_sets_inductions.bin in 0.09s (load part took 0.01s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/lib/finite_sets/pvsbin/finite_sets_minmax.bin in 0.09s (load part took 0.01s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/integral_def.bin in 1.13s (load part took 0.14s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/ints/pvsbin/max_below.bin in 0.06s (load part took 0.00s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/lib/finite_sets/pvsbin/finite_sets_below.bin in 0.08s (load part took 0.01s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/lib/finite_sets/pvsbin/func_composition.bin in 0.07s (load part took 0.00s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/lib/finite_sets/pvsbin/finite_sets_card_eq.bin in 0.08s (load part took 0.01s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/structures/pvsbin/max_array_def.bin in 0.11s (load part took 0.00s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/structures/pvsbin/seqs.bin in 0.09s (load part took 0.01s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/epsilon_lemmas.bin in 0.09s (load part took 0.04s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/convergence_functions.bin in 0.08s (load part took 0.04s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/lim_of_functions.bin in 0.13s (load part took 0.04s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/continuous_functions.bin in 0.09s (load part took 0.04s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/composition_continuous.bin in 0.09s (load part took 0.05s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/real_fun_supinf.bin in 0.06s (load part took 0.03s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/sequence_props.bin in 0.06s (load part took 0.03s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/monotone_subsequence.bin in 0.07s (load part took 0.03s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/convergence_sequences.bin in 0.10s (load part took 0.05s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/convergence_ops.bin in 0.10s (load part took 0.05s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/top_sequences.bin in 0.09s (load part took 0.05s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/continuity_props.bin in 0.09s (load part took 0.05s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/continuity_interval.bin in 0.10s (load part took 0.05s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/continuous_functions_props.bin in 0.10s (load part took 0.05s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/inverse_continuous_functions.bin in 0.11s (load part took 0.05s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/lim_of_composition.bin in 0.08s (load part took 0.04s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/deriv_domain_def.bin in 0.07s (load part took 0.00s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/derivatives_def.bin in 0.09s (load part took 0.05s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/derivatives.bin in 0.09s (load part took 0.05s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/derivatives_alt.bin in 0.10s (load part took 0.05s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/derivative_props.bin in 0.11s (load part took 0.06s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/chain_rule.bin in 0.10s (load part took 0.05s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/derivative_inverse.bin in 0.10s (load part took 0.05s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/deriv_domain.bin in 0.06s (load part took 0.01s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/deriv_domains.bin in 0.04s (load part took 0.00s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/unif_cont_fun.bin in 0.09s (load part took 0.05s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/continuous_functions_more.bin in 0.09s (load part took 0.05s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/lib/finite_sets/pvsbin/finite_sets_inductions.bin in 0.08s (load part took 0.01s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/lib/finite_sets/pvsbin/finite_sets_minmax.bin in 0.05s (load part took 0.01s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/integral_def.bin in 0.51s (load part took 0.09s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/ints/pvsbin/max_below.bin in 0.07s (load part took 0.00s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/lib/finite_sets/pvsbin/finite_sets_below.bin in 0.05s (load part took 0.00s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/lib/finite_sets/pvsbin/func_composition.bin in 0.04s (load part took 0.00s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/lib/finite_sets/pvsbin/finite_sets_card_eq.bin in 0.08s (load part took 0.00s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/structures/pvsbin/max_array_def.bin in 0.06s (load part took 0.00s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/structures/pvsbin/seqs.bin in 0.10s (load part took 0.01s)
 Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/structures/pvsbin/max_seq.bin in 0.14s (load part took 0.01s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/structures/pvsbin/below_arrays.bin in 0.07s (load part took 0.00s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/structures/pvsbin/min_array_def.bin in 0.09s (load part took 0.01s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/structures/pvsbin/min_seq.bin in 0.15s (load part took 0.01s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/structures/pvsbin/permutations_seq.bin in 0.10s (load part took 0.01s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/structures/pvsbin/permutations.bin in 0.08s (load part took 0.00s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/structures/pvsbin/below_arrays.bin in 0.04s (load part took 0.00s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/structures/pvsbin/min_array_def.bin in 0.08s (load part took 0.01s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/structures/pvsbin/min_seq.bin in 0.06s (load part took 0.00s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/structures/pvsbin/permutations_seq.bin in 0.05s (load part took 0.01s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/structures/pvsbin/permutations.bin in 0.08s (load part took 0.01s)
 Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/structures/pvsbin/sort_array_def.bin in 0.10s (load part took 0.01s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/structures/pvsbin/sort_array.bin in 0.08s (load part took 0.01s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/structures/pvsbin/sort_seq.bin in 0.15s (load part took 0.02s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/structures/pvsbin/sort_seq_lems.bin in 0.11s (load part took 0.02s);;; GC:;;; Finished GC
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/structures/pvsbin/sort_array.bin in 0.09s (load part took 0.01s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/structures/pvsbin/sort_seq.bin in 0.08s (load part took 0.01s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/structures/pvsbin/sort_seq_lems.bin in 0.06s (load part took 0.01s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/partitions_scaf.bin in 0.97s (load part took 0.10s);;; GC:;;; Finished GC
 
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/partitions_scaf.bin in 2.59s (load part took 0.17s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/integral_prep.bin in 1.38s (load part took 0.24s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/integral_pulse.bin in 1.16s (load part took 0.19s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/step_fun_def.bin in 0.72s (load part took 0.09s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/integral_step.bin in 3.31s (load part took 0.21s);;; GC:;;; Finished GC
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/integral_prep.bin in 0.62s (load part took 0.13s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/integral_pulse.bin in 1.08s (load part took 0.13s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/step_fun_def.bin in 0.36s (load part took 0.07s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/integral_step.bin in 1.62s (load part took 0.12s);;; GC:;;; Finished GC
 
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/step_fun_scaf.bin in 3.99s (load part took 0.25s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/step_fun_props.bin in 4.12s (load part took 0.26s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/integral_bounded.bin in 3.01s (load part took 0.21s);;; GC:;;; Finished GC
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/step_fun_scaf.bin in 2.93s (load part took 0.16s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/step_fun_props.bin in 2.01s (load part took 0.16s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/integral_bounded.bin in 1.52s (load part took 0.13s);;; GC:;;; Finished GC
 
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/integral_split_scaf.bin in 5.60s (load part took 0.20s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/structures/pvsbin/concat_arrays.bin in 0.17s (load part took 0.01s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/integral_split.bin in 1.60s (load part took 0.26s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/interval_minmax.bin in 0.25s (load part took 0.11s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/integral_cont_scaf.bin in 2.61s (load part took 0.22s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/integral_cont.bin in 0.74s (load part took 0.17s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/integral.bin in 0.79s (load part took 0.31s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/fundamental_theorem.bin in 0.53s (load part took 0.25s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/indefinite_integral.bin in 0.56s (load part took 0.24s);;; GC:;;; Finished GC
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/integral_split_scaf.bin in 5.36s (load part took 0.11s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/structures/pvsbin/concat_arrays.bin in 0.12s (load part took 0.01s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/integral_split.bin in 0.78s (load part took 0.17s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/interval_minmax.bin in 0.18s (load part took 0.05s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/integral_cont_scaf.bin in 1.65s (load part took 0.15s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/integral_cont.bin in 0.39s (load part took 0.10s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/integral.bin in 0.49s (load part took 0.19s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/fundamental_theorem.bin in 0.38s (load part took 0.19s);;; GC:;;; Finished GC
 
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/lnexp/pvsbin/ln_exp.bin in 1.04s (load part took 0.68s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/analysis/pvsbin/indefinite_integral.bin in 0.84s (load part took 0.71s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/lnexp/pvsbin/ln_exp.bin in 0.81s (load part took 0.43s)
 Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/power/pvsbin/exponentiation_aux.bin in 0.06s (load part took 0.00s)
 Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/power/pvsbin/nn_root.bin in 0.08s (load part took 0.01s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/power/pvsbin/root.bin in 1.14s (load part took 0.75s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/power/pvsbin/rational_props_aux.bin in 0.06s (load part took 0.01s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/power/pvsbin/nn_rational_expt.bin in 0.07s (load part took 0.01s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/power/pvsbin/root.bin in 0.82s (load part took 0.47s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/power/pvsbin/rational_props_aux.bin in 0.07s (load part took 0.01s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/power/pvsbin/nn_rational_expt.bin in 0.10s (load part took 0.01s)
 Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/power/pvsbin/nnreal_expt.bin in 0.08s (load part took 0.01s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/power/pvsbin/real_expt.bin in 1.06s (load part took 0.77s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/power/pvsbin/real_expt.bin in 0.66s (load part took 0.50s)
 Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/power/pvsbin/nn_log.bin in 0.10s (load part took 0.01s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/power/pvsbin/log.bin in 1.04s (load part took 0.77s)
-Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/reals/pvsbin/sqrt_exists.bin in 0.06s (load part took 0.00s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/power/pvsbin/log.bin in 0.75s (load part took 0.45s)
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/reals/pvsbin/sqrt_exists.bin in 0.07s (load part took 0.00s)
 Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/reals/pvsbin/sqrt.bin in 0.10s (load part took 0.02s)
-Collatz typechecked in 49.62s: 8 TCCs, 0 proved, 0 subsumed, 8 unproved
-Warning: (method typecheck* (subtype-judgement t t t)), :operator was
-         defined in
-         /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/pvs-patches/patch-20210707-trivial-judgements.lisp
-         and is now being defined in
-         /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/pvs-patches/patch-20210707.lisp
-Warning: (method typecheck* (subtype-judgement t t t)), :operator was
-         defined in
-         /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/pvs-patches/patch-20210707.lisp
-         and is now being defined in
-         /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/pvs-patches/patch-20210707-trivial-judgements.lisp
-Warning: (method typecheck* (subtype-judgement t t t)), :operator was
-         defined in
-         /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/pvs-patches/patch-20210707-trivial-judgements.lisp
-         and is now being defined in
-         /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/pvs-patches/patch-20210707.lisp
-Warning: (method typecheck* (subtype-judgement t t t)), :operator was
-         defined in
-         /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/pvs-patches/patch-20210707.lisp
-         and is now being defined in
-         /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/pvs-patches/patch-20210707-trivial-judgements.lisp
+Restored theory from /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/structures/pvsbin/for_iterate.bin in 0.34s (load part took 0.03s)
+Collatz typechecked in 33.18s: 18 TCCs, 0 proved, 0 subsumed, 18 unproved; 4 conversions

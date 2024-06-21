@@ -44,7 +44,7 @@ Collatz_TCCS: THEORY BEGIN
 	lemma_even_div_three_TCC2: OBLIGATION
 	FORALL (k: int): NOT (even?(k) AND divides(3, k)) IMPLIES integer_pred(k / 3)
 	
-	% Subtype TCC generated (at line 105, column 78) for  (2 ^ (2 * k) - 1) / 3
+	% Subtype TCC generated (at line 106, column 78) for  (2 ^ (2 * k) - 1) / 3
 	% expected type  int
 	  % untried
 	lemma7_TCC1: OBLIGATION
@@ -52,26 +52,107 @@ Collatz_TCCS: THEORY BEGIN
 	    divides(3, (2 ^ (2 * k) - 1)) = TRUE IMPLIES
 	     integer_pred((2 ^ (2 * k) - 1) / 3)
 	
-	% Subtype TCC generated (at line 131, column 35) for
+	% Subtype TCC generated (at line 132, column 35) for
 	% ((((2 ^ (2 * i)) - 1) / 3) - 1) / 3
 	% expected type  int
 	  % untried
 	lemma9_TCC1: OBLIGATION
 	FORALL (i: k): integer_pred(((((2 ^ (2 * i)) - 1) / 3) - 1) / 3)
 	
-	% Subtype TCC generated (at line 133, column 37) for  (Yk(i) / 3 - 1) / 3
+	% Subtype TCC generated (at line 134, column 37) for  (Yk(i) / 3 - 1) / 3
 	% expected type  int
 	  % untried
 	lemma9_1_TCC1: OBLIGATION
 	FORALL (i: k): integer_pred((Yk(i) / 3 - 1) / 3)
 	
-	% Subtype TCC generated (at line 212, column 11) for  x
+	% Subtype TCC generated (at line 207, column 15) for  1001
+	% expected type  below(exp2(4))
+	  % untried
+	bv8_TCC1: OBLIGATION
+	1001 < exp2(4)
+	
+	% Subtype TCC generated (at line 213, column 30) for  x
+	% expected type  below(4)
+	  % untried
+	bvithdigit_TCC1: OBLIGATION
+	FORALL (x: nat): x < 4
+	
+	% Subtype TCC generated (at line 222, column 3) for
+	% for[real]
+	%     (0, 4, 1,
+	%      restrict[[int, real], [subrange(0, 4), real], numfield]
+	%          (LAMBDA (i: int, a: real): a * x))
+	% expected type  int
+	  % untried
+	iter_test_TCC1: OBLIGATION
+	FORALL (x: nat):
+	    rational_pred(for[real]
+	                      (0, 4, 1,
+	                       restrict[[int, real], [subrange(0, 4), real], numfield]
+	                           (LAMBDA (i: int, a: real): a * x)))
+	     AND
+	     integer_pred(for[real]
+	                      (0, 4, 1,
+	                       restrict[[int, real], [subrange(0, 4), real], numfield]
+	                           (LAMBDA (i: int, a: real): a * x)))
+	
+	% Subtype TCC generated (at line 226, column 3) for
+	% for[real]
+	%     (0, 4, 1,
+	%      restrict[[int, real], [subrange(0, 4), real], numfield]
+	%          (LAMBDA (i: int, a: real): a * bvtoari(x)))
+	% expected type  int
+	  % untried
+	totaltrue_TCC1: OBLIGATION
+	FORALL (x: nat):
+	    rational_pred(for[real]
+	                      (0, 4, 1,
+	                       restrict[[int, real], [subrange(0, 4), real], numfield]
+	                           (LAMBDA (i: int, a: real): a * bvtoari(x))))
+	     AND
+	     integer_pred(for[real]
+	                      (0, 4, 1,
+	                       restrict[[int, real], [subrange(0, 4), real], numfield]
+	                           (LAMBDA (i: int, a: real): a * bvtoari(x))))
+	
+	% Subtype TCC generated (at line 230, column 60) for  i
+	% expected type  nat
+	  % untried
+	totalone_TCC1: OBLIGATION
+	FORALL (i: int): i >= 0
+	
+	% Subtype TCC generated (at line 230, column 3) for
+	% for[real]
+	%     (0, 4, 1,
+	%      restrict[[int, real], [subrange(0, 4), real], numfield]
+	%          (LAMBDA (i: int, a: real):
+	%             IF bvithdigit(i) = TRUE THEN a + 1 ELSE a + 1 ENDIF))
+	% expected type  int
+	  % untried
+	totalone_TCC2: OBLIGATION
+	rational_pred(for[real]
+	                    (0, 4, 1,
+	                     restrict[[int, real], [subrange(0, 4), real], numfield]
+	                         (LAMBDA (i: int, a: real):
+	                            IF bvithdigit(i) = TRUE THEN a + 1
+	                            ELSE a + 1
+	                            ENDIF)))
+	   AND
+	   integer_pred(for[real]
+	                    (0, 4, 1,
+	                     restrict[[int, real], [subrange(0, 4), real], numfield]
+	                         (LAMBDA (i: int, a: real):
+	                            IF bvithdigit(i) = TRUE THEN a + 1
+	                            ELSE a + 1
+	                            ENDIF)))
+	
+	% Subtype TCC generated (at line 241, column 11) for  x
 	% expected type  naturalnumber
 	  % untried
 	is_power_of_two_TCC1: OBLIGATION
 	FORALL (x: real): rational_pred(x) AND integer_pred(x) AND x >= 0
 	
-	% Termination TCC generated (at line 208, column 31) for
+	% Termination TCC generated (at line 237, column 31) for
 	% is_power_of_two(x / 2)
 	  % untried
 	is_power_of_two_TCC2: OBLIGATION

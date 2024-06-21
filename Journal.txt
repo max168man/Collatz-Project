@@ -47,4 +47,10 @@ This file covers what I have done in every day.
 
 6/16/2024: * Created lemma9, creating functions and subtheories to work with it.
 
-6/17/2024: * Prove lemma7!
+6/17/2024: * Proved lemma7!
+
+6/18/2024:
+
+6/19/2024
+
+6/20/2024:

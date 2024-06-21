@@ -202,7 +202,35 @@ test2(n: posint): real = sqrt(n)
 
 is_integer(x: real): bool =
    floor(x) = x
-   
+
+bv: VAR bvec[10]
+bv8: bvec[4] = 1001
+
+importing bv_nat
+
+bvtoari(x: real): int = bv2nat(bv8)
+
+bvithdigit(x: nat): bit = bv8(x)
+
+totaltrue: int = 0
+
+IMPORTING structures@for_iterate
+
+g: [int -> int]  = LAMBDA(x: int): x * bvtoari(1)
+
+iter_test(x: nat): int = 
+   for[real](0, 4, 1, LAMBDA(i:int,a:real):a*x)
+
+% bvtoari ^ 5
+totaltrue(x: nat): int = 
+   for[real](0, 4, 1, LAMBDA(i: int, a:real): a * bvtoari(x))
+
+% 
+totalone(x: nat): int = 
+   for[real](0, 4, 1, LAMBDA(i: int, a:real): IF bvithdigit(i) = TRUE THEN a + 1 ELSE a + 1 ENDIF)
+
+truetest(x: nat): int = IF bvithdigit(x) = TRUE then 1 ELSE 0 ENDIF
+
 is_power_of_two(x: real): RECURSIVE bool = 
    IF x = 1 THEN TRUE
       ELSE
