@@ -71,13 +71,19 @@ Collatz_TCCS: THEORY BEGIN
 	bv8_TCC1: OBLIGATION
 	1001 < exp2(4)
 	
-	% Subtype TCC generated (at line 213, column 30) for  x
+	% Subtype TCC generated (at line 208, column 15) for  110
+	% expected type  below(exp2(3))
+	  % untried
+	bv3_TCC1: OBLIGATION
+	110 < exp2(3)
+	
+	% Subtype TCC generated (at line 214, column 30) for  x
 	% expected type  below(4)
 	  % untried
 	bvithdigit_TCC1: OBLIGATION
 	FORALL (x: nat): x < 4
 	
-	% Subtype TCC generated (at line 222, column 3) for
+	% Subtype TCC generated (at line 223, column 3) for
 	% for[real]
 	%     (0, 4, 1,
 	%      restrict[[int, real], [subrange(0, 4), real], numfield]
@@ -96,7 +102,7 @@ Collatz_TCCS: THEORY BEGIN
 	                       restrict[[int, real], [subrange(0, 4), real], numfield]
 	                           (LAMBDA (i: int, a: real): a * x)))
 	
-	% Subtype TCC generated (at line 226, column 3) for
+	% Subtype TCC generated (at line 227, column 3) for
 	% for[real]
 	%     (0, 4, 1,
 	%      restrict[[int, real], [subrange(0, 4), real], numfield]
@@ -115,13 +121,13 @@ Collatz_TCCS: THEORY BEGIN
 	                       restrict[[int, real], [subrange(0, 4), real], numfield]
 	                           (LAMBDA (i: int, a: real): a * bvtoari(x))))
 	
-	% Subtype TCC generated (at line 230, column 60) for  i
+	% Subtype TCC generated (at line 231, column 60) for  i
 	% expected type  nat
 	  % untried
 	totalone_TCC1: OBLIGATION
 	FORALL (i: int): i >= 0
 	
-	% Subtype TCC generated (at line 230, column 3) for
+	% Subtype TCC generated (at line 231, column 3) for
 	% for[real]
 	%     (0, 4, 1,
 	%      restrict[[int, real], [subrange(0, 4), real], numfield]
@@ -146,16 +152,70 @@ Collatz_TCCS: THEORY BEGIN
 	                            ELSE a + 1
 	                            ENDIF)))
 	
-	% Subtype TCC generated (at line 241, column 11) for  x
+	% Subtype TCC generated (at line 242, column 11) for  x
 	% expected type  naturalnumber
 	  % untried
 	is_power_of_two_TCC1: OBLIGATION
 	FORALL (x: real): rational_pred(x) AND integer_pred(x) AND x >= 0
 	
-	% Termination TCC generated (at line 237, column 31) for
+	% Termination TCC generated (at line 238, column 31) for
 	% is_power_of_two(x / 2)
 	  % untried
 	is_power_of_two_TCC2: OBLIGATION
 	FORALL (x: real): NOT x = 1 AND is_integer(x / 2) IMPLIES x / 2 < x
+	
+	% Subtype TCC generated (at line 252, column 10) for  i
+	% expected type  below(bvlength)
+	  % untried
+	ymultiplecases_TCC1: OBLIGATION
+	FORALL (i: int, bvlength: posnat):
+	    printstr("ymultiplecase: ") AND printstr("current index value: ") IMPLIES
+	     i >= 0 AND i < bvlength
+	
+	% The subtype TCC (at line 253, column 10) in decl ymultiplecases for  i
+	% expected type  below(bvlength)
+	% The subtype TCC (at line 254, column 7) in decl ymultiplecases for  i
+	% expected type  below(bvlength)
+	% The subtype TCC (at line 255, column 7) in decl ymultiplecases for  i
+	% expected type  below(bvlength)
+	% Subtype TCC generated (at line 261, column 28) for  x
+	% expected type  posnat
+	  % untried
+	ycases_TCC1: OBLIGATION
+	FORALL (x, y: int, bvlength: posnat): y > 0 IMPLIES x >= 0 AND x > 0
+	
+	% The subtype TCC (at line 253, column 10) in decl ymultiplecases for  i
+	    % expected type  below(bvlength)
+	  % is subsumed by ymultiplecases_TCC1
+	% The subtype TCC (at line 254, column 7) in decl ymultiplecases for  i
+	    % expected type  below(bvlength)
+	  % is subsumed by ymultiplecases_TCC1
+	% The subtype TCC (at line 255, column 7) in decl ymultiplecases for  i
+	    % expected type  below(bvlength)
+	  % is subsumed by ymultiplecases_TCC1
+	
+	% Subtype TCC generated (at line 264, column 92) for  k
+	% expected type  below(bvlength)
+	  % untried
+	iteratebv_TCC1: OBLIGATION
+	FORALL (bvlength: posnat, k: subrange(0, bvlength - 1)):
+	    printstr("Verifying index: ") AND printstr(concat(real2str(k), newline))
+	     IMPLIES k >= 0 AND k < bvlength
+	
+	% Subtype TCC generated (at line 264, column 168) for  (x / 2)
+	% expected type  int
+	  % untried
+	iteratebv_TCC2: OBLIGATION
+	FORALL (x: int, bvlength: posnat, bv: bvec[bvlength],
+	          k: subrange(0, bvlength - 1)):
+	    printstr("Verifying index: ") AND
+	     printstr(concat(real2str(k), newline)) AND NOT bv(k) = TRUE
+	     IMPLIES integer_pred((x / 2))
+	
+	% Subtype TCC generated (at line 269, column 15) for  101
+	% expected type  below(exp2(4))
+	  % untried
+	bv4_TCC1: OBLIGATION
+	101 < exp2(4)
 
 END Collatz_TCCS

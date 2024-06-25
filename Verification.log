@@ -1,0 +1,34 @@
+
+Context changed to ~/Documents/Collatz_Project/
+Parsing Verification
+Verification parsed in 0.02 seconds
+Typechecking Verification
+Verification typechecked in 0.21s: 23 TCCs, 0 proved, 11 subsumed, 12 unproved; 1 conversion
+Warning: (method typecheck* (subtype-judgement t t t)), :operator was
+         defined in
+         /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/pvs-patches/patch-20210707-trivial-judgements.lisp
+         and is now being defined in
+         /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/pvs-patches/patch-20210707.lisp
+Warning: (method typecheck* (subtype-judgement t t t)), :operator was
+         defined in
+         /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/pvs-patches/patch-20210707.lisp
+         and is now being defined in
+         /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/pvs-patches/patch-20210707-trivial-judgements.lisp
+Warning: (method typecheck* (subtype-judgement t t t)), :operator was
+         defined in
+         /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/pvs-patches/patch-20210707-trivial-judgements.lisp
+         and is now being defined in
+         /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/pvs-patches/patch-20210707.lisp
+Warning: (method typecheck* (subtype-judgement t t t)), :operator was
+         defined in
+         /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/pvs-patches/patch-20210707.lisp
+         and is now being defined in
+         /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/pvs-patches/patch-20210707-trivial-judgements.lisp
+; While compiling #'_y_determination at top level:
+Warning: Variable k is never used.
+Warning: Variable x is never used.
+; While compiling #'y_determination! at top level:
+Warning: Variable k is never used.
+Warning: Variable x is never used.
+; While compiling #'(:internal y_determination 0) at top level:
+Warning: Variable x is never used.

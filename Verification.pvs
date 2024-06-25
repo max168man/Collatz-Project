@@ -1,0 +1,183 @@
+%------------------------------------------------------------------------
+%
+% Verification Algorithm
+% Authors: Ali Ebnenasir <aebnenas@mtu.edu>, Maxwell Brainerd <mmbraine@mtu.edu>
+% Date: 6/25/2024 - ongoing
+%
+% This is a helper file to Collatz.pvs.
+% It contains a verification algorithm, which verifies whether a value x is a legitimate Collatz number with the
+% help of the binary string s as the BVC of x.
+%
+% Here are the steps for verifiying x:
+% 1: Basic checks: Ensures x is an integer greater than 1 and not a power of 2.
+% 2: Iterates over the binary string of x, starting from the least significant bit.
+%
+%------------------------------------------------------------------------
+
+
+
+Verification: THEORY
+BEGIN
+
+importing bv_nat  % Used for bitvectors, the means of representing the binary string
+importing stdio   % Used to print output, helping with bugtesting and understanding the results of the algorithm.
+importing mod     % Used to check if numbers are even or odd.
+importing strings % Used for reading in a BVC string from user.
+importing character
+
+% This method checks if a number is an integer.
+% For example, if x is 6.5, the floor would be 6, which wouldn't be equal to 6.5.
+
+is_integer(x: real): bool =
+   floor(x) = x
+
+% This method is used to check if a number is a power of two. 
+% I created this since I couldn't get any imported log functions to work.
+
+is_power_of_two(x: posint): RECURSIVE bool = 
+   IF x = 1 THEN TRUE
+      ELSE
+      IF is_integer(x /2) THEN is_power_of_two(x / 2)
+         ELSE FALSE
+      ENDIF
+   ENDIF
+   MEASURE x
+
+y: int
+
+
+ymultiplecases(i: int, x: posnat, y: int, bvlength: posnat, bv: bvec[bvlength]): bool =
+   print("ymultiplecase: ") AND print("current index value: ") AND 
+   IF (bv(i) = TRUE) then println("1") ELSE println("0") ENDIF AND 
+   IF (bv(i) = TRUE AND mod(x, 2) = 0) THEN println("Failed case 1!") AND FALSE ELSIF
+   (bv(i) = TRUE AND mod(x, 2) /= 0 AND mod(y, 2) /= 0) THEN println("Failed case 2!") AND FALSE ELSIF 
+   (bv(i) = FALSE AND mod(x, 2) /= 0) THEN println("Failed case 3!") AND FALSE ELSE println("Made it through all cases!") AND TRUE ENDIF
+
+ycases2(i: int, x: posnat, y: int, bvlength: posnat, bv: bvec[bvlength]): bool =
+   IF is_power_of_two(y) THEN println("Y is a power of two!") AND false ELSIF ymultiplecases(i, x, y, bvlength, bv) = TRUE THEN TRUE ELSE FALSE ENDIF
+
+ycases(i: int, x: int, y: int, bvlength: posnat, bv: bvec[bvlength]): bool =
+   IF y > 0 THEN ycases2(i, x, y, bvlength, bv) ELSE print("Failed at ycases! y = ") AND println(y) AND FALSE ENDIF;
+
+iteratebv(x: int, bvlength: posnat, bv: bvec[bvlength]): bool =
+   FORALL(k:subrange(0, bvlength - 1)): print("Verifying index: ") AND println(k) AND IF bv(k) = true THEN ycases(k, x, ((3 * x) + 1), bvlength, bv) ELSE ycases(k, x, (x / 2), bvlength, bv) ENDIF
+
+verification(x: int, bvlength: posnat, bv: bvec[bvlength]): bool = 
+   IF is_power_of_two(x) THEN println("X is a power of two!") AND FALSE ELSIF iteratebv(x, bvlength, bv) = TRUE THEN TRUE ELSE FALSE ENDIF
+
+bv4: VAR bvec[0]
+
+%verificationtest(x: int): bool =
+ %  verification(x, 4, bv4)
+
+arbitraryBV: bvec[1]
+
+fillbvc(s: string, bv_length: int, bv: bvec[bv_length]): bool = 
+    IF 1 + 1 = 2 THEN TRUE ELSE FALSE ENDIF
+
+
+createbvc(s: string, bv_length: int): bool =
+    IF bv_length > 0 THEN 
+        LET arbitraryBV: bvec[bv_length] = 101 IN fillbvc(s, bv_length, arbitraryBV)
+    ELSE
+        FALSE
+    ENDIF
+
+%%%
+% final_cases
+% This helper method to y_determination is the final five test cases to determine the validity of x
+% 1: If y is < 1, this is a marker of invalidity
+% 2: If y is a power of two this is a marker of invalidity
+% 3: If s[k] is 1 and x is even, this is a marker of invalidity.
+% 4: If s[k] is 1 and x is odd and y is odd, this is a marker of invalidity.
+% 5: If s[k] is 0 and x is odd, this is a marker of invalidity.
+%%%
+
+final_cases(x: int, y: int, k: int, s: string): bool =
+    % Test case 1
+    IF (y < 1) THEN
+        print("y value at index ") AND print(k) AND println(" is less than 1.") AND FALSE
+    % Test case 2
+    ELSIF (is_power_of_two(y) = TRUE) THEN
+        print("y is a power of two at index ") AND print(k) AND println(" is a power of two.") AND FALSE
+    % Test case 3 
+    ELSIF ((strcmp(substr(s, k, k), "1") = 0) AND even?(x)) THEN
+        println("Test case 3 fails!") AND FALSE
+    ELSIF ((strcmp(substr(s, k, k), "1") = 0) AND odd?(x) AND odd?(y)) THEN
+        println("Test case 4 fails!") AND FALSE
+    ELSIF ((strcmp(substr(s, k, k), "0") = 0) AND odd?(x)) THEN
+        println("Test case 5 fails!") AND FALSE
+    ELSE
+        TRUE
+    ENDIF
+
+
+%%%
+% y_determination
+% param s: BVC to be iterated through
+% param x: Collatz number candidate
+%
+% This helper method to verification_userinput() iterates through each index of the BVC, and determines what it's corresponding y value is.
+% This y value is crucial, because it is the parent of x, and x and y are used to determine that R(x) has been applied correctly. This is used in the verification process.
+% Using x, y, the index and s, these parameters are inputted into the final helper method to determine the validity of X and it's BVC.
+% NOTE: Unlike in validate_string(), this method starts from the least significant bit (from last index to first)
+%%%
+
+y_determination(x: int, s: string): bool =
+    FORALL(k:subrange(1, length(s))):
+        % If the number at index is 0:
+        IF (strcmp(substr(s, (length(s) - k), (length(s) - k)), "0") = 0) THEN
+            final_cases(x, (x / 2), (length(s) - k), s)
+        % If the number isn't 0 (it is then 1)
+        ELSE
+            final_cases(x, ((3 * x) + 1), (length(s) - k), s)
+        ENDIF
+
+%%%
+% validate_string()
+% param s: BVC to be checked
+%
+% This helper method to verification_userinput() checks if a BVC contains only 0's and 1's.
+% If so, it alerts the user to what the invalid character is and where it is located.
+% It then returns false.
+%%%
+
+validate_string(s: string): bool =
+% Iterates through all indexes of string
+    FORALL(k:subrange(0, (length(s) - 1))): 
+        % If the substring at index k isn't 0 or 1, prints error message and returns false.
+        IF (strcmp(substr(s, k, k), "0") /= 0 AND strcmp(substr(s, k, k), "1") /= 0) THEN
+            print("Invalid character ") AND print(substr(s,(k),k)) AND print(" found at index ") AND println(k) AND FALSE
+        ELSE
+            TRUE
+        ENDIF
+
+%%%
+% verification_userinput()
+% param x: Collatz number candidate
+% s: BVC of x
+%
+% This method verifies x is a Collatz number, with the help of it's binary string s.
+% It uses command line input in PVSio, and runs through three sanity checks before calling it's helper method, y_determination
+% 1: Checks if BVC isn't empty
+% 2: Checks if all characters in string are 0 or 1, using helper method validate_string.
+% 3: Checks if x is 2 to the power of some number; if so, x cannot be a Collatz number.
+% Once these cases have been checked, x and s are handed off to y_determination.
+%%%
+
+verification_userinput(x: int, s: string): bool =
+    % Test case 1
+    IF length(s) < 1 THEN
+        println("BVC length must be greater than zero!") AND FALSE
+    % Test case 2
+    ELSIF (validate_string(s) = FALSE) THEN
+        println("All characters in string must be 0 or 1!") AND FALSE
+    % Test case 3
+    ELSIF (is_power_of_two(x) = TRUE) THEN
+        println("x cannot be a power of two!") AND FALSE
+    % Handed off to helper function
+    ELSE 
+        FALSE
+    ENDIF
+
+END Verification
