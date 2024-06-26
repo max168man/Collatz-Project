@@ -1,0 +1,45 @@
+This file contains an archive of old code no longer used in pvs files. It serves as a library for unused code that might be of importance once more.
+
+### Old verification program, using bitvectors. Not completed, and really should only be used for reference
+
+y: int
+
+
+ymultiplecases(i: int, x: posnat, y: int, bvlength: posnat, bv: bvec[bvlength]): bool =
+   print("ymultiplecase: ") AND print("current index value: ") AND 
+   IF (bv(i) = TRUE) then println("1") ELSE println("0") ENDIF AND 
+   IF (bv(i) = TRUE AND mod(x, 2) = 0) THEN println("Failed case 1!") AND FALSE ELSIF
+   (bv(i) = TRUE AND mod(x, 2) /= 0 AND mod(y, 2) /= 0) THEN println("Failed case 2!") AND FALSE ELSIF 
+   (bv(i) = FALSE AND mod(x, 2) /= 0) THEN println("Failed case 3!") AND FALSE ELSE println("Made it through all cases!") AND TRUE ENDIF
+
+ycases2(i: int, x: posnat, y: int, bvlength: posnat, bv: bvec[bvlength]): bool =
+   IF is_power_of_two(y) THEN println("Y is a power of two!") AND false ELSIF ymultiplecases(i, x, y, bvlength, bv) = TRUE THEN TRUE ELSE FALSE ENDIF
+
+ycases(i: int, x: int, y: int, bvlength: posnat, bv: bvec[bvlength]): bool =
+   IF y > 0 THEN ycases2(i, x, y, bvlength, bv) ELSE print("Failed at ycases! y = ") AND println(y) AND FALSE ENDIF;
+
+iteratebv(x: int, bvlength: posnat, bv: bvec[bvlength]): bool =
+   FORALL(k:subrange(0, bvlength - 1)): print("Verifying index: ") AND println(k) AND IF bv(k) = true THEN ycases(k, x, ((3 * x) + 1), bvlength, bv) ELSE ycases(k, x, (x / 2), bvlength, bv) ENDIF
+
+verification(x: int, bvlength: posnat, bv: bvec[bvlength]): bool = 
+   IF is_power_of_two(x) THEN println("X is a power of two!") AND FALSE ELSIF iteratebv(x, bvlength, bv) = TRUE THEN TRUE ELSE FALSE ENDIF
+
+bv4: VAR bvec[0]
+
+%verificationtest(x: int): bool =
+ %  verification(x, 4, bv4)
+
+arbitraryBV: bvec[1]
+
+fillbvc(s: string, bv_length: int, bv: bvec[bv_length]): bool = 
+    IF 1 + 1 = 2 THEN TRUE ELSE FALSE ENDIF
+
+
+createbvc(s: string, bv_length: int): bool =
+    IF bv_length > 0 THEN 
+        LET arbitraryBV: bvec[bv_length] = 101 IN fillbvc(s, bv_length, arbitraryBV)
+    ELSE
+        FALSE
+    ENDIF
+
+###

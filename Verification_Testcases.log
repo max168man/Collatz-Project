@@ -1,9 +1,14 @@
 
 Context changed to ~/Documents/Collatz_Project/
+Parsing Verification_Testcases
+Verification_Testcases parsed in 0.01 seconds
+Typechecking Verification_Testcases
 Parsing Verification
-Verification parsed in 0.01 seconds
+Verification parsed in 0.03 seconds
+Verification is already parsed
 Typechecking Verification
-Verification typechecked in 0.10s: 22 TCCs, 0 proved, 11 subsumed, 11 unproved
+Verification typechecked in 0.21s: 24 TCCs, 0 proved, 13 subsumed, 11 unproved
+Verification_Testcases typechecked in 0.26s: 1 TCC, 0 proved, 0 subsumed, 1 unproved
 Warning: (method typecheck* (subtype-judgement t t t)), :operator was
          defined in
          /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/pvs-patches/patch-20210707-trivial-judgements.lisp
@@ -24,7 +29,3 @@ Warning: (method typecheck* (subtype-judgement t t t)), :operator was
          /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/pvs-patches/patch-20210707.lisp
          and is now being defined in
          /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/pvs-patches/patch-20210707-trivial-judgements.lisp
-; While compiling #'_validate_string at top level:
-Warning: Variable k is never used.
-; While compiling #'validate_string! at top level:
-Warning: Variable k is never used.
