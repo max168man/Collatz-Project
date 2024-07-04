@@ -43,3 +43,103 @@ createbvc(s: string, bv_length: int): bool =
     ENDIF
 
 ###
+
+%------------------------------------------------------------------------
+% Algorithms 1, 2, and 3
+%------------------------------------------------------------------------
+
+%%% Algorithm 1
+% The verification algorithm
+%%%
+ % Under construction
+
+test(n: posint): real = IF even?(n) THEN n * n ELSE (3*n) + 1 ENDIF
+
+importing reals@sqrt
+importing list_props[int]
+
+%l1: list[int] = nil
+%l2: cons(1, l1)
+%l3: cons(2, l2)
+
+test2(n: posint): real = sqrt(n)
+
+is_integer(x: real): bool =
+   floor(x) = x
+
+bv: VAR bvec[10]
+bv8: bvec[4] = 1001
+bv3: bvec[3] = 110
+
+importing bv_nat
+
+bvtoari(x: real): int = bv2nat(bv8)
+
+bvithdigit(x: nat): bit = bv8(x)
+
+totaltrue: int = 0
+
+IMPORTING structures@for_iterate
+
+g: [int -> int]  = LAMBDA(x: int): x * bvtoari(1)
+
+iter_test(x: nat): int = 
+   for[real](0, 4, 1, LAMBDA(i:int,a:real):a*x)
+
+% bvtoari ^ 5
+totaltrue(x: nat): int = 
+   for[real](0, 4, 1, LAMBDA(i: int, a:real): a * bvtoari(x))
+
+% 
+totalone(x: nat): int = 
+   for[real](0, 4, 1, LAMBDA(i: int, a:real): IF bvithdigit(i) = TRUE THEN a + 1 ELSE a + 1 ENDIF)
+
+truetest(x: nat): int = IF bvithdigit(x) = TRUE then 1 ELSE 0 ENDIF
+
+is_power_of_two(x: real): RECURSIVE bool = 
+   IF x = 1 THEN TRUE
+      ELSE
+      IF is_integer(x /2) THEN is_power_of_two(x / 2)
+         ELSE FALSE
+      ENDIF
+   ENDIF
+   MEASURE x
+
+importing mod
+importing stdio
+
+y: int
+
+
+ymultiplecases(i: int, x: posnat, y: int, bvlength: posnat, bv: bvec[bvlength]): bool =
+   print("ymultiplecase: ") AND print("current index value: ") AND 
+   IF (bv(i) = TRUE) then println("1") ELSE println("0") ENDIF AND 
+   IF (bv(i) = TRUE AND mod(x, 2) = 0) THEN println("Failed case 1!") AND FALSE ELSIF
+   (bv(i) = TRUE AND mod(x, 2) /= 0 AND mod(y, 2) /= 0) THEN println("Failed case 2!") AND FALSE ELSIF 
+   (bv(i) = FALSE AND mod(x, 2) /= 0) THEN println("Failed case 3!") AND FALSE ELSE println("Made it through all cases!") AND TRUE ENDIF
+
+ycases2(i: int, x: posnat, y: int, bvlength: posnat, bv: bvec[bvlength]): bool =
+   IF is_power_of_two(y) THEN println("Y is a power of two!") AND false ELSIF ymultiplecases(i, x, y, bvlength, bv) = TRUE THEN TRUE ELSE FALSE ENDIF
+
+ycases(i: int, x: int, y: int, bvlength: posnat, bv: bvec[bvlength]): bool =
+   IF y > 0 THEN ycases2(i, x, y, bvlength, bv) ELSE print("Failed at ycases! y = ") AND println(y) AND FALSE ENDIF;
+
+iteratebv(x: int, bvlength: posnat, bv: bvec[bvlength]): bool =
+   FORALL(k:subrange(0, bvlength - 1)): print("Verifying index: ") AND println(k) AND IF bv(k) = true THEN ycases(k, x, ((3 * x) + 1), bvlength, bv) ELSE ycases(k, x, (x / 2), bvlength, bv) ENDIF
+
+verification(x: int, bvlength: posnat, bv: bvec[bvlength]): bool = 
+   IF is_power_of_two(x) THEN println("X is a power of two!") AND FALSE ELSIF iteratebv(x, bvlength, bv) = TRUE THEN TRUE ELSE FALSE ENDIF
+
+bv4: bvec[4] = 0101
+
+verificationtest(x: int): bool =
+   verification(x, 3, bv3)
+
+%%% Algorithm 2
+% An algorithm for specifying the members of the jth stair for a given value k > 1, along with constructing their binary verification code.
+%%%
+
+
+%%% Algorithm 3
+% An algorithm for specifying the members of the jth stair for a given value k > 1, along with constructing their binary verification code.
+%%%

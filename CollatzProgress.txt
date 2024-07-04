@@ -6,9 +6,9 @@ Methods:
 * Pcltz - Done
 * Pcltz recursive - Done
 * R(x) - Needs work
-* Algorithm 1
-* Algorithm 2
-* Algorithm 3
+* Algorithm 1 - Done
+* Algorithm 2 - Partially Done
+* Algorithm 3 (recursiveFor)
 
 Lemmas:
 * Lemma 3

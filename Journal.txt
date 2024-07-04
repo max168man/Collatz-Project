@@ -54,3 +54,12 @@ This file covers what I have done in every day.
 6/19/2024
 
 6/20/2024:
+
+6/24/2024: Begin working on verification algorithm
+
+6/25/2024: Continue work on verification algorithm
+
+6/26/2024: Complete verification algorithm, send to Ali.
+
+           Came up with an idea: In order to prove the verification algorithm works, all we have to do is prove: If verification 
+           returns true, then the value at the root of the BVC is an integer.

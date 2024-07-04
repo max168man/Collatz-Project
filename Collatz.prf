@@ -31,7 +31,31 @@
    (lemma_even_div_three subtype "number_fields./(Collatz.k, 3)"
     "int")))
  (lemma7_TCC1 0
-  (lemma7_TCC1-1 nil 3927203796 ("" (subtype-tcc) nil nil) nil nil
+  (lemma7_TCC1-1 nil 3927203796
+   ("" (skeep) (("" (expand "divides") (("" (grind) nil nil)) nil))
+    nil)
+   ((posint_exp application-judgement "posint" exponentiation nil)
+    (divides const-decl "bool" divides nil)
+    (rat_div_nzrat_is_rat application-judgement "rat" rationals nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (even_times_int_is_even application-judgement "even_int" integers
+     nil)
+    (posint_times_posint_is_posint application-judgement "posint"
+     integers nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (posnat_expt application-judgement "posnat" exponentiation nil)
+    (even_minus_odd_is_odd application-judgement "odd_int" integers
+     nil)
+    (odd_minus_odd_is_even application-judgement "even_int" integers
+     nil)
+    (even_minus_even_is_even application-judgement "even_int" integers
+     nil)
+    (nzrat_div_nzrat_is_nzrat application-judgement "nzrat" rationals
+     nil)
+    (^ const-decl "real" exponentiation nil)
+    (expt def-decl "real" exponentiation nil))
+   nil
    (lemma7 subtype
     "number_fields./(((number_fields.-)(exponentiation.^(2, (number_fields.*(2, Collatz.k))), 1)), 3)"
     "int")))
@@ -231,6 +255,33 @@
      integers nil)
     (even? const-decl "bool" integers nil))
    shostak))
+ (bv8_TCC1 0
+  (bv8_TCC1-1 nil 3928954593 ("" (subtype-tcc) nil nil) nil nil
+   (bv8 subtype "1001" "naturalnumbers.below(exp2.exp2(4))")))
+ (bv3_TCC1 0
+  (bv3_TCC1-1 nil 3928954593 ("" (subtype-tcc) nil nil) nil nil
+   (bv3 subtype "110" "naturalnumbers.below(exp2.exp2(3))")))
+ (bvithdigit_TCC1 0
+  (bvithdigit_TCC1-1 nil 3928954593 ("" (subtype-tcc) nil nil) nil nil
+   (bvithdigit subtype "Collatz.x" "naturalnumbers.below(4)")))
+ (iter_test_TCC1 0
+  (iter_test_TCC1-1 nil 3928954593 ("" (subtype-tcc) nil nil) nil nil
+   (iter_test subtype
+    "for_iterate[real].for(0, 4, 1, restrict[[int, real], [integers.subrange(0, 4), real], numfield].restrict(LAMBDA (i: integers.int, a: reals.real): number_fields.*(a, Collatz.x)))"
+    "int")))
+ (totaltrue_TCC1 0
+  (totaltrue_TCC1-1 nil 3928954593 ("" (subtype-tcc) nil nil) nil nil
+   (totaltrue subtype
+    "for_iterate[real].for(0, 4, 1, restrict[[int, real], [integers.subrange(0, 4), real], numfield].restrict(LAMBDA (i: integers.int, a: reals.real): number_fields.*(a, Collatz.bvtoari(Collatz.x))))"
+    "int")))
+ (totalone_TCC1 0
+  (totalone_TCC1-1 nil 3928954593 ("" (subtype-tcc) nil nil) nil nil
+   (totalone subtype "Collatz.i" "nat")))
+ (totalone_TCC2 0
+  (totalone_TCC2-1 nil 3928954593 ("" (subtype-tcc) nil nil) nil nil
+   (totalone subtype
+    "for_iterate[real].for(0, 4, 1, restrict[[int, real], [integers.subrange(0, 4), real], numfield].restrict(LAMBDA (i: integers.int, a: reals.real): (number_fields.+)(a, 1)))"
+    "int")))
  (is_power_of_two_TCC1 0
   (is_power_of_two_TCC1-1 nil 3927555792 ("" (subtype-tcc) nil nil) nil
    nil (is_power_of_two subtype "Collatz.x" "naturalnumber")))
@@ -238,5 +289,23 @@
   (is_power_of_two_TCC2-1 nil 3927555792 ("" (termination-tcc) nil nil)
    nil nil
    (is_power_of_two termination
-    "Collatz.is_power_of_two(number_fields./(Collatz.x, 2))" "nil"))))
+    "Collatz.is_power_of_two(number_fields./(Collatz.x, 2))" "nil")))
+ (ymultiplecases_TCC1 0
+  (ymultiplecases_TCC1-1 nil 3928954593 ("" (subtype-tcc) nil nil) nil
+   nil
+   (ymultiplecases subtype "Collatz.i"
+    "naturalnumbers.below(Collatz.bvlength)")))
+ (ycases_TCC1 0
+  (ycases_TCC1-1 nil 3928954593 ("" (subtype-tcc) nil nil) nil nil
+   (ycases subtype "Collatz.x" "posnat")))
+ (iteratebv_TCC1 0
+  (iteratebv_TCC1-1 nil 3928954593 ("" (subtype-tcc) nil nil) nil nil
+   (iteratebv subtype "Collatz.k"
+    "naturalnumbers.below(Collatz.bvlength)")))
+ (iteratebv_TCC2 0
+  (iteratebv_TCC2-1 nil 3928954593 ("" (subtype-tcc) nil nil) nil nil
+   (iteratebv subtype "(number_fields./(Collatz.x, 2))" "int")))
+ (bv4_TCC1 0
+  (bv4_TCC1-1 nil 3928954593 ("" (subtype-tcc) nil nil) nil nil
+   (bv4 subtype "101" "naturalnumbers.below(exp2.exp2(4))"))))
 

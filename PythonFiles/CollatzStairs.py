@@ -1,4 +1,4 @@
-8##########################################################################
+##########################################################################
 #  (c) Copyright 2024 - Ali Ebnenasir
 # 
 #  Protected by GNU GPL v3.0  https://www.gnu.org/licenses/gpl-3.0.en.html 
@@ -173,7 +173,7 @@ for qj in range(1, j):
     #        print("")                                        # End
 
             if (verify(x, binStr)):
-                print("Correct Collatz number ", x)
+                print("Correct Collatz number (case 3)", x)
                 sys.stdout.write("Binary Verification Code (BVC) for x is ")
                 sys.stdout.write("<"+binStr+">")
                 print("")

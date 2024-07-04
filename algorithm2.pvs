@@ -1,0 +1,234 @@
+%------------------------------------------------------------------------
+%
+% Algorithm 2 & 3
+% Authors: Ali Ebnenasir <aebnenas@mtu.edu>, Maxwell Brainerd <mmbraine@mtu.edu>
+% Date: 6/27/2024 - ongoing
+%
+% This is a helper file to Collatz.pvs.
+% It contains algorithm 2 & 3, which are used to specify the members of the j-th stair for a given value k > 1, and constructs their 
+% binary verification code. This is critical for proving theorems 14 and 15.
+%
+%------------------------------------------------------------------------
+
+algorithm2: THEORY
+BEGIN
+
+IMPORTING Verification % Used to check if numbers are Collatz numbers.
+importing stdio   % Used to print output, helping with bugtesting and understanding the results of the algorithm.
+importing strings % Used to creates BVCs.
+
+%%%
+% concatenate_recur
+% param str_base: the "base" string that num is concatenated by.
+% num: the string, presumably a number in the context of this program, that is added to the right.
+% n: the number of times num is concatenated onto str_base
+% l: true if concatenation is to occur to left, false if to right
+%
+% This helper method repeatedly concatenates a string by another string.
+%%%
+
+concatenate_recur(str_base: string, num: string, n: nat, l: bool): RECURSIVE string =
+    % base case: once n equals 0, no more concatenation is requested
+    IF n = 0 THEN
+        str_base
+    % concatenates to right if left is false and n /= 0 yet.
+    ELSIF l = FALSE THEN
+        concatenate_recur(concat(str_base, num), num, (n - 1), FALSE)
+    % concatenates to left if left is true and n /= 0 yet.
+    ELSE
+        concatenate_recur(concat(num, str_base), num, (n - 1), TRUE)
+    ENDIF
+    MEASURE n
+
+%%%
+% concatenate_recur_mod
+% param str_base: the "base" string that num is concatenated by.
+% num: the string, presumably a number in the context of this program, that is added to the right.
+% bottom: starting number
+% end: when to stop recursive calls
+%
+% l: true if concatenation is to occur to left, false if to right
+%
+% This helper method repeatedly concatenates a string by another string.
+%%%
+
+concatenate_recur_mod(str_base: string, num: string, n: nat, l: bool): RECURSIVE string =
+    % base case: once n equals 0, no more concatenation is requested
+    IF n = 0 THEN
+        str_base
+    % concatenates to right if left is false and n /= 0 yet.
+    ELSIF l = FALSE THEN
+        concatenate_recur(concat(str_base, num), num, (n - 1), FALSE)
+    % concatenates to left if left is true and n /= 0 yet.
+    ELSE
+        concatenate_recur(concat(num, str_base), num, (n - 1), TRUE)
+    ENDIF
+    MEASURE n
+
+%%%
+% case1
+% param k: base where the stair will be calculated from
+% param j: what "level" the stair is at
+% param yk: a specification of the first stair.
+% param x: a potential Collatz number, will be verified
+% param str: an empty string, a BVC will be constructed from it.
+%
+% This helper method the first case in the main for loop.
+% It is called upon when qj = 1.
+%%%
+
+case1(k, j, yk, x: int, str: string): bool = 
+    % Calls upon helper methods to verify x along with it's binary string.
+     println("Case 1: qj = 1:") AND
+    IF verification(x, concatenate_recur(str, "0", (j-2), FALSE)) = TRUE THEN
+        print("Correct Collatz number: ") AND println(x) AND print("Binary Vertification Code (BVC) for x is <") AND print(concatenate_recur(str, "0", (j-2), FALSE)) AND println(">") AND TRUE
+    ELSE
+        println("Invalid Collatz number: Verification failed!") AND FALSE
+    ENDIF
+
+%%%
+%case2summation
+% param top: integer that the summation "starts" at
+% param sum: total sum of all case2summation calculations
+% 
+% This helper method is used for the second case in the main for loop.
+% It calculates the sum of a formula 3^i, from i=top to 1.
+%%%
+
+case2summation(top: int, sum: real): RECURSIVE real = 
+    IF (top = 1) THEN
+        sum + 3
+    ELSE
+        case2summation((top - 1), (sum + (3^top)))
+    ENDIF
+    MEASURE top
+    
+
+%%%
+% case2
+% param k: base where the stair will be calculated from
+% param j: what "level" the stair is at
+% param yk: a specification of the first stair.
+% param x: a potential Collatz number, will be verified
+% param str: an empty string, a BVC will be constructed from it.
+%
+% This helper method is used for the second case in the main for loop.
+% It is called upon when qj = j - 1.
+%%%
+
+case2(k, j, yk, x: int, str: string): bool = 
+     println("Case 2: qj = j - 1:") AND
+    IF (verification(x, str)) = TRUE THEN
+        print(x) AND print(", ") AND println(str) AND TRUE
+    ELSE
+        println("Invalid Collatz number: Verification failed!")
+    ENDIF
+
+%%%
+% case3subloop
+% param k: base where the stair will be calculated from
+% param j: what "level" the stair is at
+% param yk: a specification of the first stair.
+% param x: a potential Collatz number, will be verified
+% param i: where the outer loop is at
+% param str: an empty string, a BVC will be constructed from it.
+
+case3subloop(j, i, t: int, str: string): RECURSIVE string = 
+    IF t = -1 THEN
+        str
+    ELSIF t = i THEN
+        case3subloop(j, i, (t - 1), concat(str, "1"))
+    ELSE
+        case3subloop(j, i, (t - 1), concat(str, "0"))
+    ENDIF
+    MEASURE t
+
+
+%%%
+% case3
+% param k: base where the stair will be calculated from
+% param j: what "level" the stair is at
+% param yk: a specification of the first stair.
+% param x: a potential Collatz number, will be verified
+% param str: an empty string, a BVC will be constructed from it.
+%
+% This helper method is used for the third case in the main for loop.
+% It is called upon when qj = 2.
+%%%
+
+case3(k, j, yk: int, str: string): bool = 
+    println("Case 3: qj = 2:") AND
+    FORALL(i:subrange(0, (j - 3))):
+    println(((((2^(j - 2))*(yk)) - (3 * (2^i)))/9)) AND
+        IF verification(floor((((2^(j - 2))*(yk)) - (3 * (2^i)))/9), case3subloop(j, i, j - 3, "")) = TRUE THEN
+            print("Correct Collatz number: ") AND println((((2^(j - 2))*(yk)) - (3 * (2^i)))/9) AND print("Binary Vertification Code (BVC) for x is <") AND print(case3subloop(j, i, j - 3, "")) AND println(">") AND TRUE
+        ELSE
+            println(": Invalid Collatz number: Verification failed!")
+        ENDIF
+
+%%%
+% case4
+% param k: base where the stair will be calculated from
+% param j: what "level" the stair is at
+% param yk: a specification of the first stair.
+% param x: a potential Collatz number, will be verified
+% param str: an empty string, a BVC will be constructed from it.
+%
+% This helper method is used for the fourth case in the main for loop.
+% It is called upon when qj = j - 2
+%%%
+% concatenate_recur(str_base: string, num: string, n: nat, l: bool): 
+
+case4(k, j, yk, m: int, str: string): bool =
+    IF (m = 0) THEN
+        TRUE
+    ELSE
+        LET str = concatenate_recur(str, "1", m, ) IN
+        LET str = concatenate_recur(str, "1", ((j - 3) - m), TRUE) IN
+        LET x = 3 IN
+        verification(x, str)
+    ENDIF
+
+%%%
+% mainfor
+% param k: Value the jth stair is derived from.
+% param j: What the level of the jth stair is.
+% yk: a specification of the first stair.
+%
+% This helper method runs the main for loop of algorithm 2.
+% Once it has reached the last case, 2 < qj < j - 2, it calls a large recursive method in a different file.
+%%%
+
+mainfor(k: int, j: int, yk: int): bool = 
+    FORALL(qj:subrange(1, (j - 1))):
+        IF (qj = 1) THEN
+            case1(k, j, yk, ((2^(j - 1)) * (yk / 3)), "")
+        ELSIF (qj = j - 1) THEN
+            case2(k, j, yk, ((2 * yk) - case2summation((j - 2), 0))/(3^(j - 1)), "")
+        ELSIF (qj = 2) THEN
+            case3(k, j, yk, "")
+        ELSIF (qj = j - 2) THEN
+            case4(k, j, yk, 0, "")
+        ELSE
+            TRUE
+        ENDIF
+
+%%%
+% alg2
+% param k: Value that the jth stair is derived from. Must be > 1.
+% param j: The jth stair. Must be > 0.
+%
+% This method is the user's interface into algorithm 2. If the user's parameters are valid, it moves onto a helper method
+%
+%%%
+
+alg2(k: int, j: int): bool =
+    IF (k < 2) THEN
+        println("k must be greater than 1!") AND FALSE
+    ELSIF (j < 1) THEN
+        println("j must be greater than 0!") AND FALSE
+    ELSE
+        print("Y_k/3 = ") AND println(2^(2 * k) - 1) AND mainfor(k, j, (2^(2 * k) - 1))
+    ENDIF
+
+END algorithm2

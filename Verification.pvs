@@ -26,14 +26,17 @@ is_integer(x: real): bool =
 % This method is used to check if a number is a power of two. 
 % I created this since I couldn't get any imported log functions to work.
 
-is_power_of_two(x: posint): RECURSIVE bool = 
-   IF x = 1 THEN TRUE
-      ELSE
-      IF is_integer(x /2) THEN is_power_of_two(x / 2)
-         ELSE FALSE
-      ENDIF
-   ENDIF
-   MEASURE x
+is_power_of_two(x: int): RECURSIVE bool = 
+    IF x = 1 THEN 
+        TRUE
+    ELSIF x < 1 THEN
+        FALSE
+    ELSIF is_integer(x / 2) THEN 
+        is_power_of_two(x / 2)
+    ELSE
+        FALSE 
+    ENDIF
+    MEASURE x
 
 %%%
 % final_cases

@@ -160,7 +160,7 @@
     "formula": "lemma7",
     "status": "proved",
     "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
-    "shasum": "88cbe9ca2f05f683b371e8b70691d443de98e056470c7c2fedc08621b651fb1f"
+    "shasum": "8d159c3377857c8b5b529e998508e4fbefdebca685a89d53bca9f5aca4288d7d"
    },
    "origin": ".prf",
    "proofTree": {
@@ -399,6 +399,12 @@
                 "rules": [
                  {
                   "branch": "4.2.1",
+                  "name": "(expand divides)",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "4.2.1",
                   "name": "(inst 1 1)",
                   "type": "proof-command",
                   "rules": []
@@ -416,6 +422,12 @@
                 "name": "(4.2.2)",
                 "type": "proof-branch",
                 "rules": [
+                 {
+                  "branch": "4.2.2",
+                  "name": "(expand odd?)",
+                  "type": "proof-command",
+                  "rules": []
+                 },
                  {
                   "branch": "4.2.2",
                   "name": "(inst 1 0)",
@@ -489,6 +501,43 @@
         ]
        }
       ]
+     }
+    ]
+   }
+  }
+ ],
+ "Collatz.lemma7_TCC1": [
+  {
+   "info": {
+    "theory": "Collatz",
+    "formula": "lemma7_TCC1",
+    "status": "proved",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "8d159c3377857c8b5b529e998508e4fbefdebca685a89d53bca9f5aca4288d7d"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "lemma7_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(skeep)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(expand \"divides\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(grind)",
+      "type": "proof-command",
+      "rules": []
      }
     ]
    }
