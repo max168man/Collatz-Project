@@ -63,3 +63,8 @@ This file covers what I have done in every day.
 
            Came up with an idea: In order to prove the verification algorithm works, all we have to do is prove: If verification 
            returns true, then the value at the root of the BVC is an integer.
+
+I did a lot of work with alg2 during this time period, just didn't write it down.
+Also worked on second proposal
+
+7/4/2024: Created function to make x value in case j - 2 in alg 2.

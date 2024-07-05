@@ -165,8 +165,40 @@ case3(k, j, yk: int, str: string): bool =
         ELSE
             println(": Invalid Collatz number: Verification failed!")
         ENDIF
+%%%
+% case4xval
+% param m: m value in case4
+% param Yk: specification of the first stair
+% parak i: current i index in the loop
+%
+% This helper method is used in the fourth case in the main for loop
+% to calculate the x value.
+%%%
 
 %%%
+% These two recursive functions generate summations for case4xval.
+%%%
+
+c4xvalsum1(yk, i, sum: int): RECURSIVE int = 
+    IF i = 0 THEN
+        sum
+    ELSE
+        c4xvalsum1(yk, (i - 1), sum + (2 * 3^i))
+    ENDIF
+    MEASURE i
+
+c4xvalsum2(m, yk, i, sum: int): RECURSIVE int = 
+    IF i = m THEN
+        sum
+    ELSE
+        c4xvalsum2(m, yk, (i - 1), sum + (3^i))
+    ENDIF
+    MEASURE i
+
+case4xval(m, j, yk, i: int): int = 
+    ((4 * yk) - (c4xvalsum1(yk, m, 0) + c4xvalsum2(m, yk, (j - 3), 0))) / 3^(j - 2)
+
+
 % case4
 % param k: base where the stair will be calculated from
 % param j: what "level" the stair is at
@@ -179,15 +211,18 @@ case3(k, j, yk: int, str: string): bool =
 %%%
 % concatenate_recur(str_base: string, num: string, n: nat, l: bool): 
 
-case4(k, j, yk, m: int, str: string): bool =
-    IF (m = 0) THEN
-        TRUE
-    ELSE
-        LET str = concatenate_recur(str, "1", m, ) IN
-        LET str = concatenate_recur(str, "1", ((j - 3) - m), TRUE) IN
-        LET x = 3 IN
-        verification(x, str)
-    ENDIF
+% python file case where qj = j - 2: 5, 5. x val: 151
+%case4(k, j, yk, m: int, str: string): bool =
+%    IF (m = 0) THEN
+%        LET str = concatenate_recur(str, "1", (j - 2), FALSE) IN
+%        LET x = 3 in 
+%        x + 1
+%    ELSE
+%        LET str = concatenate_recur(str, "1", m, ) IN
+%        LET str = concatenate_recur(str, "1", ((j - 3) - m), TRUE) IN
+%        LET x = 3 IN
+%        verification(x, str)
+ %   ENDIF
 
 %%%
 % mainfor
@@ -208,7 +243,7 @@ mainfor(k: int, j: int, yk: int): bool =
         ELSIF (qj = 2) THEN
             case3(k, j, yk, "")
         ELSIF (qj = j - 2) THEN
-            case4(k, j, yk, 0, "")
+            true
         ELSE
             TRUE
         ENDIF
