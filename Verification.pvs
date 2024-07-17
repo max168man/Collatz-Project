@@ -43,6 +43,23 @@ is_power_of_two(x: posnat): RECURSIVE bool =
 
 lemma_power_two: LEMMA FORALL (x: posnat): is_power_of_two(x) => EXISTS (n: nat): 2^n = x
 
+% @QED lemma_power_two_base proved by mmbraine on Wed, 17 Jul 2024 16:37:26 GMT
+lemma_power_two_base: LEMMA 
+  is_power_of_two(1) AND EXISTS (n: nat): 2^n = 1
+
+lemma_power_two_even: LEMMA 
+  FORALL (x: posnat): 
+    is_power_of_two(x) AND x > 1 => 
+      (EXISTS (y: posnat): x = 2 * y AND is_power_of_two(y))
+
+% @QED lemma_power_two_inductive proved by mmbraine on Wed, 17 Jul 2024 16:58:44 GMT
+lemma_power_two_inductive: LEMMA 
+  FORALL (x: posnat):
+    (is_power_of_two(x) AND 
+     EXISTS (n: nat): 2^n = x) =>
+    (is_power_of_two(2*x) AND 
+     EXISTS (m: nat): 2^m = 2*x)
+
 %%%
 % final_cases
 % This helper method to y_determination is the final five test cases to determine the validity of x
