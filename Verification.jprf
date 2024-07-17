@@ -1,0 +1,52 @@
+{
+ "Verification.power_of_TCC1": [
+  {
+   "info": {
+    "theory": "Verification",
+    "formula": "power_of_TCC1",
+    "status": "proved",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "eeafd43f568bf390c48e5a1ee7765197b04ca3df3d1a569591f6c9f1dca8d300"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "power_of_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(grind)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "Verification.is_power_of_two_TCC1": [
+  {
+   "info": {
+    "theory": "Verification",
+    "formula": "is_power_of_two_TCC1",
+    "status": "proved",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "26f23d6478e51426feb1d02255979f283f7d03c37fb8bb4881c5de7290444acc"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "is_power_of_two_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(grind)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ]
+}

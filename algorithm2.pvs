@@ -27,9 +27,9 @@ importing strings % Used to creates BVCs.
 % This helper method repeatedly concatenates a string by another string.
 %%%
 
-concatenate_recur(str_base: string, num: string, n: nat, l: bool): RECURSIVE string =
+concatenate_recur(str_base: string, num: string, n: int, l: bool): RECURSIVE string =
     % base case: once n equals 0, no more concatenation is requested
-    IF n = 0 THEN
+    IF n <= 0 THEN
         str_base
     % concatenates to right if left is false and n /= 0 yet.
     ELSIF l = FALSE THEN
@@ -52,9 +52,9 @@ concatenate_recur(str_base: string, num: string, n: nat, l: bool): RECURSIVE str
 % This helper method repeatedly concatenates a string by another string.
 %%%
 
-concatenate_recur_mod(str_base: string, num: string, n: nat, l: bool): RECURSIVE string =
+concatenate_recur_mod(str_base: string, num: string, n: int, l: bool): RECURSIVE string =
     % base case: once n equals 0, no more concatenation is requested
-    IF n = 0 THEN
+    IF n <= 0 THEN
         str_base
     % concatenates to right if left is false and n /= 0 yet.
     ELSIF l = FALSE THEN
@@ -79,11 +79,11 @@ concatenate_recur_mod(str_base: string, num: string, n: nat, l: bool): RECURSIVE
 
 case1(k, j, yk, x: int, str: string): bool = 
     % Calls upon helper methods to verify x along with it's binary string.
-     println("Case 1: qj = 1:") AND
     IF verification(x, concatenate_recur(str, "0", (j-2), FALSE)) = TRUE THEN
         print("Correct Collatz number: ") AND println(x) AND print("Binary Vertification Code (BVC) for x is <") AND print(concatenate_recur(str, "0", (j-2), FALSE)) AND println(">") AND TRUE
     ELSE
-        println("Invalid Collatz number: Verification failed!") AND FALSE
+        %println("Invalid Collatz number: Verification failed!") AND 
+        TRUE
     ENDIF
 
 %%%
@@ -117,11 +117,12 @@ case2summation(top: int, sum: real): RECURSIVE real =
 %%%
 
 case2(k, j, yk, x: int, str: string): bool = 
-     println("Case 2: qj = j - 1:") AND
     IF (verification(x, str)) = TRUE THEN
-        print(x) AND print(", ") AND println(str) AND TRUE
+        print("Correct Collatz number: ") AND println(x) AND print("Binary Vertification Code (BVC) for x is <") AND print(str) AND println(">") AND TRUE
+        %print(x) AND print(", ") AND println(str) AND TRUE
     ELSE
-        println("Invalid Collatz number: Verification failed!")
+        %println("Invalid Collatz number: Verification failed!") AND
+        TRUE
     ENDIF
 
 %%%
@@ -157,13 +158,13 @@ case3subloop(j, i, t: int, str: string): RECURSIVE string =
 %%%
 
 case3(k, j, yk: int, str: string): bool = 
-    println("Case 3: qj = 2:") AND
     FORALL(i:subrange(0, (j - 3))):
-    println(((((2^(j - 2))*(yk)) - (3 * (2^i)))/9)) AND
+    %println(((((2^(j - 2))*(yk)) - (3 * (2^i)))/9)) AND
         IF verification(floor((((2^(j - 2))*(yk)) - (3 * (2^i)))/9), case3subloop(j, i, j - 3, "")) = TRUE THEN
             print("Correct Collatz number: ") AND println((((2^(j - 2))*(yk)) - (3 * (2^i)))/9) AND print("Binary Vertification Code (BVC) for x is <") AND print(case3subloop(j, i, j - 3, "")) AND println(">") AND TRUE
         ELSE
-            println(": Invalid Collatz number: Verification failed!")
+            %println(": Invalid Collatz number: Verification failed!") AND
+            TRUE
         ENDIF
 %%%
 % case4xval
@@ -195,10 +196,59 @@ c4xvalsum2(m, yk, i, sum: int): RECURSIVE int =
     ENDIF
     MEASURE i
 
-case4xval(m, j, yk, i: int): int = 
+case4xval(m, j, yk: int): int = 
     ((4 * yk) - (c4xvalsum1(yk, m, 0) + c4xvalsum2(m, yk, (j - 3), 0))) / 3^(j - 2)
 
+%%%
+% casem0
+% param k: base where the stair will be calculated from
+% param j: what "level" the stair is at
+% param yk: a specification of the first stair.
+% param m: the current m value within case4's loop.
+% param str: an empty string, a BVC will be constructed from it.
+%
+% This helper method is used for the fourth case in the main for loop, when m=0.
+%%%
 
+casem0(k, j, yk, m: int, str: string): bool = 
+    IF
+        LET x = case4xval(m, j, yk) IN
+        LET str = concatenate_recur("0", "1", (j - 2), FALSE) IN
+        verification(x, str) = TRUE 
+    THEN    
+        print("Correct Collatz number: ") AND println(case4xval(m, j, yk)) AND print("Binary Vertification Code (BVC) for x is <") AND print(concatenate_recur("", "1", (j - 2), FALSE)) AND println(">") AND TRUE
+    ELSE
+        TRUE
+    ENDIF
+
+%%%
+% casemelse
+% param k: base where the stair will be calculated from
+% param j: what "level" the stair is at
+% param yk: a specification of the first stair.
+% param m: the current m value within case4's loop.
+% param str: an empty string, a BVC will be constructed from it.
+%
+% This helper method is used for the fourth case in the main for loop, when m /= 0.
+%%%
+
+casemnot0(k, j, yk, m: int, str: string): bool =  
+    IF
+        LET x = case4xval(m, j, yk) IN
+        LET str = concatenate_recur(str, "1", (j - 3 - m), FALSE) IN
+        LET str = concatenate_recur(str, "1", (m), TRUE) IN 
+        verification(case4xval(m, j, yk), str) = TRUE
+    THEN
+        print("Correct Collatz number: ") AND println(case4xval(m, j, yk)) AND print("Binary Vertification Code (BVC) for x is <") AND 
+        LET str = concatenate_recur(str, "1", (j - 3 - m), FALSE) IN
+        LET str = concatenate_recur(str, "1", (m), TRUE) IN 
+        print(str) AND println(">") AND TRUE
+    ELSE
+        %print("false!") AND 
+        TRUE
+    ENDIF
+
+%%%
 % case4
 % param k: base where the stair will be calculated from
 % param j: what "level" the stair is at
@@ -212,17 +262,13 @@ case4xval(m, j, yk, i: int): int =
 % concatenate_recur(str_base: string, num: string, n: nat, l: bool): 
 
 % python file case where qj = j - 2: 5, 5. x val: 151
-%case4(k, j, yk, m: int, str: string): bool =
-%    IF (m = 0) THEN
-%        LET str = concatenate_recur(str, "1", (j - 2), FALSE) IN
-%        LET x = 3 in 
-%        x + 1
-%    ELSE
-%        LET str = concatenate_recur(str, "1", m, ) IN
-%        LET str = concatenate_recur(str, "1", ((j - 3) - m), TRUE) IN
-%        LET x = 3 IN
-%        verification(x, str)
- %   ENDIF
+
+case4(k, j, yk, m: int, str: string): bool = 
+    IF m = 0 THEN
+        casem0(k, j, yk, m, "")
+    ELSE
+        casemnot0(k, j, yk, m, "0")
+    ENDIF
 
 %%%
 % mainfor
@@ -243,7 +289,8 @@ mainfor(k: int, j: int, yk: int): bool =
         ELSIF (qj = 2) THEN
             case3(k, j, yk, "")
         ELSIF (qj = j - 2) THEN
-            true
+            FORALL(m:subrange(0, (j - 3))):
+                case4(k, j, yk, m, "")
         ELSE
             TRUE
         ENDIF
@@ -263,7 +310,8 @@ alg2(k: int, j: int): bool =
     ELSIF (j < 1) THEN
         println("j must be greater than 0!") AND FALSE
     ELSE
-        print("Y_k/3 = ") AND println(2^(2 * k) - 1) AND mainfor(k, j, (2^(2 * k) - 1))
+        %print("Y_k/3 = ") AND println(2^(2 * k) - 1) AND 
+        mainfor(k, j, (2^(2 * k) - 1))
     ENDIF
 
 END algorithm2

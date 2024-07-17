@@ -1,0 +1,111 @@
+(algorithm2
+ (concatenate_recur_TCC1 0
+  (concatenate_recur_TCC1-1 nil 3929216906 ("" (subtype-tcc) nil nil)
+   nil nil
+   (concatenate_recur subtype "((number_fields.-)(algorithm2.n, 1))"
+    "nat")))
+ (concatenate_recur_TCC2 0
+  (concatenate_recur_TCC2-1 nil 3929216906
+   ("" (termination-tcc) nil nil) nil nil
+   (concatenate_recur termination
+    "algorithm2.concatenate_recur(stdstr.concat(algorithm2.str_base, algorithm2.num), algorithm2.num, ((number_fields.-)(algorithm2.n, 1)), booleans.FALSE)"
+    "nil")))
+ (concatenate_recur_TCC3 0
+  (concatenate_recur_TCC3-1 nil 3929216906 ("" (subtype-tcc) nil nil)
+   nil nil
+   (concatenate_recur subtype "((number_fields.-)(algorithm2.n, 1))"
+    "nat")))
+ (concatenate_recur_TCC4 0
+  (concatenate_recur_TCC4-1 nil 3929216906
+   ("" (termination-tcc) nil nil) nil nil
+   (concatenate_recur termination
+    "algorithm2.concatenate_recur(stdstr.concat(algorithm2.num, algorithm2.str_base), algorithm2.num, ((number_fields.-)(algorithm2.n, 1)), booleans.TRUE)"
+    "nil")))
+ (case1_TCC1 0
+  (case1_TCC1-1 nil 3929220426 ("" (subtype-tcc) nil nil) nil nil
+   (case1 subtype "((number_fields.-)(algorithm2.j, 2))" "nat")))
+ (case2summation_TCC1 0
+  (case2summation_TCC1-1 nil 3929220426 ("" (subtype-tcc) nil nil) nil
+   nil (case2summation subtype "algorithm2.top" "naturalnumber")))
+ (case2summation_TCC2 0
+  (case2summation_TCC2-1 nil 3929220426 ("" (termination-tcc) nil nil)
+   nil nil
+   (case2summation termination
+    "algorithm2.case2summation(((number_fields.-)(algorithm2.top, 1)), ((number_fields.+)(algorithm2.sum, (exponentiation.^(3, algorithm2.top)))))"
+    "nil")))
+ (case3subloop_TCC1 0
+  (case3subloop_TCC1-1 nil 3929220426 ("" (termination-tcc) nil nil)
+   nil nil
+   (case3subloop termination
+    "algorithm2.case3subloop(algorithm2.j, algorithm2.i, ((number_fields.-)(algorithm2.t, 1)), stdstr.concat(algorithm2.str, \"1\"))"
+    "nil")))
+ (case3subloop_TCC2 0
+  (case3subloop_TCC2-1 nil 3929220426
+   ("" (skeep) (("" (grind) nil nil)) nil)
+   ((int_minus_int_is_int application-judgement "int" integers nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (minus_odd_is_odd application-judgement "odd_int" integers nil))
+   nil
+   (case3subloop termination
+    "algorithm2.case3subloop(algorithm2.j, algorithm2.i, ((number_fields.-)(algorithm2.t, 1)), stdstr.concat(algorithm2.str, \"0\"))"
+    "nil")))
+ (c4xvalsum1_TCC1 0
+  (c4xvalsum1_TCC1-1 nil 3929220426 ("" (subtype-tcc) nil nil) nil nil
+   (c4xvalsum1 subtype
+    "(number_fields.+)(algorithm2.sum, (number_fields.*(2, exponentiation.^(3, algorithm2.i))))"
+    "int")))
+ (c4xvalsum1_TCC2 0
+  (c4xvalsum1_TCC2-1 nil 3929220426 ("" (termination-tcc) nil nil) nil
+   nil
+   (c4xvalsum1 termination
+    "algorithm2.c4xvalsum1(algorithm2.yk, ((number_fields.-)(algorithm2.i, 1)), (number_fields.+)(algorithm2.sum, (number_fields.*(2, exponentiation.^(3, algorithm2.i)))))"
+    "nil")))
+ (c4xvalsum2_TCC1 0
+  (c4xvalsum2_TCC1-1 nil 3929220426 ("" (subtype-tcc) nil nil) nil nil
+   (c4xvalsum2 subtype
+    "(number_fields.+)(algorithm2.sum, (exponentiation.^(3, algorithm2.i)))"
+    "int")))
+ (c4xvalsum2_TCC2 0
+  (c4xvalsum2_TCC2-1 nil 3929220426 ("" (termination-tcc) nil nil) nil
+   nil
+   (c4xvalsum2 termination
+    "algorithm2.c4xvalsum2(algorithm2.m, algorithm2.yk, ((number_fields.-)(algorithm2.i, 1)), (number_fields.+)(algorithm2.sum, (exponentiation.^(3, algorithm2.i))))"
+    "nil")))
+ (case4xval_TCC1 0
+  (case4xval_TCC1-1 nil 3929220426 ("" (subtype-tcc) nil nil) nil nil
+   (case4xval subtype
+    "number_fields./(((number_fields.-)((number_fields.*(4, algorithm2.yk)), ((number_fields.+)(algorithm2.c4xvalsum1(algorithm2.yk, algorithm2.m, 0), algorithm2.c4xvalsum2(algorithm2.m, algorithm2.yk, ((number_fields.-)(algorithm2.j, 3)), 0))))), exponentiation.^(3, ((number_fields.-)(algorithm2.j, 2))))"
+    "int")))
+ (casemnot0_TCC1 0
+  (casemnot0_TCC1-1 nil 3929220426 ("" (subtype-tcc) nil nil) nil nil
+   (casemnot0 subtype
+    "((number_fields.-)((number_fields.-)(algorithm2.j, 3), algorithm2.m))"
+    "nat")))
+ (casemnot0_TCC2 0
+  (casemnot0_TCC2-1 nil 3929220426 ("" (subtype-tcc) nil nil) nil nil
+   (casemnot0 subtype "(algorithm2.m)" "nat")))
+ (casemnot0_TCC3 0
+  (casemnot0_TCC3-1 nil 3929220426 ("" (subtype-tcc) nil nil) nil nil
+   (casemnot0 subtype
+    "((number_fields.-)((number_fields.-)(algorithm2.j, 3), algorithm2.m))"
+    "nat")))
+ (casemnot0_TCC4 0
+  (casemnot0_TCC4-1 nil 3929220426 ("" (subtype-tcc) nil nil) nil nil
+   (casemnot0 subtype "(algorithm2.m)" "nat")))
+ (mainfor_TCC1 0
+  (mainfor_TCC1-1 nil 3929220426 ("" (subtype-tcc) nil nil) nil nil
+   (mainfor subtype
+    "(number_fields.*((exponentiation.^(2, ((number_fields.-)(algorithm2.j, 1)))), (number_fields./(algorithm2.yk, 3))))"
+    "int")))
+ (mainfor_TCC2 0
+  (mainfor_TCC2-1 nil 3929220426 ("" (subtype-tcc) nil nil) nil nil
+   (mainfor subtype
+    "number_fields./(((number_fields.-)((number_fields.*(2, algorithm2.yk)), algorithm2.case2summation(((number_fields.-)(algorithm2.j, 2)), 0))), (exponentiation.^(3, ((number_fields.-)(algorithm2.j, 1)))))"
+    "int")))
+ (alg2_TCC1 0
+  (alg2_TCC1-1 nil 3929220426 ("" (subtype-tcc) nil nil) nil nil
+   (alg2 subtype
+    "((number_fields.-)(exponentiation.^(2, (number_fields.*(2, algorithm2.k))), 1))"
+    "int"))))
+

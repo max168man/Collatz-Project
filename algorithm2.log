@@ -1,14 +1,14 @@
 
 Context changed to ~/Documents/Collatz_Project/
 Parsing algorithm2
-algorithm2 parsed in 0.03 seconds
+algorithm2 parsed in 0.04 seconds
 Typechecking algorithm2
 Parsing Verification
 Verification parsed in 0.02 seconds
 Verification is already parsed
 Typechecking Verification
-Verification typechecked in 0.10s: 21 TCCs, 0 proved, 11 subsumed, 10 unproved
-algorithm2 typechecked in 0.45s: 23 TCCs, 0 proved, 6 subsumed, 17 unproved
+Verification typechecked in 0.23s: 21 TCCs, 0 proved, 11 subsumed, 10 unproved
+algorithm2 typechecked in 1.09s: 29 TCCs, 0 proved, 8 subsumed, 21 unproved; 7 msgs
 Warning: (method typecheck* (subtype-judgement t t t)), :operator was
          defined in
          /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/pvs-patches/patch-20210707-trivial-judgements.lisp
@@ -29,9 +29,187 @@ Warning: (method typecheck* (subtype-judgement t t t)), :operator was
          /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/pvs-patches/patch-20210707.lisp
          and is now being defined in
          /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/pvs-patches/patch-20210707-trivial-judgements.lisp
-; While compiling #'_case4xval at top level:
+; While compiling #'_validate_string at top level:
+Warning: Variable k is never used.
+; While compiling #'validate_string! at top level:
+Warning: Variable k is never used.
+; While compiling #'_make_exc at top level:
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+; While compiling #'make_exc! at top level:
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+; While compiling #'(:internal make_exc 0) at top level:
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+; While compiling #'_case1 at top level:
+Warning: Variable yk is never used.
+Warning: Variable k is never used.
+; While compiling #'case1! at top level:
+Warning: Variable yk is never used.
+Warning: Variable k is never used.
+; While compiling #'(:internal case1 0) at top level:
+Warning: Variable yk is never used.
+Warning: Variable k is never used.
+; While compiling #'_case2 at top level:
+Warning: Variable yk is never used.
+Warning: Variable j is never used.
+Warning: Variable k is never used.
+; While compiling #'case2! at top level:
+Warning: Variable yk is never used.
+Warning: Variable j is never used.
+Warning: Variable k is never used.
+; While compiling #'(:internal case2 0) at top level:
+Warning: Variable yk is never used.
+Warning: Variable j is never used.
+Warning: Variable k is never used.
+; While compiling #'_case3 at top level:
 Warning: Variable i is never used.
-; While compiling #'case4xval! at top level:
+Warning: Variable str is never used.
+Warning: Variable k is never used.
+; While compiling #'case3! at top level:
 Warning: Variable i is never used.
-; While compiling #'(:internal case4xval 0) at top level:
-Warning: Variable i is never used.
+Warning: Variable str is never used.
+Warning: Variable k is never used.
+; While compiling #'(:internal case3 0) at top level:
+Warning: Variable str is never used.
+Warning: Variable k is never used.
+; While compiling #'_casem0 at top level:
+Warning: Variable str is never used.
+Warning: Variable k is never used.
+; While compiling #'casem0! at top level:
+Warning: Variable str is never used.
+Warning: Variable k is never used.
+; While compiling #'(:internal casem0 0) at top level:
+Warning: Variable str is never used.
+Warning: Variable k is never used.
+; While compiling #'_casemnot0 at top level:
+Warning: Variable x is never used.
+Warning: Variable k is never used.
+; While compiling #'casemnot0! at top level:
+Warning: Variable x is never used.
+Warning: Variable k is never used.
+; While compiling #'(:internal casemnot0 0) at top level:
+Warning: Variable x is never used.
+Warning: Variable k is never used.
+; While compiling #'_case4 at top level:
+Warning: Variable str is never used.
+; While compiling #'case4! at top level:
+Warning: Variable str is never used.
+; While compiling #'(:internal case4 0) at top level:
+Warning: Variable str is never used.
+; While compiling #'_mainfor at top level:
+Warning: Variable qj is never used.
+; While compiling #'(:internal _mainfor 0) at top level:
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+; While compiling #'mainfor! at top level:
+Warning: Variable qj is never used.
+; While compiling #'(:internal mainfor! 0) at top level:
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+; While compiling #'(:internal (:internal mainfor 0) 0) at top level:
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+; While compiling #'_alg2 at top level:
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+; While compiling #'alg2! at top level:
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+; While compiling #'(:internal alg2 0) at top level:
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.
+Warning: Variable condition is never used.

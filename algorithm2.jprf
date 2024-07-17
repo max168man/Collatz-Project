@@ -1,0 +1,58 @@
+{
+ "algorithm2.case3subloop_TCC2": [
+  {
+   "info": {
+    "theory": "algorithm2",
+    "formula": "case3subloop_TCC2",
+    "status": "proved",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "2d5c5a27fe23fa06956f26fa6ba18b137cb38d14848595cead5873000069e022"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "case3subloop_TCC2",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(skeep)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(grind)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "algorithm2.case2summation_TCC2": [
+  {
+   "info": {
+    "theory": "algorithm2",
+    "formula": "case2summation_TCC2",
+    "status": "proved",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "2d5c5a27fe23fa06956f26fa6ba18b137cb38d14848595cead5873000069e022"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "case2summation_TCC2",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(grind)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ]
+}

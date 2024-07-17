@@ -23,6 +23,7 @@ BEGIN
 IMPORTING ints@divides % Used to check if a number there exists a number i such that x * i = y, in divides(x, y)
 %IMPORTING list % Used for various purposes
 IMPORTING power@log
+IMPORTING Verification
 
 %------------------------------------------------------------------------
 % Essential Defintions and Functions
@@ -148,6 +149,10 @@ lemma10: LEMMA FORALL (x1, x2: nat): Fcltz(x1) /= Fcltz(x2) => (x1 /= x2)
 %%% Theorem 12
 % Algorithm 1 is correct. It does not produce false positives or false negatives.
 %%%
+
+theorem12: LEMMA FORALL (x: nat, str: string): verification(x, str) = TRUE => floor(stringreader(x, str)) = ceiling(stringreader(x, str))
+
+theorem12_1: LEMMA FORALL (x:nat, str: string): is_power_of_two(x) => verification(x, str) = FALSE
 
 %%% Theorem 13
 % The asymptotic time complexity of Algorithm 1 is linear in the length of s.
