@@ -31,7 +31,7 @@
     "formula": "is_power_of_two_TCC1",
     "status": "proved",
     "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
-    "shasum": "26f23d6478e51426feb1d02255979f283f7d03c37fb8bb4881c5de7290444acc"
+    "shasum": "e934b449721f496daef0e1628e2c242e18912dfe1462181f3f349b58f8378cdd"
    },
    "origin": ".prf",
    "proofTree": {
@@ -56,7 +56,7 @@
     "formula": "lemma_power_two_base",
     "status": "proved",
     "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
-    "shasum": "0b58028d53569e22875f4e874764929098cbc07fca15ffe120dbe2560c9acc37"
+    "shasum": "a79e7a08cee121fdbc3186df43532cfbcd30ba4e344274b00198a9988fecf2d5"
    },
    "origin": ".prf",
    "proofTree": {
@@ -448,7 +448,7 @@
     "formula": "finalcases_to_verification",
     "status": "proved",
     "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
-    "shasum": "16820dc39086b4ad41035e685b9db09fb158ce0c1b7dde94f6ec3b9ac9ff2a62"
+    "shasum": "e934b449721f496daef0e1628e2c242e18912dfe1462181f3f349b58f8378cdd"
    },
    "origin": ".prf",
    "proofTree": {
@@ -491,7 +491,7 @@
     "formula": "finalcase1_to_finalcases",
     "status": "proved",
     "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
-    "shasum": "566b0405a4bfbef1598239d68df28713efe9c71c3e33acc16039d973af817aa4"
+    "shasum": "e934b449721f496daef0e1628e2c242e18912dfe1462181f3f349b58f8378cdd"
    },
    "origin": ".prf",
    "proofTree": {
@@ -522,7 +522,7 @@
     "formula": "finalcase3_to_finalcases",
     "status": "proved",
     "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
-    "shasum": "d2c18c89466ba7a26516348ea7b69da32470e8b5ec4cf84c8e21a79e873e3b40"
+    "shasum": "e934b449721f496daef0e1628e2c242e18912dfe1462181f3f349b58f8378cdd"
    },
    "origin": ".prf",
    "proofTree": {
@@ -553,7 +553,7 @@
     "formula": "finalcase2_to_finalcases",
     "status": "proved",
     "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
-    "shasum": "d2c18c89466ba7a26516348ea7b69da32470e8b5ec4cf84c8e21a79e873e3b40"
+    "shasum": "e934b449721f496daef0e1628e2c242e18912dfe1462181f3f349b58f8378cdd"
    },
    "origin": ".prf",
    "proofTree": {
@@ -584,7 +584,7 @@
     "formula": "finalcases_to_ydetermination",
     "status": "proved",
     "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
-    "shasum": "d90e1df7920a57e0984adb798d1ae6cdfedbb4aede04c64cf887bbf87d0b29c4"
+    "shasum": "b2b7b430a812852e232c735aeb669accdca59c74ad504b1f19ce34ada0c637cc"
    },
    "origin": ".prf",
    "proofTree": {
@@ -621,7 +621,7 @@
     "formula": "y_determination_to_verification",
     "status": "proved",
     "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
-    "shasum": "59ee648602361328f1165f48a89e3d006448fe1a25aa8da1e4717cb56c1dd339"
+    "shasum": "b2b7b430a812852e232c735aeb669accdca59c74ad504b1f19ce34ada0c637cc"
    },
    "origin": ".prf",
    "proofTree": {
@@ -805,7 +805,7 @@
     "formula": "finalcases1_to_verification",
     "status": "proved",
     "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
-    "shasum": "05c7fccd480d3e1da5858cc29d57f67675cc0572cab3c70a9d38a2679389d64f"
+    "shasum": "e934b449721f496daef0e1628e2c242e18912dfe1462181f3f349b58f8378cdd"
    },
    "origin": ".prf",
    "proofTree": {
@@ -854,7 +854,7 @@
     "formula": "poweroftwo_to_verification",
     "status": "proved",
     "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
-    "shasum": "0b0befef4631ed0251677c350e8a4ebd64b148e5ec0dfe0bcb1fbe70435db0c5"
+    "shasum": "e934b449721f496daef0e1628e2c242e18912dfe1462181f3f349b58f8378cdd"
    },
    "origin": ".prf",
    "proofTree": {
@@ -891,7 +891,7 @@
     "formula": "theorem_12_true",
     "status": "proved",
     "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
-    "shasum": "dbf09b1647a76208d75057cfbe1b6a5c7acfa6e7ad46f55c8e7450d395b4fc03"
+    "shasum": "cbe090705bc6d1d315f84f796f247b26c2afa595e47a17ea0befd3f8e3cb3391"
    },
    "origin": ".prf",
    "proofTree": {
@@ -998,6 +998,1321 @@
      {
       "branch": "",
       "name": "(grind)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "Verification.lemma_power_two2": [
+  {
+   "info": {
+    "theory": "Verification",
+    "formula": "lemma_power_two2",
+    "status": "proved",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "724c8bca405d3487a92fb335cf159f892794a45178732075e67d507e55fa784d"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "lemma_power_two2",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(induct n)",
+      "type": "proof-command",
+      "rules": [
+       {
+        "branch": "1",
+        "name": "(1)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "1",
+          "name": "(grind)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "2",
+        "name": "(2)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "2",
+          "name": "(skeep)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(expand is_power_of_two +)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(case \"2 ^ (1 + j) = 1\")",
+          "type": "proof-command",
+          "rules": [
+           {
+            "branch": "2.1",
+            "name": "(2.1)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "2.1",
+              "name": "(grind)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "2.2",
+            "name": "(2.2)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "2.2",
+              "name": "(case (2 ^ (1 + j) < 1))",
+              "type": "proof-command",
+              "rules": [
+               {
+                "branch": "2.2.1",
+                "name": "(2.2.1)",
+                "type": "proof-branch",
+                "rules": [
+                 {
+                  "branch": "2.2.1",
+                  "name": "(grind)",
+                  "type": "proof-command",
+                  "rules": []
+                 }
+                ]
+               },
+               {
+                "branch": "2.2.2",
+                "name": "(2.2.2)",
+                "type": "proof-branch",
+                "rules": [
+                 {
+                  "branch": "2.2.2",
+                  "name": "(case \"integer_pred((2 ^ (1 + j)) / 2)\")",
+                  "type": "proof-command",
+                  "rules": [
+                   {
+                    "branch": "2.2.2.1",
+                    "name": "(2.2.2.1)",
+                    "type": "proof-branch",
+                    "rules": [
+                     {
+                      "branch": "2.2.2.1",
+                      "name": "(grind)",
+                      "type": "proof-command",
+                      "rules": []
+                     }
+                    ]
+                   },
+                   {
+                    "branch": "2.2.2.2",
+                    "name": "(2.2.2.2)",
+                    "type": "proof-branch",
+                    "rules": [
+                     {
+                      "branch": "2.2.2.2",
+                      "name": "(case \"is_power_of_two((2 ^ (1 + j)) / 2)\")",
+                      "type": "proof-command",
+                      "rules": [
+                       {
+                        "branch": "2.2.2.2.1",
+                        "name": "(2.2.2.2.1)",
+                        "type": "proof-branch",
+                        "rules": [
+                         {
+                          "branch": "2.2.2.2.1",
+                          "name": "(grind)",
+                          "type": "proof-command",
+                          "rules": []
+                         }
+                        ]
+                       },
+                       {
+                        "branch": "2.2.2.2.2",
+                        "name": "(2.2.2.2.2)",
+                        "type": "proof-branch",
+                        "rules": [
+                         {
+                          "branch": "2.2.2.2.2",
+                          "name": "(grind)",
+                          "type": "proof-command",
+                          "rules": []
+                         }
+                        ]
+                       },
+                       {
+                        "branch": "2.2.2.2.3T",
+                        "name": "(2.2.2.2.3T)",
+                        "type": "proof-branch",
+                        "rules": [
+                         {
+                          "branch": "2.2.2.2.3T",
+                          "name": "(grind)",
+                          "type": "proof-command",
+                          "rules": []
+                         }
+                        ]
+                       }
+                      ]
+                     }
+                    ]
+                   }
+                  ]
+                 }
+                ]
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ],
+ "Verification.lemma_power_two_false": [
+  {
+   "info": {
+    "theory": "Verification",
+    "formula": "lemma_power_two_false",
+    "status": "proved",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "e934b449721f496daef0e1628e2c242e18912dfe1462181f3f349b58f8378cdd"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "lemma_power_two_false",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(skeep)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(skeep)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(lemma lemma_power_two_true)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(inst?)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(expand \"is_power_of_two\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(grind)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "Verification.theorem_12_false": [
+  {
+   "info": {
+    "theory": "Verification",
+    "formula": "theorem_12_false",
+    "status": "proved",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "e934b449721f496daef0e1628e2c242e18912dfe1462181f3f349b58f8378cdd"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "theorem_12_false",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(lemma finalcases1_to_verification)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(lemma finalcases2_to_verification)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(lemma finalcases3_to_verification)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(lemma poweroftwo_to_verification)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(skeep 1)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(inst?)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(inst?)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(inst?)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(inst?)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(inst?)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(inst?)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(inst?)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(inst?)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(inst?)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(inst?)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(simplify)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(grind)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "Verification.y_calculation_TCC1": [
+  {
+   "info": {
+    "theory": "Verification",
+    "formula": "y_calculation_TCC1",
+    "status": "proved",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "e934b449721f496daef0e1628e2c242e18912dfe1462181f3f349b58f8378cdd"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "y_calculation_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(grind)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "Verification.validate_string_TCC1": [
+  {
+   "info": {
+    "theory": "Verification",
+    "formula": "validate_string_TCC1",
+    "status": "proved",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "e934b449721f496daef0e1628e2c242e18912dfe1462181f3f349b58f8378cdd"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "validate_string_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(grind)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "Verification.verification_TCC4": [
+  {
+   "info": {
+    "theory": "Verification",
+    "formula": "verification_TCC4",
+    "status": "proved",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "e934b449721f496daef0e1628e2c242e18912dfe1462181f3f349b58f8378cdd"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "verification_TCC4",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(grind)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "Verification.finalcases2_to_verification": [
+  {
+   "info": {
+    "theory": "Verification",
+    "formula": "finalcases2_to_verification",
+    "status": "proved",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "e934b449721f496daef0e1628e2c242e18912dfe1462181f3f349b58f8378cdd"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "finalcases2_to_verification",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(skeep)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(expand verification)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(expand y_determination)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(expand final_cases)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(grind)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "Verification.finalcases3_to_verification": [
+  {
+   "info": {
+    "theory": "Verification",
+    "formula": "finalcases3_to_verification",
+    "status": "proved",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "e934b449721f496daef0e1628e2c242e18912dfe1462181f3f349b58f8378cdd"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "finalcases3_to_verification",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(skeep)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(expand verification)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(expand y_determination)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(expand final_cases)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(grind)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "Verification.is_power_of_two_TCC2": [
+  {
+   "info": {
+    "theory": "Verification",
+    "formula": "is_power_of_two_TCC2",
+    "status": "proved",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "e934b449721f496daef0e1628e2c242e18912dfe1462181f3f349b58f8378cdd"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "is_power_of_two_TCC2",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(grind)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "Verification.is_power_of_two_TCC3": [
+  {
+   "info": {
+    "theory": "Verification",
+    "formula": "is_power_of_two_TCC3",
+    "status": "proved",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "77a8dc04c1404dd2e9b0d4d287ac880cf7831e7ff5fc400df2cdef52f171f431"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "is_power_of_two_TCC3",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(termination-tcc)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "Verification.y_determination_TCC1": [
+  {
+   "info": {
+    "theory": "Verification",
+    "formula": "y_determination_TCC1",
+    "status": "unfinished",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "e934b449721f496daef0e1628e2c242e18912dfe1462181f3f349b58f8378cdd"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "y_determination_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(subtype-tcc)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "Verification.y_determination_TCC2": [
+  {
+   "info": {
+    "theory": "Verification",
+    "formula": "y_determination_TCC2",
+    "status": "unfinished",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "db43e7eec82057a756e3af8d654536991d0c0f7ccac337461538aa587fc6b430"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "y_determination_TCC2",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(subtype-tcc)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "Verification.verification_TCC1": [
+  {
+   "info": {
+    "theory": "Verification",
+    "formula": "verification_TCC1",
+    "status": "unfinished",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "e934b449721f496daef0e1628e2c242e18912dfe1462181f3f349b58f8378cdd"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "verification_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(subtype-tcc)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "Verification.verification_TCC2": [
+  {
+   "info": {
+    "theory": "Verification",
+    "formula": "verification_TCC2",
+    "status": "proved",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "e934b449721f496daef0e1628e2c242e18912dfe1462181f3f349b58f8378cdd"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "verification_TCC2",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(subtype-tcc)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "Verification.verification_TCC3": [
+  {
+   "info": {
+    "theory": "Verification",
+    "formula": "verification_TCC3",
+    "status": "unfinished",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "e934b449721f496daef0e1628e2c242e18912dfe1462181f3f349b58f8378cdd"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "verification_TCC3",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(subtype-tcc)",
+      "type": "proof-command",
+      "rules": [
+       {
+        "branch": "1",
+        "name": "(1)",
+        "type": "proof-branch",
+        "rules": []
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ],
+ "Verification.finalcase1_to_finalcases_TCC1": [
+  {
+   "info": {
+    "theory": "Verification",
+    "formula": "finalcase1_to_finalcases_TCC1",
+    "status": "unfinished",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "724c8bca405d3487a92fb335cf159f892794a45178732075e67d507e55fa784d"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "finalcase1_to_finalcases_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(subtype-tcc)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "Verification.finalcases_to_ydetermination_TCC1": [
+  {
+   "info": {
+    "theory": "Verification",
+    "formula": "finalcases_to_ydetermination_TCC1",
+    "status": "unfinished",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "b2b7b430a812852e232c735aeb669accdca59c74ad504b1f19ce34ada0c637cc"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "finalcases_to_ydetermination_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(subtype-tcc)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "Verification.finalcases_to_verification_TCC1": [
+  {
+   "info": {
+    "theory": "Verification",
+    "formula": "finalcases_to_verification_TCC1",
+    "status": "unfinished",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "e934b449721f496daef0e1628e2c242e18912dfe1462181f3f349b58f8378cdd"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "finalcases_to_verification_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(subtype-tcc)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "Verification.finalcases_to_verification_TCC2": [
+  {
+   "info": {
+    "theory": "Verification",
+    "formula": "finalcases_to_verification_TCC2",
+    "status": "unfinished",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "e934b449721f496daef0e1628e2c242e18912dfe1462181f3f349b58f8378cdd"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "finalcases_to_verification_TCC2",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(subtype-tcc)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "Verification.finalcases_to_verification_TCC3": [
+  {
+   "info": {
+    "theory": "Verification",
+    "formula": "finalcases_to_verification_TCC3",
+    "status": "unfinished",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "e934b449721f496daef0e1628e2c242e18912dfe1462181f3f349b58f8378cdd"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "finalcases_to_verification_TCC3",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(subtype-tcc)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "Verification.finalcases1_to_verification_TCC1": [
+  {
+   "info": {
+    "theory": "Verification",
+    "formula": "finalcases1_to_verification_TCC1",
+    "status": "unfinished",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "e934b449721f496daef0e1628e2c242e18912dfe1462181f3f349b58f8378cdd"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "finalcases1_to_verification_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(subtype-tcc)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "Verification.finalcases2_to_verification_TCC1": [
+  {
+   "info": {
+    "theory": "Verification",
+    "formula": "finalcases2_to_verification_TCC1",
+    "status": "unfinished",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "e934b449721f496daef0e1628e2c242e18912dfe1462181f3f349b58f8378cdd"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "finalcases2_to_verification_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(subtype-tcc)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "Verification.finalcases3_to_verification_TCC1": [
+  {
+   "info": {
+    "theory": "Verification",
+    "formula": "finalcases3_to_verification_TCC1",
+    "status": "unfinished",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "77a8dc04c1404dd2e9b0d4d287ac880cf7831e7ff5fc400df2cdef52f171f431"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "finalcases3_to_verification_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(subtype-tcc)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "Verification.final_cases_TCC1": [
+  {
+   "info": {
+    "theory": "Verification",
+    "formula": "final_cases_TCC1",
+    "status": "proved",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "e934b449721f496daef0e1628e2c242e18912dfe1462181f3f349b58f8378cdd"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "final_cases_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(subtype-tcc)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "Verification.verification_TCC5": [
+  {
+   "info": {
+    "theory": "Verification",
+    "formula": "verification_TCC5",
+    "status": "proved",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "e934b449721f496daef0e1628e2c242e18912dfe1462181f3f349b58f8378cdd"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "verification_TCC5",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(subtype-tcc)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "Verification.lemma_power_two_true": [
+  {
+   "info": {
+    "theory": "Verification",
+    "formula": "lemma_power_two_true",
+    "status": "proved",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "e934b449721f496daef0e1628e2c242e18912dfe1462181f3f349b58f8378cdd"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "lemma_power_two_true",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(induct n)",
+      "type": "proof-command",
+      "rules": [
+       {
+        "branch": "1",
+        "name": "(1)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "1",
+          "name": "(grind)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "2",
+        "name": "(2)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "2",
+          "name": "(skeep)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(expand \"is_power_of_two\" +)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(case \"2 ^ (1 + j) = 1\")",
+          "type": "proof-command",
+          "rules": [
+           {
+            "branch": "2.1",
+            "name": "(2.1)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "2.1",
+              "name": "(grind)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "2.2",
+            "name": "(2.2)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "2.2",
+              "name": "(case (2 ^ (1 + j) < 1))",
+              "type": "proof-command",
+              "rules": [
+               {
+                "branch": "2.2.1",
+                "name": "(2.2.1)",
+                "type": "proof-branch",
+                "rules": [
+                 {
+                  "branch": "2.2.1",
+                  "name": "(grind)",
+                  "type": "proof-command",
+                  "rules": []
+                 }
+                ]
+               },
+               {
+                "branch": "2.2.2",
+                "name": "(2.2.2)",
+                "type": "proof-branch",
+                "rules": [
+                 {
+                  "branch": "2.2.2",
+                  "name": "(case \"integer_pred(2 ^ (1 + j) / 2)\")",
+                  "type": "proof-command",
+                  "rules": [
+                   {
+                    "branch": "2.2.2.1",
+                    "name": "(2.2.2.1)",
+                    "type": "proof-branch",
+                    "rules": [
+                     {
+                      "branch": "2.2.2.1",
+                      "name": "(grind)",
+                      "type": "proof-command",
+                      "rules": []
+                     }
+                    ]
+                   },
+                   {
+                    "branch": "2.2.2.2",
+                    "name": "(2.2.2.2)",
+                    "type": "proof-branch",
+                    "rules": [
+                     {
+                      "branch": "2.2.2.2",
+                      "name": "(case \"is_power_of_two((2 ^ (1 + j)) / 2)\")",
+                      "type": "proof-command",
+                      "rules": [
+                       {
+                        "branch": "2.2.2.2.1",
+                        "name": "(2.2.2.2.1)",
+                        "type": "proof-branch",
+                        "rules": [
+                         {
+                          "branch": "2.2.2.2.1",
+                          "name": "(grind)",
+                          "type": "proof-command",
+                          "rules": []
+                         }
+                        ]
+                       },
+                       {
+                        "branch": "2.2.2.2.2",
+                        "name": "(2.2.2.2.2)",
+                        "type": "proof-branch",
+                        "rules": [
+                         {
+                          "branch": "2.2.2.2.2",
+                          "name": "(grind)",
+                          "type": "proof-command",
+                          "rules": []
+                         }
+                        ]
+                       },
+                       {
+                        "branch": "2.2.2.2.3",
+                        "name": "(2.2.2.2.3)",
+                        "type": "proof-branch",
+                        "rules": [
+                         {
+                          "branch": "2.2.2.2.3",
+                          "name": "(grind)",
+                          "type": "proof-command",
+                          "rules": []
+                         }
+                        ]
+                       }
+                      ]
+                     }
+                    ]
+                   }
+                  ]
+                 }
+                ]
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ],
+ "Verification.poweroftwo_to_verification_TCC1": [
+  {
+   "info": {
+    "theory": "Verification",
+    "formula": "poweroftwo_to_verification_TCC1",
+    "status": "unfinished",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "d74e41889cbfb7364790fcca9f781ac706cea6d6d0a848cd1fba776624dacd16"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "poweroftwo_to_verification_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(subtype-tcc)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "Verification.verification_TCC6": [
+  {
+   "info": {
+    "theory": "Verification",
+    "formula": "verification_TCC6",
+    "status": "proved",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "e934b449721f496daef0e1628e2c242e18912dfe1462181f3f349b58f8378cdd"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "verification_TCC6",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(termination-tcc)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "Verification.theorem_12_false_TCC1": [
+  {
+   "info": {
+    "theory": "Verification",
+    "formula": "theorem_12_false_TCC1",
+    "status": "untried",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "e734f62d224a7475572a1bcb33329b5f2f58376eff50cd1063ff1b8705f71791"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "theorem_12_false_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(subtype-tcc)",
+      "type": "proof-command",
+      "rules": [
+       {
+        "branch": "1",
+        "name": "(1)",
+        "type": "proof-branch",
+        "rules": []
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ],
+ "Verification.finalcases_to_ydetermination_TCC2": [
+  {
+   "info": {
+    "theory": "Verification",
+    "formula": "finalcases_to_ydetermination_TCC2",
+    "status": "unfinished",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "b2b7b430a812852e232c735aeb669accdca59c74ad504b1f19ce34ada0c637cc"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "finalcases_to_ydetermination_TCC2",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(subtype-tcc)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "Verification.finalcases_to_ydetermination_TCC3": [
+  {
+   "info": {
+    "theory": "Verification",
+    "formula": "finalcases_to_ydetermination_TCC3",
+    "status": "untried",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "b2b7b430a812852e232c735aeb669accdca59c74ad504b1f19ce34ada0c637cc"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "finalcases_to_ydetermination_TCC3",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(subtype-tcc)",
+      "type": "proof-command",
+      "rules": [
+       {
+        "branch": "1",
+        "name": "(1)",
+        "type": "proof-branch",
+        "rules": []
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ],
+ "Verification.y_determination_to_verification_TCC1": [
+  {
+   "info": {
+    "theory": "Verification",
+    "formula": "y_determination_to_verification_TCC1",
+    "status": "unfinished",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "b2b7b430a812852e232c735aeb669accdca59c74ad504b1f19ce34ada0c637cc"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "y_determination_to_verification_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(subtype-tcc)",
       "type": "proof-command",
       "rules": []
      }

@@ -79,7 +79,7 @@ concatenate_recur_mod(str_base: string, num: string, n: int, l: bool): RECURSIVE
 
 case1(k, j, yk, x: int, str: string): bool = 
     % Calls upon helper methods to verify x along with it's binary string.
-    IF verification(x, concatenate_recur(str, "0", (j-2), FALSE)) = TRUE THEN
+    IF verification_portal(x, concatenate_recur(str, "0", (j-2), FALSE)) = TRUE THEN
         print("Correct Collatz number: ") AND println(x) AND print("Binary Vertification Code (BVC) for x is <") AND print(concatenate_recur(str, "0", (j-2), FALSE)) AND println(">") AND TRUE
     ELSE
         %println("Invalid Collatz number: Verification failed!") AND 
@@ -117,7 +117,7 @@ case2summation(top: int, sum: real): RECURSIVE real =
 %%%
 
 case2(k, j, yk, x: int, str: string): bool = 
-    IF (verification(x, str)) = TRUE THEN
+    IF (verification_portal(x, str)) = TRUE THEN
         print("Correct Collatz number: ") AND println(x) AND print("Binary Vertification Code (BVC) for x is <") AND print(str) AND println(">") AND TRUE
         %print(x) AND print(", ") AND println(str) AND TRUE
     ELSE
@@ -160,7 +160,7 @@ case3subloop(j, i, t: int, str: string): RECURSIVE string =
 case3(k, j, yk: int, str: string): bool = 
     FORALL(i:subrange(0, (j - 3))):
     %println(((((2^(j - 2))*(yk)) - (3 * (2^i)))/9)) AND
-        IF verification(floor((((2^(j - 2))*(yk)) - (3 * (2^i)))/9), case3subloop(j, i, j - 3, "")) = TRUE THEN
+        IF verification_portal(floor((((2^(j - 2))*(yk)) - (3 * (2^i)))/9), case3subloop(j, i, j - 3, "")) = TRUE THEN
             print("Correct Collatz number: ") AND println((((2^(j - 2))*(yk)) - (3 * (2^i)))/9) AND print("Binary Vertification Code (BVC) for x is <") AND print(case3subloop(j, i, j - 3, "")) AND println(">") AND TRUE
         ELSE
             %println(": Invalid Collatz number: Verification failed!") AND
@@ -214,7 +214,7 @@ casem0(k, j, yk, m: int, str: string): bool =
     IF
         LET x = case4xval(m, j, yk) IN
         LET str = concatenate_recur("0", "1", (j - 2), FALSE) IN
-        verification(x, str) = TRUE 
+        verification_portal(x, str) = TRUE 
     THEN    
         print("Correct Collatz number: ") AND println(case4xval(m, j, yk)) AND print("Binary Vertification Code (BVC) for x is <") AND print(concatenate_recur("", "1", (j - 2), FALSE)) AND println(">") AND TRUE
     ELSE
@@ -237,7 +237,7 @@ casemnot0(k, j, yk, m: int, str: string): bool =
         LET x = case4xval(m, j, yk) IN
         LET str = concatenate_recur(str, "1", (j - 3 - m), FALSE) IN
         LET str = concatenate_recur(str, "1", (m), TRUE) IN 
-        verification(case4xval(m, j, yk), str) = TRUE
+        verification_portal(case4xval(m, j, yk), str) = TRUE
     THEN
         print("Correct Collatz number: ") AND println(case4xval(m, j, yk)) AND print("Binary Vertification Code (BVC) for x is <") AND 
         LET str = concatenate_recur(str, "1", (j - 3 - m), FALSE) IN
