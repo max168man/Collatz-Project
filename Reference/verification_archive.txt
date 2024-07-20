@@ -1,0 +1,289 @@
+%------------------------------------------------------------------------
+%
+% Verification Algorithm
+% Authors: Ali Ebnenasir <aebnenas@mtu.edu>, Maxwell Brainerd <mmbraine@mtu.edu>
+% Date: 6/25/2024 - ongoing
+%
+% This is a helper file to Collatz.pvs.
+% It contains a verification algorithm, which verifies whether a value x is a legitimate Collatz number with the
+% help of the binary string s as the BVC of x.
+%
+%------------------------------------------------------------------------
+
+Verification: THEORY
+BEGIN
+
+importing stdio   % Used to print output, helping with bugtesting and understanding the results of the algorithm.
+importing strings % Used for reading in a BVC string from user.
+
+
+% This method checks if a number is an integer.
+% For example, if x is 6.5, the floor would be 6, which wouldn't be equal to 6.5.
+
+is_integer(x: real): bool =
+   floor(x) = ceiling(x)
+
+% This method is used to check if a number is a power of two. 
+% I created this since I couldn't get any imported log functions to work.
+
+power_of(base, x: posnat): bool = 
+    EXISTS (n: nat): x = base^n
+
+is_power_of_two(x: posnat): RECURSIVE bool = 
+    IF x = 1 THEN 
+        TRUE
+    ELSIF x < 1 THEN
+        FALSE
+    ELSIF integer_pred(x / 2) THEN 
+        is_power_of_two(x / 2)
+    ELSE
+        FALSE 
+    ENDIF
+    MEASURE x
+
+lemma_power_two: LEMMA FORALL (x: posnat): is_power_of_two(x) => EXISTS (n: nat): 2^n = x
+
+% @QED lemma_power_two_base proved by mmbraine on Wed, 17 Jul 2024 16:37:26 GMT
+lemma_power_two_base: LEMMA 
+  is_power_of_two(1) AND EXISTS (n: nat): 2^n = 1
+
+% @QED lemma_power_two_even proved by mmbraine on Wed, 17 Jul 2024 17:04:00 GMT
+lemma_power_two_even: LEMMA 
+  FORALL (x: posnat): 
+    is_power_of_two(x) AND x > 1 => 
+      (EXISTS (y: posnat): x = 2 * y AND is_power_of_two(y))
+
+% @QED lemma_power_two_inductive proved by mmbraine on Wed, 17 Jul 2024 16:58:44 GMT
+lemma_power_two_inductive: LEMMA 
+  FORALL (x: posnat):
+    (is_power_of_two(x) AND 
+     EXISTS (n: nat): 2^n = x) =>
+    (is_power_of_two(2*x) AND 
+     EXISTS (m: nat): 2^m = 2*x)
+
+%%%
+% final_cases
+% This helper method to y_determination is the final five test cases to determine the validity of x
+% 1: If y is < 1, this is a marker of invalidity
+% 2: If y is a power of two this is a marker of invalidity
+% 3: If s[k] is 1 and x is even, this is a marker of invalidity.
+% 4: If s[k] is 1 and x is odd and y is odd, this is a marker of invalidity.
+% 5: If s[k] is 0 and x is odd, this is a marker of invalidity.
+%%%
+
+final_cases(x: int, y: int, k: int, s: string): bool =
+     %print("String: ") AND println(s) AND
+    % Test case 1
+    IF (y < 1) THEN
+        %print("y value at index ") AND print(k) AND println(" is less than 1.") AND 
+        FALSE
+    % Test case 2
+    ELSIF (is_power_of_two(y) = TRUE) THEN
+        %print("y is a power of two at index ") AND print(k) AND println(" is a power of two.") AND 
+        FALSE
+    % Test case 3 
+    ELSIF ((strcmp(substr(s, k, k), "1") = 0) AND even?(x)) THEN
+        %println("Test case 3 fails!") AND print("index = ") AND print(k) AND print(", x = ") AND print(x) AND print(", string = ") AND println(s) AND 
+        FALSE
+    ELSIF ((strcmp(substr(s, k, k), "1") = 0) AND odd?(x) AND odd?(y)) THEN
+        %println("Test case 4 fails!") AND print("index = ") AND print(k) AND print(", x = ") AND print(x) AND print(", string = ") AND println(s) AND 
+        FALSE
+    ELSIF ((strcmp(substr(s, k, k), "0") = 0) AND odd?(x)) THEN
+        %println("Test case 5 fails!") AND print("index = ") AND print(k) AND print(", x = ") AND print(x) AND print(", string = ") AND println(s) AND 
+        FALSE
+    ELSE
+        TRUE
+    ENDIF
+
+%%%
+% y_calculation
+% param s: BVC to use for reference
+% param x: x value that y will be calculated from
+%
+% This helper method determines the y value of an x value given it's bvc. It is used by verification.
+%%%
+
+y_calculation(x: int, s: string): real =
+    % If the number at index is 0:
+    IF (strcmp(substr(s, (length(s) - 1), (length(s) - 1)), "0") = 0) THEN
+        (x / 2)
+    % If the number isn't 0 (it is then 1)
+    ELSE
+        (3 * x) + 1
+    ENDIF
+
+%%%
+% y_determination
+% param s: BVC to be iterated through
+% param x: Collatz number candidate
+%
+% This helper method to verification() iterates through each index of the BVC, and determines what it's corresponding y value is.
+% This y value is crucial, because it is the parent of x, and x and y are used to determine that R(x) has been applied correctly. This is used in the verification process.
+% Using x, y, the index and s, these parameters are inputted into the final helper method to determine the validity of X and it's BVC.
+% NOTE: Unlike in validate_string(), this method starts from the least significant bit (from last index to first)
+%%%
+
+y_determination(x: int, s: string): bool =
+    % If the number at index is 0:
+    IF (strcmp(substr(s, (length(s) - 1), (length(s) - 1)), "0") = 0) THEN
+        final_cases(x, (x / 2), (length(s) - 1), s)
+        % If the number isn't 0 (it is then 1)
+    ELSE
+        final_cases(x, ((3 * x) + 1), (length(s) - 1), s)
+    ENDIF
+
+
+%%%
+% validate_string()
+% param s: BVC to be checked
+%
+% This helper method to verification checks if a BVC contains only 0's and 1's.
+% If so, it alerts the user to what the invalid character is and where it is located.
+% It then returns false.
+%%%
+
+validate_string(s: string): bool =
+% Iterates through all indexes of string
+    FORALL(k:subrange(0, (length(s) - 1))): 
+        % If the substring at index k isn't 0 or 1, prints error message and returns false.
+        IF (strcmp(substr(s, k, k), "0") /= 0 AND strcmp(substr(s, k, k), "1") /= 0) THEN
+            % print("Invalid character ") AND print(substr(s, k, k)) AND print(" found at index ") AND println(k) AND 
+            FALSE
+        ELSE
+            TRUE
+        ENDIF
+
+%%%
+% verification
+% param x: Collatz number candidate
+% s: BVC of x
+%
+% This method verifies x is a Collatz number, with the help of it's binary string s.
+% It uses command line input in PVSio, and runs through three sanity checks before calling it's helper method, y_determination
+% 1: Checks if BVC isn't empty
+% 2: Checks if all characters in string are 0 or 1, using helper method validate_string.
+% 3: Checks if x is 2 to the power of some number; if so, x cannot be a Collatz number.
+% Once these cases have been checked, x and s are handed off to y_determination.
+%%%
+
+verification(x: int, s: string): RECURSIVE bool =
+    % Test case 1
+    IF length(s) < 1 THEN
+        %println("BVC length must be greater than zero!") AND 
+        FALSE
+    % Test case 2
+    ELSIF (validate_string(s) = FALSE) THEN
+        %println("All characters in string must be 0 or 1!") AND 
+        FALSE
+    % Test case 3
+    ELSIF (is_power_of_two(x) = TRUE) THEN
+        %println("x cannot be a power of two!") AND 
+        FALSE
+    % Handed off to helper function
+    ELSIF (y_determination(x, s) = FALSE) THEN
+        FALSE 
+    % If helper function turns out well, recursively calls self
+    ELSIF (length(s) - 1 > 0) THEN 
+        %print("next verification call, x now = ") AND println(y_calculation(x,s)) AND
+        verification(y_calculation(x, s), substr(s, 0, length(s) - 2))
+    ELSIF (length(s) = 1) THEN
+        %println("x was verified. ") AND
+        TRUE
+    ELSE
+        FALSE
+    ENDIF
+    MEASURE length(s)
+
+stringreader(x: int, s: string): RECURSIVE real = 
+    IF length(s) = 0 THEN
+        x
+    ELSIF (strcmp(substr(s, length(s)-1, length(s)-1), "1") = 0) THEN
+        stringreader(((x - 1)/3), substr(s, 0, length(s) - 2))
+    ELSE
+        stringreader((x/2), substr(s, 0 , length(s) - 2))
+    ENDIF
+    MEASURE length(s)
+
+%%% Proofs %%%
+
+%%%
+% These three proofs prove that if any of these three binary string cases are violated:
+% 1. The parent of x, denoted y, is generated by 3x + 1 and y is a natural value that is a power of two, then x can't be even.
+% 2. X and y are both odd when the rule 3x + 1 is applied
+% 3. X/2 is applied when x is not even.
+%%%
+
+% @QED case_2_1 proved by mmbraine on Thu, 18 Jul 2024 20:12:29 GMT
+case1_to_finalcases: LEMMA
+    FORALL (x: int, y: int, k: int, s: string):
+        ((strcmp(substr(s, k, k), "1") = 0) AND even?(x)) => NOT final_cases(x, y, k, s)
+       
+% @QED case_2_2 proved by mmbraine on Thu, 18 Jul 2024 20:13:00 GMT
+case2_to_finalcases: LEMMA
+    FORALL (x: int, y: int, k: int, s: string):
+        ((strcmp(substr(s, k, k), "1") = 0) AND odd?(x) AND odd?(y)) => NOT final_cases(x, y, k, s)
+
+% @QED case_2_3 proved by mmbraine on Thu, 18 Jul 2024 20:13:08 GMT
+case3_to_finalcases: LEMMA      
+    FORALL (x: int, y: int, k: int, s: string):
+        ((strcmp(substr(s, k, k), "0") = 0) AND odd?(x)) => NOT final_cases(x, y, k, s)
+
+%%%
+% This proof proves that if a final case is violated after x/2 or 3x + 1, then ydetermination returns false.
+%%%
+
+% @QED finalcases_axiom proved by mmbraine on Thu, 18 Jul 2024 20:01:02 GMT
+finalcases_to_ydetermination: LEMMA
+  FORALL (x: int, s: string):
+    NOT final_cases(x, (x / 2), (length(s) - 1), s) AND 
+    NOT final_cases(x, ((3 * x) + 1), (length(s) - 1), s) 
+    => y_determination(x, s) = FALSE
+
+%%%
+% This proof proves that if case1 in final cases fails, by extension y_determination will return false.
+%%%
+
+%%%
+% This proof proves that if a final case is violated after x/2 or 3x + 1, then verification returns false.
+%%%
+
+% @QED finalcases_to_verification proved by mmbraine on Fri, 19 Jul 2024 16:55:01 GMT
+finalcases_to_verification: LEMMA
+    FORALL (x: int, s: string):
+    NOT final_cases(x, (x / 2), (length(s) - 1), s) AND 
+    NOT final_cases(x, ((3 * x) + 1), (length(s) - 1), s) 
+    => verification(x, s) = FALSE
+
+case1_to_verification: LEMMA
+    FORALL (x: int, y: int, k: int, s: string):
+        ((strcmp(substr(s, k, k), "1") = 0) AND even?(x)) => NOT verification(x, s)
+
+case1_to_y_determination: LEMMA
+    FORALL (x: int, y: int, k: int, s: string):
+        ((strcmp(substr(s, k, k), "1") = 0) AND even?(x)) => NOT y_determination(x, s)
+
+% @QED ydetermination_to_verification proved by mmbraine on Thu, 18 Jul 2024 20:57:40 GMT
+ydetermination_to_verification: LEMMA
+ FORALL (x: int, s: string):
+    NOT y_determination(x, s) => verification(x, s) = FALSE
+
+% @QED theorem12 proved by mmbraine on Thu, 18 Jul 2024 01:19:29 GMT
+theorem12: LEMMA FORALL (x: nat, str: string): verification(x, str) = TRUE => floor(stringreader(x, str)) = ceiling(stringreader(x, str))
+
+% @QED theorem12_1 proved by mmbraine on Wed, 17 Jul 2024 17:11:41 GMT
+theorem12_1: LEMMA FORALL (x:nat, str: string): is_power_of_two(x) => verification(x, str) = FALSE
+
+%theorem12_false: LEMMA FORALL (x: nat, str: string): is_power_of_two(x) OR 
+theorem12_2: LEMMA FORALL (x: int, y: int, k: int, s: string):
+    NOT final_cases(x, y, k, s) => NOT verification(x, s)
+
+theorem_12_true_case_length: LEMMA FORALL (x: int, s: string):
+    verification(x, s) = TRUE => length(s) = 1
+
+theorem_12_true_cases: LEMMA FORALL (x: nat, s: string, len: nat | len =  length(s)):
+    verification(x, s) = TRUE => length(s) = 1 AND y_determination(x, s) = TRUE
+
+theorem_12_true: LEMMA FORALL (x: nat, s: string):
+    verification(x, s) = TRUE => length(s) = 1 AND y_determination(x, s) = TRUE
+
+END Verification

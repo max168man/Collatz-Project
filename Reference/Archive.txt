@@ -143,3 +143,20 @@ verificationtest(x: int): bool =
 %%% Algorithm 3
 % An algorithm for specifying the members of the jth stair for a given value k > 1, along with constructing their binary verification code.
 %%%
+
+stringreader_positive: LEMMA
+  FORALL (x: nat, str: string): stringreader(x, str) > 0
+  
+verification_implies_integer: LEMMA
+  FORALL (x: nat, str: string):
+    verification(x, str) = TRUE => integer_pred(stringreader(x, str))
+
+verification_y_calculation_lemma: LEMMA
+  FORALL (x: nat, str: string):
+    length(str) > 1 AND verification(x, str) = TRUE =>
+      verification(y_calculation(x, str), substr(str, 0, length(str) - 2)) = TRUE
+
+stringreader_recursive_lemma: LEMMA
+  FORALL (x: nat, str: string):
+    length(str) > 0 AND is_integer(stringreader(y_calculation(x, str), substr(str, 0, length(str) - 2))) =>
+      is_integer(stringreader(x, str))

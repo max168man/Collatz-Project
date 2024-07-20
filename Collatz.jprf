@@ -542,5 +542,145 @@
     ]
    }
   }
+ ],
+ "Collatz.theorem12_1": [
+  {
+   "info": {
+    "theory": "Collatz",
+    "formula": "theorem12_1",
+    "status": "proved",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "5423f2fe7d74bfbc94e3cfa33793f8429c19f3282ba3109b06b08efdc38b505e"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "theorem12_1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(case \"length(str!1) < 1\")",
+      "type": "proof-command",
+      "rules": [
+       {
+        "branch": "1",
+        "name": "(1)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "1",
+          "name": "(expand verification)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(assert)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "2",
+        "name": "(2)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "2",
+          "name": "(case \"validate_string(str!1) = false\")",
+          "type": "proof-command",
+          "rules": [
+           {
+            "branch": "2.1",
+            "name": "(2.1)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "2.1",
+              "name": "(expand verification)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.1",
+              "name": "(assert)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "2.2",
+            "name": "(2.2)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "2.2",
+              "name": "(assert)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.2",
+              "name": "(grind)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ],
+ "Collatz.theorem12": [
+  {
+   "info": {
+    "theory": "Collatz",
+    "formula": "theorem12",
+    "status": "proved",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "47917c55364e7462cb2e705a0e7c3813c234e4ceb80d73ad52d2509a02ce3c50"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "theorem12",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(skosimp*)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(use verification_implies_integer)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(expand is_integer)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(assert)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
  ]
 }

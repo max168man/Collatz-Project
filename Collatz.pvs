@@ -150,8 +150,31 @@ lemma10: LEMMA FORALL (x1, x2: nat): Fcltz(x1) /= Fcltz(x2) => (x1 /= x2)
 % Algorithm 1 is correct. It does not produce false positives or false negatives.
 %%%
 
+stringreader_positive: LEMMA
+  FORALL (x: nat, str: string): stringreader(x, str) > 0
+  
+verification_implies_integer: LEMMA
+  FORALL (x: nat, str: string):
+    verification(x, str) = TRUE => integer_pred(stringreader(x, str))
+
+verification_y_calculation_lemma: LEMMA
+  FORALL (x: nat, str: string):
+    length(str) > 1 AND verification(x, str) = TRUE =>
+      verification(y_calculation(x, str), substr(str, 0, length(str) - 2)) = TRUE
+
+stringreader_recursive_lemma: LEMMA
+  FORALL (x: nat, str: string):
+    length(str) > 0 AND is_integer(stringreader(y_calculation(x, str), substr(str, 0, length(str) - 2))) =>
+      is_integer(stringreader(x, str))
+
+finalcases_lemma: AXIOM
+  FORALL (x: int, y: int, k: int, s: string):
+    NOT final_cases(x, y, k, s) => NOT verification(x, s)
+
+% @QED theorem12 proved by mmbraine on Thu, 18 Jul 2024 01:19:29 GMT
 theorem12: LEMMA FORALL (x: nat, str: string): verification(x, str) = TRUE => floor(stringreader(x, str)) = ceiling(stringreader(x, str))
 
+% @QED theorem12_1 proved by mmbraine on Wed, 17 Jul 2024 17:11:41 GMT
 theorem12_1: LEMMA FORALL (x:nat, str: string): is_power_of_two(x) => verification(x, str) = FALSE
 
 %%% Theorem 13

@@ -10,7 +10,7 @@
 %
 %------------------------------------------------------------------------
 
-Verification: THEORY
+Verification_Proof_friendly: THEORY
 BEGIN
 
 importing stdio   % Used to print output, helping with bugtesting and understanding the results of the algorithm.
@@ -29,7 +29,7 @@ is_integer(x: real): bool =
 power_of(base, x: posnat): bool = 
     EXISTS (n: nat): x = base^n
 
-is_power_of_two(x: real): RECURSIVE bool = 
+is_power_of_two(x: posnat): RECURSIVE bool = 
     IF x = 1 THEN 
         TRUE
     ELSIF x < 1 THEN
@@ -52,10 +52,6 @@ lemma_power_two_even: LEMMA
   FORALL (x: posnat): 
     is_power_of_two(x) AND x > 1 => 
       (EXISTS (y: posnat): x = 2 * y AND is_power_of_two(y))
-
-lemma_power_two2: LEMMA
-    FORALL (x, n: nat):
-        2^n = x => is_power_of_two(x)
 
 % @QED lemma_power_two_inductive proved by mmbraine on Wed, 17 Jul 2024 16:58:44 GMT
 lemma_power_two_inductive: LEMMA 
@@ -128,13 +124,13 @@ final_cases(x: int, y: int, k: int, s: string): bool =
         %print("y is a power of two at index ") AND print(k) AND println(" is a power of two.") AND 
         FALSE
     % Test case 3 
-    ELSIF final_case_1(x, y, k, s) = FALSE THEN
+    ELSIF ((strcmp(substr(s, k, k), "1") = 0) AND even?(x)) THEN
         %println("Test case 3 fails!") AND print("index = ") AND print(k) AND print(", x = ") AND print(x) AND print(", string = ") AND println(s) AND 
         FALSE
-    ELSIF final_case_2(x, y, k, s) = FALSE THEN
+    ELSIF ((strcmp(substr(s, k, k), "1") = 0) AND odd?(x) AND odd?(y)) THEN
         %println("Test case 4 fails!") AND print("index = ") AND print(k) AND print(", x = ") AND print(x) AND print(", string = ") AND println(s) AND 
         FALSE
-    ELSIF final_case_3(x, y, k, s) = FALSE THEN
+    ELSIF ((strcmp(substr(s, k, k), "0") = 0) AND odd?(x)) THEN
         %println("Test case 5 fails!") AND print("index = ") AND print(k) AND print(", x = ") AND print(x) AND print(", string = ") AND println(s) AND 
         FALSE
     ELSE
@@ -235,13 +231,6 @@ verification(x: int, s: string, len: nat): RECURSIVE bool =
     ENDIF
     MEASURE len
 
-verification_portal(x: int, s: string): bool = 
-    IF verification(x, s, length(s)) = TRUE THEN
-        TRUE
-    ELSE
-        FALSE
-        ENDIF 
-
 stringreader(x: int, s: string): RECURSIVE real = 
     IF length(s) = 0 THEN
         x
@@ -254,72 +243,6 @@ stringreader(x: int, s: string): RECURSIVE real =
 
 %%% Proofs %%%
 
-%%% When verification is false proofs
-
-% @QED finalcase1_to_finalcases proved by mmbraine on Fri, 19 Jul 2024 21:54:30 GMT
-finalcase1_to_finalcases: LEMMA FORALL (x, y, k: int, s: string): 
-    NOT final_case_1(x, y, k, s) => NOT final_cases(x, y, k, s)
-
-% @QED finalcase2_to_finalcases proved by mmbraine on Fri, 19 Jul 2024 21:58:23 GMT
-finalcase2_to_finalcases: LEMMA FORALL (x, y, k: int, s: string): 
-    NOT final_case_2(x, y, k, s) => NOT final_cases(x, y, k, s)
-   
-% @QED finalcase3_to_finalcases proved by mmbraine on Fri, 19 Jul 2024 21:58:11 GMT
-finalcase3_to_finalcases: LEMMA FORALL (x, y, k: int, s: string): 
-    NOT final_case_3(x, y, k, s) => NOT final_cases(x, y, k, s)
-%%% When verification is true proofs
-
-% @QED finalcases_to_ydetermination proved by mmbraine on Fri, 19 Jul 2024 22:05:08 GMT
-finalcases_to_ydetermination: LEMMA FORALL (x, y, k, len: nat, s: string):
-    NOT final_cases(x, (x / 2), (len - 1), s)
-    AND NOT final_cases(x, ((3 * x) + 1), (len - 1), s) =>
-    NOT y_determination(x, s, len)
-
-% @QED y_determination_to_verification proved by mmbraine on Fri, 19 Jul 2024 22:06:34 GMT
-y_determination_to_verification: LEMMA FORALL (x, len: nat, s: string):
-    NOT y_determination(x, s, len) => NOT verification(x, s, len)
-
-% @QED finalcases_to_verification proved by mmbraine on Fri, 19 Jul 2024 22:17:39 GMT
-finalcases_to_verification: LEMMA FORALL (x, y, k, len: int, s: string):
-    NOT final_cases(x, (x / 2), (len - 1), s)
-    AND NOT final_cases(x, ((3 * x) + 1), (len - 1), s) =>
-    NOT verification(x, s, len)
-
-% @QED finalcase1_to_verification proved by mmbraine on Fri, 19 Jul 2024 22:52:11 GMT
-finalcase1_ydetcase1_to_verification: LEMMA FORALL (x, y, k, len: int, s: string):
-    NOT final_case_1(x, (x / 2), (len - 1), s) => NOT verification(x, s, len)
-
-
-% @QED finalcases1_to_verification proved by mmbraine on Fri, 19 Jul 2024 23:07:58 GMT
-finalcases1_to_verification: LEMMA FORALL (x, y, k, len: int, s: string):
-    NOT final_case_1(x, (x / 2), (len - 1), s) AND 
-    NOT final_case_1(x, ((3 * x) + 1), (len - 1), s) =>
-    NOT verification(x, s, len)
-
-% @QED finalcase2_to_verification proved by mmbraine on Fri, 19 Jul 2024 23:02:36 GMT
-finalcases2_to_verification: LEMMA FORALL (x, y, k, len: int, s: string):
-    NOT final_case_2(x, (x / 2), (len - 1), s) AND 
-    NOT final_case_2(x, ((3 * x) + 1), (len - 1), s) =>
-    NOT verification(x, s, len)
-
-% @QED finalcase3_to_verification proved by mmbraine on Fri, 19 Jul 2024 23:03:43 GMT
-finalcases3_to_verification: LEMMA FORALL (x, y, k, len: int, s: string):
-    NOT final_case_3(x, (x / 2), (len - 1), s) AND 
-    NOT final_case_3(x, ((3 * x) + 1), (len - 1), s) =>
-    NOT verification(x, s, len)
-
-% @QED poweroftwo_to_verification proved by mmbraine on Fri, 19 Jul 2024 23:24:07 GMT
-poweroftwo_to_verification: LEMMA FORALL (x, len: int, s: string):
-    is_power_of_two(x) => NOT verification(x, s, len)
-
-% @QED theorem_12_true proved by mmbraine on Fri, 19 Jul 2024 23:31:22 GMT
-theorem_12_true: LEMMA FORALL (x, y, k, len: int, s: string):
-    NOT final_case_1(x, (x / 2), (len - 1), s) AND NOT final_case_1(x, ((3 * x) + 1), (len - 1), s) OR
-    NOT final_case_2(x, (x / 2), (len - 1), s) AND NOT final_case_2(x, ((3 * x) + 1), (len - 1), s) OR
-    NOT final_case_3(x, (x / 2), (len - 1), s) AND NOT final_case_3(x, ((3 * x) + 1), (len - 1), s) OR
-    is_power_of_two(x) =>
-    NOT verification(x, s, len)
-
 %%%
 % These three proofs prove that if any of these three binary string cases are violated:
 % 1. The parent of x, denoted y, is generated by 3x + 1 and y is a natural value that is a power of two, then x can't be even.
@@ -327,8 +250,8 @@ theorem_12_true: LEMMA FORALL (x, y, k, len: int, s: string):
 % 3. X/2 is applied when x is not even.
 %%%
 
-theorem_12_true_1: LEMMA FORALL (x: int, s: string, len: nat):
-    verification(x, s, len) => len = 1 
+theorem_12_true: LEMMA FORALL (x: int, s: string, len: nat):
+    verification(x, s, len) = TRUE => len = 1 AND y_determination(x, s, len) = TRUE
 
 %%%
 %   This proof proves that if:
@@ -336,4 +259,4 @@ theorem_12_true_1: LEMMA FORALL (x: int, s: string, len: nat):
 %   2. Any step during the derivation of x from Yk / 3 doesn't meet the constraints of Fc
 %   Verification(x, s) will return false.
 %%%
-END Verification
+END Verification_Proof_friendly

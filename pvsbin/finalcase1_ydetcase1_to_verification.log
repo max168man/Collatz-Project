@@ -1,0 +1,41 @@
+Verification.finalcase1_ydetcase1_to_verification is UNPROVED.
+
+  finalcase1_ydetcase1_to_verification depends on the following definitions:
+
+    Verification.final_case_1
+
+    Verification.final_case_2
+
+    Verification.final_case_3
+
+    Verification.final_cases
+
+    Verification.is_power_of_two
+
+    Verification.validate_string
+
+    Verification.verification
+
+    Verification.y_calculation
+
+    Verification.y_determination
+
+    integers.even?
+
+    integers.odd?
+
+    list2finseq.list2finseq
+
+    notequal./=
+
+    reals.<=
+
+    reals.>
+
+    reals.>=
+
+    stdio.printstr
+
+    stdstr.concat
+
+    stdstr.real2str
