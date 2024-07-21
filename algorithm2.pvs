@@ -52,7 +52,7 @@ concatenate_recur(str_base: string, num: string, n: int, l: bool): RECURSIVE str
 % This helper method repeatedly concatenates a string by another string.
 %%%
 
-concatenate_recur_mod(str_base: string, num: string, n: int, l: bool): RECURSIVE string =
+concatenate_recur_mod(str_base: string, num: string, n: nat, l: bool): RECURSIVE string =
     % base case: once n equals 0, no more concatenation is requested
     IF n <= 0 THEN
         str_base
@@ -77,7 +77,7 @@ concatenate_recur_mod(str_base: string, num: string, n: int, l: bool): RECURSIVE
 % It is called upon when qj = 1.
 %%%
 
-case1(k, j, yk, x: int, str: string): bool = 
+case1(k, j, yk: int, x: real, str: string): bool = 
     % Calls upon helper methods to verify x along with it's binary string.
     IF verification_portal(x, concatenate_recur(str, "0", (j-2), FALSE)) = TRUE THEN
         print("Correct Collatz number: ") AND println(x) AND print("Binary Vertification Code (BVC) for x is <") AND print(concatenate_recur(str, "0", (j-2), FALSE)) AND println(">") AND TRUE
@@ -96,7 +96,7 @@ case1(k, j, yk, x: int, str: string): bool =
 %%%
 
 case2summation(top: int, sum: real): RECURSIVE real = 
-    IF (top = 1) THEN
+    IF (top = 1 OR top = 0) THEN
         sum + 3
     ELSE
         case2summation((top - 1), (sum + (3^top)))
@@ -116,7 +116,7 @@ case2summation(top: int, sum: real): RECURSIVE real =
 % It is called upon when qj = j - 1.
 %%%
 
-case2(k, j, yk, x: int, str: string): bool = 
+case2(k, j, yk: int, x: real, str: string): bool = 
     IF (verification_portal(x, str)) = TRUE THEN
         print("Correct Collatz number: ") AND println(x) AND print("Binary Vertification Code (BVC) for x is <") AND print(str) AND println(">") AND TRUE
         %print(x) AND print(", ") AND println(str) AND TRUE
@@ -180,7 +180,7 @@ case3(k, j, yk: int, str: string): bool =
 % These two recursive functions generate summations for case4xval.
 %%%
 
-c4xvalsum1(yk, i, sum: int): RECURSIVE int = 
+c4xvalsum1(yk, i: int, sum: real): RECURSIVE int = 
     IF i = 0 THEN
         sum
     ELSE
@@ -188,7 +188,7 @@ c4xvalsum1(yk, i, sum: int): RECURSIVE int =
     ENDIF
     MEASURE i
 
-c4xvalsum2(m, yk, i, sum: int): RECURSIVE int = 
+c4xvalsum2(m, yk, i: int, sum: real): RECURSIVE int = 
     IF i = m THEN
         sum
     ELSE
@@ -280,7 +280,7 @@ case4(k, j, yk, m: int, str: string): bool =
 % Once it has reached the last case, 2 < qj < j - 2, it calls a large recursive method in a different file.
 %%%
 
-mainfor(k: int, j: int, yk: int): bool = 
+mainfor(k, j: int, yk: real): bool = 
     FORALL(qj:subrange(1, (j - 1))):
         IF (qj = 1) THEN
             case1(k, j, yk, ((2^(j - 1)) * (yk / 3)), "")
