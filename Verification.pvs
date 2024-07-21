@@ -224,7 +224,9 @@ lemma_power_two_false: LEMMA
     FORALL (x: nat):
         NOT is_power_of_two(x) => NOT EXISTS (n: nat): 2^n = x
 
-%%% When verification is false proofs
+%%% 
+% These three algorithms prove that if a final case isn't correct, final_cases itself will be false.
+%%%
 
 %%%
 % @QED finalcase1_to_finalcases proved by mmbraine on Fri, 19 Jul 2024 21:54:30 GMT
@@ -238,7 +240,8 @@ finalcase2_to_finalcases: LEMMA FORALL (x, y: int, k: nat, s: string):
 % @QED finalcase3_to_finalcases proved by mmbraine on Fri, 19 Jul 2024 21:58:11 GMT
 finalcase3_to_finalcases: LEMMA FORALL (x, y: int, k: nat, s: string): 
     NOT final_case_3(x, y, k, s) => NOT final_cases(x, y, k, s)
-%%% When verification is true proofs
+
+% This final proof proves that if final cases is false for either case of the collatz function, verification will be false.
 
 % @QED finalcases_to_verification proved by mmbraine on Fri, 19 Jul 2024 22:17:39 GMT
 finalcases_to_verification: LEMMA FORALL (x, y, k, len: int, s: string):
