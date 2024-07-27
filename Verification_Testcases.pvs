@@ -1,20 +1,32 @@
-%------------------------------------------------------------------------
-%
-% Verification Algorithm
-% Authors: Ali Ebnenasir <aebnenas@mtu.edu>, Maxwell Brainerd <mmbraine@mtu.edu>
-% Date: 6/25/2024 - ongoing
-%
-% This is a test case file for Verification.pvs
-% It tests a verification algorithm, which verifies whether a value x is a legitimate Collatz number with the
-% help of the binary string s as the BVC of x.
-%
-%------------------------------------------------------------------------
-
-Verification_Testcases: THEORY
+string_list_example: THEORY
 BEGIN
 
-importing Verification
+  % Import the strings theory
+  IMPORTING strings
 
-test1: LEMMA verification(58252, "100") = TRUE
+  % Define a list of strings
+  my_string_list: list[string] = (:
+    "Hello",
+    "World",
+    "PVS"
+  :)
 
-END Verification_Testcases
+  % Function to print a list of strings
+  print_string_list(l: list[string]): RECURSIVE void =
+    IF null?(l) THEN
+      print("Empty list")
+    ELSE
+      LET head = car(l),
+          tail = cdr(l)
+      IN
+        print(head) AND
+        print(" ") AND
+        print_string_list(tail)
+    ENDIF
+  MEASURE length(l)
+
+  % Example usage
+  example: void =
+    print_string_list(my_string_list)
+
+END string_list_example

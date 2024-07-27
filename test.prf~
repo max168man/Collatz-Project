@@ -1,0 +1,17 @@
+(fac
+ (s1_TCC1 0
+  (s1_TCC1-1 nil 3931094397 ("" (grind) nil nil)
+   ((add const-decl "sequence" sequences nil)
+    (insert const-decl "sequence" sequences nil))
+   nil (s1 subtype "sequences[real].add(1, fac.s)" "seq")))
+ (s2_TCC1 0
+  (s2_TCC1-1 nil 3931094793 ("" (grind) nil nil)
+   ((add const-decl "sequence" sequences nil)
+    (insert const-decl "sequence" sequences nil))
+   nil (s2 subtype "sequences[real].add(2, fac.s)" "seq")))
+ (s3_TCC1 0
+  (s3_TCC1-1 nil 3931094793 ("" (grind) nil nil)
+   ((add const-decl "sequence" sequences nil)
+    (insert const-decl "sequence" sequences nil))
+   nil (s3 subtype "sequences[real].add(3, fac.s)" "seq"))))
+

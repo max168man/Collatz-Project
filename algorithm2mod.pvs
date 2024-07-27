@@ -1,18 +1,10 @@
-%------------------------------------------------------------------------
-%
-% Algorithm 2 & 3
-% Authors: Ali Ebnenasir <aebnenas@mtu.edu>, Maxwell Brainerd <mmbraine@mtu.edu>
-% Date: 6/27/2024 - ongoing
-%
-% This is a helper file to Collatz.pvs.
-% It contains algorithm 2 & 3, which are used to specify the members of the j-th stair for a given value k > 1, and constructs their 
-% binary verification code. This is critical for proving theorems 14 and 15.
-%
-%------------------------------------------------------------------------
-
-algorithm2: THEORY
-BEGIN
-
+%%
+% @theory: algorithm2mod
+% @author: mmbraine
+% @date: Tue, 23 Jul 2024 22:08:21 GMT
+%%
+algorithm2mod: THEORY
+  BEGIN 
 IMPORTING Verification % Used to check if numbers are Collatz numbers.
 importing stdio   % Used to print output, helping with bugtesting and understanding the results of the algorithm.
 importing strings % Used to creates BVCs.
@@ -77,7 +69,7 @@ concatenate_recur_mod(str_base: string, num: string, n: nat, l: bool): RECURSIVE
 % It is called upon when qj = 1.
 %%%
 
-case1(k, j, yk: int, x: real, str: string): bool = 
+case1(k, yk: int, x: real, str: string, j: nat): bool = 
     % Calls upon helper methods to verify x along with it's binary string.
     IF verification_portal(x, concatenate_recur(str, "0", (j-2), FALSE)) = TRUE THEN
         print("Correct Collatz number: ") AND println(x) AND print("Binary Vertification Code (BVC) for x is <") AND print(concatenate_recur(str, "0", (j-2), FALSE)) AND println(">") AND TRUE
@@ -116,7 +108,7 @@ case2summation(top: int, sum: real): RECURSIVE real =
 % It is called upon when qj = j - 1.
 %%%
 
-case2(k, j, yk: int, x: real, str: string): bool = 
+case2(k, yk: int, x: real, str: string, j: nat): bool = 
     IF (verification_portal(x, str)) = TRUE THEN
         print("Correct Collatz number: ") AND println(x) AND print("Binary Vertification Code (BVC) for x is <") AND print(str) AND println(">") AND TRUE
         %print(x) AND print(", ") AND println(str) AND TRUE
@@ -283,14 +275,14 @@ case4(k, j, yk, m: int, str: string): bool =
 mainfor(k, j: int, yk: real): bool = 
     FORALL(qj:subrange(1, (j - 1))):
         IF (qj = 1) THEN
-            println("qj = 1") AND case1(k, j, yk, ((2^(j - 1)) * (yk / 3)), "")
+            case1(k, yk, ((2^(j - 1)) * (yk / 3)), "", j)
         ELSIF (qj = j - 1 AND j > 1) THEN
-            println("qj = j - 1") AND case2(k, j, yk, ((2 * yk) - case2summation((j - 2), 0))/(3^(j - 1)), "")
+            case2(k, yk, ((2 * yk) - case2summation((j - 2), 0))/(3^(j - 1)), "", j)
         ELSIF (qj = 2 AND j > 2) THEN
-            println("qj = 2") AND case3(k, j, yk, "")
+            case3(k, j, yk, "")
         ELSIF (qj = j - 2 AND j > 2) THEN
             FORALL(m:subrange(0, (j - 3))):
-                println("qj = j - 2") AND case4(k, j, yk, m, "")
+                case4(k, j, yk, m, "")
         ELSE
             TRUE
         ENDIF
@@ -310,8 +302,8 @@ alg2(k: int, j: int): bool =
     ELSIF (j < 1) THEN
         println("j must be greater than 0!") AND FALSE
     ELSE
-        print("Y_k/3 = ") AND println(((2^(2 * k)) - 1)/3) AND 
-        mainfor(k, j, ((2^(2 * k)) - 1))
+        %print("Y_k/3 = ") AND println(2^(2 * k) - 1) AND 
+        mainfor(k, j, (2^(2 * k) - 1))
     ENDIF
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -329,10 +321,14 @@ alg2(k: int, j: int): bool =
 % Everytime case1 is called (which is incurred when q(j) = 1), a single term will be returned.
 %%%
 
-%theorem_14_1: LEMMA FORALL (k, j, yk: int, x: real, str: string, count: nat):
-%    case1(k, j, yk, x, str, count) => count = count + 
+% @QED theorem_14_1 proved by mmbraine on Fri, 26 Jul 2024 18:47:45 GMT
+theorem_14_1: LEMMA FORALL (k, yk: int, x: real, str: string, j: nat | j > 1):
+    case1(k, yk, ((2^(j - 1)) * (yk / 3)), str, j) => case1(k, yk, ((2^j) * (yk / 3)), str, (j+1))
+
+% @QED theorem_14_2 proved by mmbraine on Fri, 26 Jul 2024 19:20:54 GMT
+theorem_14_2: LEMMA FORALL (k, yk: int, x: real, str: string, j: nat | j > 1):
+    case2(k, yk, ((2 * yk) - case2summation((j - 2), 0))/(3^(j - 1)), "", j) =>
+    case2(k, yk, ((2 * yk) - case2summation((j - 1), 0))/(3^(j)), "", (j+1)) 
 
 
-
-
-END algorithm2
+  END algorithm2mod

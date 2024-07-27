@@ -448,7 +448,7 @@
     "formula": "finalcases_to_verification",
     "status": "proved",
     "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
-    "shasum": "e934b449721f496daef0e1628e2c242e18912dfe1462181f3f349b58f8378cdd"
+    "shasum": "cbab17bc5ae8f30ce1a25deef0c4d72e37aff4cd681d4262983321c73bb644d8"
    },
    "origin": ".prf",
    "proofTree": {
@@ -805,7 +805,7 @@
     "formula": "finalcases1_to_verification",
     "status": "proved",
     "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
-    "shasum": "e934b449721f496daef0e1628e2c242e18912dfe1462181f3f349b58f8378cdd"
+    "shasum": "357250d6b4690faa3635f72d157c6c38e7ffa9c0834507b869b20f0fcf0eb12e"
    },
    "origin": ".prf",
    "proofTree": {
@@ -1252,7 +1252,7 @@
     "formula": "theorem_12_false",
     "status": "proved",
     "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
-    "shasum": "e934b449721f496daef0e1628e2c242e18912dfe1462181f3f349b58f8378cdd"
+    "shasum": "d815bdd15c337cadb6481b2f3724702e97ba3cc2ae1d0f2c90ac7e17cfb0fac4"
    },
    "origin": ".prf",
    "proofTree": {
@@ -1448,7 +1448,7 @@
     "formula": "finalcases2_to_verification",
     "status": "proved",
     "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
-    "shasum": "e934b449721f496daef0e1628e2c242e18912dfe1462181f3f349b58f8378cdd"
+    "shasum": "357250d6b4690faa3635f72d157c6c38e7ffa9c0834507b869b20f0fcf0eb12e"
    },
    "origin": ".prf",
    "proofTree": {
@@ -1497,7 +1497,7 @@
     "formula": "finalcases3_to_verification",
     "status": "proved",
     "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
-    "shasum": "e934b449721f496daef0e1628e2c242e18912dfe1462181f3f349b58f8378cdd"
+    "shasum": "9dd94f4ac741a76452dde6a3eac97c193c153fbea2931b8d7e887925c91a0920"
    },
    "origin": ".prf",
    "proofTree": {
@@ -1507,7 +1507,7 @@
     "rules": [
      {
       "branch": "",
-      "name": "(skeep)",
+      "name": "(grind)",
       "type": "proof-command",
       "rules": []
      },
@@ -1644,9 +1644,9 @@
    "info": {
     "theory": "Verification",
     "formula": "verification_TCC1",
-    "status": "unfinished",
+    "status": "proved",
     "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
-    "shasum": "e934b449721f496daef0e1628e2c242e18912dfe1462181f3f349b58f8378cdd"
+    "shasum": "a2aa165620d9d0e87ff6fe69bb6a61bd5505e41723635e0c2764e4e14e4dcde4"
    },
    "origin": ".prf",
    "proofTree": {
@@ -1656,7 +1656,7 @@
     "rules": [
      {
       "branch": "",
-      "name": "(subtype-tcc)",
+      "name": "(grind)",
       "type": "proof-command",
       "rules": []
      }
@@ -1694,9 +1694,9 @@
    "info": {
     "theory": "Verification",
     "formula": "verification_TCC3",
-    "status": "unfinished",
+    "status": "proved",
     "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
-    "shasum": "e934b449721f496daef0e1628e2c242e18912dfe1462181f3f349b58f8378cdd"
+    "shasum": "9dd94f4ac741a76452dde6a3eac97c193c153fbea2931b8d7e887925c91a0920"
    },
    "origin": ".prf",
    "proofTree": {
@@ -1706,16 +1706,9 @@
     "rules": [
      {
       "branch": "",
-      "name": "(subtype-tcc)",
+      "name": "(grind)",
       "type": "proof-command",
-      "rules": [
-       {
-        "branch": "1",
-        "name": "(1)",
-        "type": "proof-branch",
-        "rules": []
-       }
-      ]
+      "rules": []
      }
     ]
    }

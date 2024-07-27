@@ -1,0 +1,120 @@
+(algorithm2mod
+ (concatenate_recur_TCC1 0
+  (concatenate_recur_TCC1-1 nil 3931006497 ("" (subtype-tcc) nil nil)
+   nil nil
+   (concatenate_recur subtype "algorithm2mod.n" "naturalnumber")))
+ (concatenate_recur_TCC2 0
+  (concatenate_recur_TCC2-1 nil 3931006497
+   ("" (termination-tcc) nil nil) nil nil
+   (concatenate_recur termination
+    "algorithm2mod.concatenate_recur(stdstr.concat(algorithm2mod.str_base, algorithm2mod.num), algorithm2mod.num, ((number_fields.-)(algorithm2mod.n, 1)), booleans.FALSE)"
+    "nil")))
+ (concatenate_recur_TCC3 0
+  (concatenate_recur_TCC3-1 nil 3931006497
+   ("" (termination-tcc) nil nil) nil nil
+   (concatenate_recur termination
+    "algorithm2mod.concatenate_recur(stdstr.concat(algorithm2mod.num, algorithm2mod.str_base), algorithm2mod.num, ((number_fields.-)(algorithm2mod.n, 1)), booleans.TRUE)"
+    "nil")))
+ (case1_TCC1 0
+  (case1_TCC1-1 nil 3931006497 ("" (subtype-tcc) nil nil) nil nil
+   (case1 subtype "algorithm2mod.x" "int")))
+ (case2summation_TCC1 0
+  (case2summation_TCC1-1 nil 3931006497 ("" (termination-tcc) nil nil)
+   nil nil
+   (case2summation termination
+    "algorithm2mod.case2summation(((number_fields.-)(algorithm2mod.top, 1)), ((number_fields.+)(algorithm2mod.sum, (exponentiation.^(3, algorithm2mod.top)))))"
+    "nil")))
+ (case3subloop_TCC1 0
+  (case3subloop_TCC1-1 nil 3931006497 ("" (termination-tcc) nil nil)
+   nil nil
+   (case3subloop termination
+    "algorithm2mod.case3subloop(algorithm2mod.j, algorithm2mod.i, ((number_fields.-)(algorithm2mod.t, 1)), stdstr.concat(algorithm2mod.str, \"1\"))"
+    "nil")))
+ (case3subloop_TCC2 0
+  (case3subloop_TCC2-1 nil 3931006497 ("" (termination-tcc) nil nil)
+   nil nil
+   (case3subloop termination
+    "algorithm2mod.case3subloop(algorithm2mod.j, algorithm2mod.i, ((number_fields.-)(algorithm2mod.t, 1)), stdstr.concat(algorithm2mod.str, \"0\"))"
+    "nil")))
+ (c4xvalsum1_TCC1 0
+  (c4xvalsum1_TCC1-1 nil 3931006497 ("" (termination-tcc) nil nil) nil
+   nil
+   (c4xvalsum1 termination
+    "algorithm2mod.c4xvalsum1(algorithm2mod.yk, ((number_fields.-)(algorithm2mod.i, 1)), (number_fields.+)(algorithm2mod.sum, (number_fields.*(2, exponentiation.^(3, algorithm2mod.i)))))"
+    "nil")))
+ (c4xvalsum2_TCC1 0
+  (c4xvalsum2_TCC1-1 nil 3931006497 ("" (termination-tcc) nil nil) nil
+   nil
+   (c4xvalsum2 termination
+    "algorithm2mod.c4xvalsum2(algorithm2mod.m, algorithm2mod.yk, ((number_fields.-)(algorithm2mod.i, 1)), (number_fields.+)(algorithm2mod.sum, (exponentiation.^(3, algorithm2mod.i))))"
+    "nil")))
+ (case4xval_TCC1 0
+  (case4xval_TCC1-1 nil 3931006497 ("" (subtype-tcc) nil nil) nil nil
+   (case4xval subtype
+    "number_fields./(((number_fields.-)((number_fields.*(4, algorithm2mod.yk)), ((number_fields.+)(algorithm2mod.c4xvalsum1(algorithm2mod.yk, algorithm2mod.m, 0), algorithm2mod.c4xvalsum2(algorithm2mod.m, algorithm2mod.yk, ((number_fields.-)(algorithm2mod.j, 3)), 0))))), exponentiation.^(3, ((number_fields.-)(algorithm2mod.j, 2))))"
+    "int")))
+ (theorem_14_1 0
+  (theorem_14_1-1 nil 3931008447
+   ("" (induct j)
+    (("1" (grind) nil nil) ("2" (grind) nil nil) ("3" (grind) nil nil))
+    nil)
+   ((expt def-decl "real" exponentiation nil)
+    (length def-decl "nat" list_props nil)
+    (list2finseq const-decl "finseq[T]" list2finseq nil)
+    (verification_portal const-decl "bool" Verification nil)
+    (skip const-decl "void" stdlang nil)
+    (printstr const-decl "void" stdio nil)
+    (UndefinedMutableVariable const-decl "ExceptionTag[void]" stdprog
+     nil)
+    (fail const-decl "void" stdlang nil)
+    (make_exc const-decl "Exception" stdexc nil)
+    (val const-decl "T" stdprog nil)
+    (real2str const-decl "string" stdstr nil)
+    (O const-decl "finseq" finite_sequences nil)
+    (concat const-decl "string" stdstr nil)
+    (nth def-decl "T" list_props nil)
+    (posnat_expt application-judgement "posnat" exponentiation nil)
+    (rat_div_nzrat_is_rat application-judgement "rat" rationals nil)
+    (minus_int_is_int application-judgement "int" integers nil)
+    (real_gt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (nat_induction formula-decl nil naturalnumbers nil)
+    (+ const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (/ const-decl "[numfield, nznum -> numfield]" number_fields nil)
+    (nznum nonempty-type-eq-decl nil number_fields nil)
+    (- const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (^ const-decl "real" exponentiation nil)
+    (/= const-decl "boolean" notequal nil)
+    (OR const-decl "[bool, bool -> bool]" booleans nil)
+    (* const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (case1 const-decl "bool" algorithm2mod nil)
+    (string type-eq-decl nil strings nil)
+    (char type-eq-decl nil strings nil)
+    (char? adt-recognizer-decl "[character -> boolean]" character_adt
+     nil)
+    (character type-decl nil character_adt nil)
+    (below type-eq-decl nil nat_types nil)
+    (> const-decl "bool" reals nil)
+    (IMPLIES const-decl "[bool, bool -> bool]" booleans nil)
+    (pred type-eq-decl nil defined_types nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (>= const-decl "bool" reals nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (rat_times_rat_is_rat application-judgement "rat" rationals nil)
+    (nnint_plus_posint_is_posint application-judgement "posint"
+     integers nil))
+   shostak)))
+

@@ -1,0 +1,44 @@
+%------------------------------------------------------------------------
+%
+% Algorithm 3
+% Authors: Ali Ebnenasir <aebnenas@mtu.edu>, Maxwell Brainerd <mmbraine@mtu.edu>
+% Date: 7/26/2024 - ongoing
+%
+% This is a helper algorithm to algorithm 2.
+% It uses a nested for loop with variable depth n to compute Collatz numbers of the
+% jth stair where 2 < qj < j - 2.
+%
+%------------------------------------------------------------------------
+
+algorithm3: THEORY
+BEGIN
+
+IMPORTING Verification
+IMPORTING algorithm2
+IMPORTING strings
+IMPORTING sequences[int]
+IMPORTING finite_sequences
+
+empty_sequence: sequence[int] = (LAMBDA (n: nat): 0)
+
+recursiveListCreation(l: nat, seq: sequence[int]): RECURSIVE sequence[int] = 
+  IF l = 0 THEN
+    add(l, seq)
+  ELSE
+    LET seq = add(l, seq) IN recursiveListCreation(l - 0, seq)
+  ENDIF
+  MEASURE l
+
+recursiveFor(n, origN, Y_k: int, l, j, qj: nat, seq: sequence[int]): RECURSIVE boolean =
+  IF n > 1 THEN
+    FORALL(x:subrange(l, 0)):
+        LET sequence = add(x, seq) in recursiveFor(n, origN, Y_k, l, j, qj, sequence)
+  ELSE
+    TRUE
+  ENDIF
+MEASURE n
+
+alg3(n, origN, Y_k: int, l, j, qj: nat): boolean =
+  LET sequence = empty_sequence in recursiveFor(n, l, origN, Y_k, j, qj, sequence)
+
+END algorithm3

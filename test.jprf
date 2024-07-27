@@ -1,0 +1,102 @@
+{
+ "fac.s1_TCC1": [
+  {
+   "info": {
+    "theory": "fac",
+    "formula": "s1_TCC1",
+    "status": "proved",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "78f9b5d25f0af1605e2c64d5dddd41035d767b4cd3eff3b04354c167ddb714c9"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "s1_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(grind)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "fac.s2_TCC1": [
+  {
+   "info": {
+    "theory": "fac",
+    "formula": "s2_TCC1",
+    "status": "proved",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "367d945b72a1f236f92605cfb15e842ebcdb44217e708b34519796edb39d6830"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "s2_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(grind)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "fac.s3_TCC1": [
+  {
+   "info": {
+    "theory": "fac",
+    "formula": "s3_TCC1",
+    "status": "proved",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "367d945b72a1f236f92605cfb15e842ebcdb44217e708b34519796edb39d6830"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "s3_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(grind)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "fac.verify_first": [
+  {
+   "info": {
+    "theory": "fac",
+    "formula": "verify_first",
+    "status": "proved",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "aa7692960a6e15dd5cd05413fed319cdd8fb764b939804ba976f37add2ad5e00"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "verify_first",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(grind)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ]
+}

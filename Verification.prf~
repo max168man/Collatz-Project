@@ -3,9 +3,7 @@
   (is_power_of_two_TCC1-1 nil 3929538749 ("" (grind) nil nil)
    ((nnrat_div_posrat_is_nnrat application-judgement "nonneg_rat"
      rationals nil))
-   nil
-   (is_power_of_two subtype "number_fields./(Verification.x, 2)"
-    "nat")))
+   nil (is_power_of_two subtype "Verification.x" "naturalnumber")))
  (is_power_of_two_TCC2 0
   (is_power_of_two_TCC2-1 nil 3929538749 ("" (grind) nil nil)
    ((boolean nonempty-type-decl nil booleans nil)
@@ -35,43 +33,15 @@
    (is_power_of_two termination
     "Verification.is_power_of_two(number_fields./(Verification.x, 2))"
     "nil")))
- (final_cases_TCC1 0
-  (final_cases_TCC1-1 nil 3930492239 ("" (subtype-tcc) nil nil)
-   ((boolean nonempty-type-decl nil booleans nil)
-    (bool nonempty-type-eq-decl nil booleans nil)
-    (NOT const-decl "[bool -> bool]" booleans nil)
-    (number nonempty-type-decl nil numbers nil)
-    (number_field_pred const-decl "[number -> boolean]" number_fields
-     nil)
-    (number_field nonempty-type-from-decl nil number_fields nil)
-    (real_pred const-decl "[number_field -> boolean]" reals nil)
-    (real nonempty-type-from-decl nil reals nil)
-    (rational_pred const-decl "[real -> boolean]" rationals nil)
-    (rational nonempty-type-from-decl nil rationals nil)
-    (integer_pred const-decl "[rational -> boolean]" integers nil)
-    (int nonempty-type-eq-decl nil integers nil)
-    (real_ge_is_total_order name-judgement "(total_order?[real])"
-     real_props nil)
-    (real_lt_is_strict_total_order name-judgement
-     "(strict_total_order?[real])" real_props nil))
-   nil (final_cases subtype "Verification.y" "nat")))
  (y_calculation_TCC1 0
   (y_calculation_TCC1-1 nil 3929538824 ("" (grind) nil nil) nil nil
    (y_calculation subtype "((number_fields.-)(Verification.len, 1))"
     "nat")))
- (y_determination_TCC1 0
-  (y_determination_TCC1-1 nil 3929538824 ("" (subtype-tcc) nil nil) nil
-   nil
-   (y_determination subtype "(number_fields./(Verification.x, 2))"
-    "int")))
  (validate_string_TCC1 0
   (validate_string_TCC1-1 nil 3930490923 ("" (grind) nil nil) nil nil
    (validate_string subtype "Verification.k" "nat")))
  (verification_TCC1 0
-  (verification_TCC1-1 nil 3930492239 ("" (subtype-tcc) nil nil) nil
-   nil (verification subtype "Verification.x" "nat")))
- (verification_TCC2 0
-  (verification_TCC4-1 nil 3930490971 ("" (subtype-tcc) nil nil)
+  (verification_TCC4-1 nil 3930490971 ("" (grind) nil nil)
    ((boolean nonempty-type-decl nil booleans nil)
     (bool nonempty-type-eq-decl nil booleans nil)
     (NOT const-decl "[bool -> bool]" booleans nil)
@@ -93,16 +63,17 @@
      "(strict_total_order?[real])" real_props nil)
     (real_ge_is_total_order name-judgement "(total_order?[real])"
      real_props nil)
+    (length def-decl "nat" list_props nil)
     (list2finseq const-decl "finseq[T]" list2finseq nil)
     (validate_string const-decl "bool" Verification nil))
    nil (verification subtype "Verification.len" "posint")))
- (verification_TCC3 0
+ (verification_TCC2 0
   (verification_TCC2-1 nil 3929538824 ("" (subtype-tcc) nil nil) nil
    nil
    (verification subtype
     "Verification.y_calculation(Verification.x, Verification.s, Verification.len)"
     "int")))
- (verification_TCC4 0
+ (verification_TCC3 0
   (verification_TCC3-1 nil 3929538824 ("" (grind) nil nil)
    ((boolean nonempty-type-decl nil booleans nil)
     (bool nonempty-type-eq-decl nil booleans nil)
@@ -142,34 +113,7 @@
    nil
    (verification subtype "(number_fields.-)(Verification.len, 2)"
     "nat")))
- (verification_TCC5 0
-  (verification_TCC5-1 nil 3930492911 ("" (subtype-tcc) nil nil)
-   ((boolean nonempty-type-decl nil booleans nil)
-    (bool nonempty-type-eq-decl nil booleans nil)
-    (NOT const-decl "[bool -> bool]" booleans nil)
-    (number nonempty-type-decl nil numbers nil)
-    (number_field_pred const-decl "[number -> boolean]" number_fields
-     nil)
-    (number_field nonempty-type-from-decl nil number_fields nil)
-    (real_pred const-decl "[number_field -> boolean]" reals nil)
-    (real nonempty-type-from-decl nil reals nil)
-    (rational_pred const-decl "[real -> boolean]" rationals nil)
-    (rational nonempty-type-from-decl nil rationals nil)
-    (integer_pred const-decl "[rational -> boolean]" integers nil)
-    (int nonempty-type-eq-decl nil integers nil)
-    (>= const-decl "bool" reals nil)
-    (nat nonempty-type-eq-decl nil naturalnumbers nil)
-    (int_minus_int_is_int application-judgement "int" integers nil)
-    (real_lt_is_strict_total_order name-judgement
-     "(strict_total_order?[real])" real_props nil)
-    (real_ge_is_total_order name-judgement "(total_order?[real])"
-     real_props nil)
-    (list2finseq const-decl "finseq[T]" list2finseq nil)
-    (validate_string const-decl "bool" Verification nil))
-   nil
-   (verification subtype "(number_fields.-)(Verification.len, 1)"
-    "nat")))
- (verification_TCC6 0
+ (verification_TCC4 0
   (verification_TCC4-1 nil 3929538824 ("" (termination-tcc) nil nil)
    ((length def-decl "nat" list_props nil)
     (list2finseq const-decl "finseq[T]" list2finseq nil)
@@ -350,71 +294,6 @@
     (list2finseq const-decl "finseq[T]" list2finseq nil)
     (length def-decl "nat" list_props nil))
    shostak))
- (finalcases_to_ydetermination_TCC1 0
-  (finalcases_to_ydetermination_TCC1-1 nil 3930493119
-   ("" (subtype-tcc) nil nil) nil nil
-   (finalcases_to_ydetermination subtype
-    "(number_fields./(Verification.x, 2))" "int")))
- (finalcases_to_ydetermination_TCC2 0
-  (finalcases_to_ydetermination_TCC2-1 nil 3930493119
-   ("" (subtype-tcc) nil nil) nil nil
-   (finalcases_to_ydetermination subtype
-    "((number_fields.-)(Verification.len, 1))" "nat")))
- (finalcases_to_ydetermination_TCC3 0
-  (finalcases_to_ydetermination_TCC3-1 nil 3930493119
-   ("" (subtype-tcc) nil nil) nil nil
-   (finalcases_to_ydetermination subtype "Verification.len" "posint")))
- (finalcases_to_ydetermination 0
-  (finalcases_to_ydetermination-1 nil 3930493137
-   ("" (skosimp*)
-    (("" (expand y_determination) (("" (grind) nil nil)) nil)) nil)
-   ((nnint_times_nnint_is_nnint application-judgement "nonneg_int"
-     integers nil)
-    (y_determination const-decl "bool" Verification nil)
-    (length def-decl "nat" list_props nil)
-    (list2finseq const-decl "finseq[T]" list2finseq nil)
-    (even? const-decl "bool" integers nil)
-    (final_case_1 const-decl "bool" Verification nil)
-    (odd? const-decl "bool" integers nil)
-    (final_case_2 const-decl "bool" Verification nil)
-    (final_case_3 const-decl "bool" Verification nil)
-    (final_cases const-decl "bool" Verification nil)
-    (posint_plus_nnint_is_posint application-judgement "posint"
-     integers nil)
-    (nnint_plus_posint_is_posint application-judgement "posint"
-     integers nil)
-    (even_times_int_is_even application-judgement "even_int" integers
-     nil)
-    (real_lt_is_strict_total_order name-judgement
-     "(strict_total_order?[real])" real_props nil)
-    (int_minus_int_is_int application-judgement "int" integers nil)
-    (nnrat_div_posrat_is_nnrat application-judgement "nonneg_rat"
-     rationals nil))
-   shostak))
- (y_determination_to_verification_TCC1 0
-  (y_determination_to_verification_TCC1-1 nil 3930493119
-   ("" (subtype-tcc) nil nil) nil nil
-   (y_determination_to_verification subtype "Verification.len"
-    "posint")))
- (y_determination_to_verification 0
-  (y_determination_to_verification-1 nil 3930493137
-   ("" (skosimp*)
-    (("" (expand verification) (("" (grind) nil nil)) nil)) nil)
-   ((verification def-decl "bool" Verification nil)) shostak))
- (finalcases_to_verification_TCC1 0
-  (finalcases_to_verification_TCC1-1 nil 3930416241
-   ("" (subtype-tcc) nil nil) nil nil
-   (finalcases_to_verification subtype
-    "(number_fields./(Verification.x, 2))" "int")))
- (finalcases_to_verification_TCC2 0
-  (finalcases_to_verification_TCC2-1 nil 3930490923
-   ("" (subtype-tcc) nil nil) nil nil
-   (finalcases_to_verification subtype
-    "((number_fields.-)(Verification.len, 1))" "nat")))
- (finalcases_to_verification_TCC3 0
-  (finalcases_to_verification_TCC3-1 nil 3930491623
-   ("" (subtype-tcc) nil nil) nil nil
-   (finalcases_to_verification subtype "Verification.len" "nat")))
  (finalcases_to_verification 0
   (finalcases_to_verification-1 nil 3930416241
    ("" (skosimp*)
@@ -445,7 +324,8 @@
  (finalcases1_to_verification_TCC1 0
   (finalcases1_to_verification_TCC1-1 nil 3930491980
    ("" (subtype-tcc) nil nil) nil nil
-   (finalcases1_to_verification subtype "Verification.len" "nat")))
+   (finalcases1_to_verification subtype
+    "(number_fields./(Verification.x, 2))" "int")))
  (finalcases1_to_verification 0
   (finalcases1_to_verification-1 nil 3930419255
    ("" (skeep)
@@ -477,10 +357,6 @@
     (y_determination const-decl "bool" Verification nil)
     (int_times_int_is_int application-judgement "int" integers nil))
    shostak))
- (finalcases2_to_verification_TCC1 0
-  (finalcases2_to_verification_TCC1-1 nil 3930491623
-   ("" (subtype-tcc) nil nil) nil nil
-   (finalcases2_to_verification subtype "Verification.len" "nat")))
  (finalcases2_to_verification 0
   (finalcases2_to_verification-1 nil 3930491777
    ("" (skeep)
@@ -543,10 +419,6 @@
     (y_determination const-decl "bool" Verification nil)
     (int_times_int_is_int application-judgement "int" integers nil))
    shostak))
- (poweroftwo_to_verification_TCC1 0
-  (poweroftwo_to_verification_TCC1-1 nil 3930492747
-   ("" (subtype-tcc) nil nil) nil nil
-   (poweroftwo_to_verification subtype "Verification.x" "nat")))
  (poweroftwo_to_verification 0
   (poweroftwo_to_verification-1 nil 3930420227
    ("" (skosimp*)
@@ -611,10 +483,13 @@
      nil)
     (char type-eq-decl nil strings nil)
     (string type-eq-decl nil strings nil)
-    (rat_div_nzrat_is_rat application-judgement "rat" rationals nil)
+    (nnrat_div_posrat_is_nnrat application-judgement "nonneg_rat"
+     rationals nil)
     (int_minus_int_is_int application-judgement "int" integers nil)
-    (int_plus_int_is_int application-judgement "int" integers nil)
-    (int_times_int_is_int application-judgement "int" integers nil)
+    (nnint_plus_posint_is_posint application-judgement "posint"
+     integers nil)
+    (nnint_times_nnint_is_nnint application-judgement "nonneg_int"
+     integers nil)
     (finalcases3_to_verification formula-decl nil Verification nil)
     (finalcases1_to_verification formula-decl nil Verification nil))
    shostak)))

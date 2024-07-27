@@ -1,0 +1,26 @@
+
+Context changed to ~/Documents/Collatz_Project/
+Parsing Verification_Testcases
+Verification_Testcases parsed in 0.01 seconds
+Typechecking Verification_Testcases
+string_list_example typechecked in 0.05s: 3 TCCs, 0 proved, 0 subsumed, 3 unproved; 2 msgs
+Warning: (method typecheck* (subtype-judgement t t t)), :operator was
+         defined in
+         /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/pvs-patches/patch-20210707-trivial-judgements.lisp
+         and is now being defined in
+         /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/pvs-patches/patch-20210707.lisp
+Warning: (method typecheck* (subtype-judgement t t t)), :operator was
+         defined in
+         /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/pvs-patches/patch-20210707.lisp
+         and is now being defined in
+         /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/pvs-patches/patch-20210707-trivial-judgements.lisp
+Warning: (method typecheck* (subtype-judgement t t t)), :operator was
+         defined in
+         /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/pvs-patches/patch-20210707-trivial-judgements.lisp
+         and is now being defined in
+         /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/pvs-patches/patch-20210707.lisp
+Warning: (method typecheck* (subtype-judgement t t t)), :operator was
+         defined in
+         /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/pvs-patches/patch-20210707.lisp
+         and is now being defined in
+         /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/pvs-patches/patch-20210707-trivial-judgements.lisp

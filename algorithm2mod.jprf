@@ -1,0 +1,132 @@
+{
+ "algorithm2mod.theorem_14_1": [
+  {
+   "info": {
+    "theory": "algorithm2mod",
+    "formula": "theorem_14_1",
+    "status": "proved",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "d8e686e923c632c66265bad61f86b79d3413bdfc8b387302f0ce8742a0c70cfd"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "theorem_14_1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(induct j)",
+      "type": "proof-command",
+      "rules": [
+       {
+        "branch": "1",
+        "name": "(1)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "1",
+          "name": "(grind)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "2",
+        "name": "(2)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "2",
+          "name": "(grind)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "3",
+        "name": "(3)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "3",
+          "name": "(grind)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ],
+ "algorithm2mod.theorem_14_2": [
+  {
+   "info": {
+    "theory": "algorithm2mod",
+    "formula": "theorem_14_2",
+    "status": "proved",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "dbc921680f7bd1c6c292ee1ad49da7d7a99ee4a665195cfa159beb9504dee351"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "theorem_14_2",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(induct j)",
+      "type": "proof-command",
+      "rules": [
+       {
+        "branch": "1",
+        "name": "(1)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "1",
+          "name": "(grind)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "2",
+        "name": "(2)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "2",
+          "name": "(grind)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "3",
+        "name": "(3)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "3",
+          "name": "(grind)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ]
+}

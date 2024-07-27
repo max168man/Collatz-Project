@@ -1,12 +1,42 @@
 fac : THEORY
 BEGIN
 
-  factorial(i : nat) : RECURSIVE nat =
-    IF i = 0 THEN
-      1
+IMPORTING strings
+IMPORTING sequences[int]
+IMPORTING finite_sequences
+
+% Define an empty sequence (all zeros)
+  empty_seq: sequence = (LAMBDA (n: nat): 0)
+
+  % Define a sequence of natural numbers
+  nat_seq: sequence = (LAMBDA (n: nat): n)
+
+  % Add elements to a sequence
+  seq_with_1: sequence = add(1, empty_seq)
+  seq_with_2_1: sequence = add(2, seq_with_1)
+  seq_with_3_2_1: sequence = add(3, seq_with_2_1)
+
+  first_element: int = first(seq_with_3_2_1)
+  second_element: int = nth(seq_with_3_2_1, 1)
+  third_element: int = nth(seq_with_3_2_1, 2)
+
+
+  % @QED verify_first proved by mmbraine on Sat, 27 Jul 2024 19:58:58 GMT
+  verify_first: LEMMA first_element = 3
+
+  verify_second: LEMMA second_element = 2
+
+  verify_third: LEMMA third_element = 1
+
+  printn(x: int): bool = 
+    print(nth(seq_with_3_2_1, x)) AND TRUE
+
+  print_nums(x: nat): RECURSIVE bool =
+    IF x = 0 THEN
+      TRUE
     ELSE
-      i * factorial(i - 1)
+      (FORALL(i: below[x]): print(i)) AND println("") AND print_nums(x - 1)
     ENDIF
-  MEASURE i
+    MEASURE x
 
 END fac

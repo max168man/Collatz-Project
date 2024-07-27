@@ -173,7 +173,7 @@ for qj in range(1, j):
     #        print("")                                        # End
 
             if (verify(x, binStr)):
-                print("Correct Collatz number (case 3)", x)
+                print("Correct Collatz number ", x)
                 sys.stdout.write("Binary Verification Code (BVC) for x is ")
                 sys.stdout.write("<"+binStr+">")
                 print("")
@@ -195,6 +195,7 @@ for qj in range(1, j):
        #      print("")                                        # End
 
              if (verify(x, binStr)):
+                 print("Case: j - 1")
                  print("Correct Collatz number ", x)
                  sys.stdout.write("Binary Verification Code (BVC) for x is ")
                  sys.stdout.write("<"+binStr+">")
@@ -205,7 +206,6 @@ for qj in range(1, j):
 
         
     if (qj == j-2):
-        print("Case: qj == j - 2")
         for m in range(0, j-2):
              sum1 = 0
              sum2 = 0   
@@ -232,7 +232,6 @@ for qj in range(1, j):
            #     print("")
              if (verify(x, binStr)):
                  print("Correct Collatz number ", x)
-                 print("m value: ", m, " yk value: ", Y_k)
                  sys.stdout.write("Binary Verification Code (BVC) for x is ")
                  sys.stdout.write("<"+binStr+">")
                  print("")

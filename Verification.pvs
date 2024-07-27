@@ -19,7 +19,7 @@ importing strings % Used for reading in a BVC string from user.
 % This method is used to check if a number is a power of two. 
 % I created this since I couldn't get any imported log functions to work.
 
-is_power_of_two(x: nat): RECURSIVE bool = 
+is_power_of_two(x: int): RECURSIVE bool = 
     IF x = 1 THEN 
         TRUE
     ELSIF x < 1 THEN
@@ -115,7 +115,7 @@ final_cases(x, y: int, k: nat, s: string): bool =
 % This helper method determines the y value of an x value given it's bvc. It is used by verification.
 %%%
 
-y_calculation(x: int, s: string, len: posint): real =
+y_calculation(x: int, s: string, len: nat): real =
     % If the number at index is 0:
     IF (strcmp(substr(s, (len - 1), (len - 1)), "0") = 0) THEN
         (x / 2)
@@ -137,7 +137,7 @@ y_calculation(x: int, s: string, len: posint): real =
 
 y_determination(x: int, s: string, len: posint): bool =
     % If the number at index is 0:
-    IF (strcmp(substr(s, (len - 1), (len - 1)), "0") = 0) THEN
+    IF (strcmp(substr(s, (len - 1), (len - 1)), "0") = 0) AND integer_pred(x / 2) THEN
         final_cases(x, (x / 2), (len - 1), s)
         % If the number isn't 0 (it is then 1)
     ELSE
@@ -244,7 +244,8 @@ finalcase3_to_finalcases: LEMMA FORALL (x, y: int, k: nat, s: string):
 % This final proof proves that if final cases is false for either case of the collatz function, verification will be false.
 
 % @QED finalcases_to_verification proved by mmbraine on Fri, 19 Jul 2024 22:17:39 GMT
-finalcases_to_verification: LEMMA FORALL (x, y, k, len: int, s: string):
+finalcases_to_verification: LEMMA FORALL (x, y, k: int, s: string, len: nat):
+    integer_pred(x / 2) =>
     NOT final_cases(x, (x / 2), (len - 1), s)
     AND NOT final_cases(x, ((3 * x) + 1), (len - 1), s) =>
     NOT verification(x, s, len)
@@ -258,19 +259,22 @@ finalcases_to_verification: LEMMA FORALL (x, y, k, len: int, s: string):
 %%%
 
 % @QED finalcases1_to_verification proved by mmbraine on Fri, 19 Jul 2024 23:07:58 GMT
-finalcases1_to_verification: LEMMA FORALL (x, y, k, len: int, s: string):
+finalcases1_to_verification: LEMMA FORALL (x, y, k: int, s: string, len: nat):
+    integer_pred(x / 2) =>
     NOT final_case_1(x, (x / 2), (len - 1), s) AND 
     NOT final_case_1(x, ((3 * x) + 1), (len - 1), s) =>
     NOT verification(x, s, len)
 
 % @QED finalcases2_to_verification proved by mmbraine on Sat, 20 Jul 2024 19:16:35 GMT
-finalcases2_to_verification: LEMMA FORALL (x, y, k, len: int, s: string):
+finalcases2_to_verification: LEMMA FORALL (x, y, k: int, s: string, len: nat):
+    integer_pred(x / 2) =>
     NOT final_case_2(x, (x / 2), (len - 1), s) AND 
     NOT final_case_2(x, ((3 * x) + 1), (len - 1), s) =>
     NOT verification(x, s, len)
 
-% @QED finalcase3_to_verification proved by mmbraine on Fri, 19 Jul 2024 23:03:43 GMT
-finalcases3_to_verification: LEMMA FORALL (x, y, k: int, len: nat, s: string):
+% @QED finalcases3_to_verification proved by mmbraine on Sat, 27 Jul 2024 22:14:47 GMT
+finalcases3_to_verification: LEMMA FORALL (x, y, k: int, s: string, len: nat):
+    integer_pred(x / 2) =>
     NOT final_case_3(x, (x / 2), (len - 1), s) AND 
     NOT final_case_3(x, ((3 * x) + 1), (len - 1), s) =>
     NOT verification(x, s, len)
@@ -289,6 +293,7 @@ poweroftwo_to_verification: LEMMA FORALL (x, len: nat, s: string):
 
 % @QED theorem_12_false proved by mmbraine on Sat, 20 Jul 2024 18:57:07 GMT
 theorem_12_false: LEMMA FORALL (y, k: int, x, len: nat, s: string):
+    integer_pred(x / 2) =>
     NOT final_case_1(x, (x / 2), (len - 1), s) AND NOT final_case_1(x, ((3 * x) + 1), (len - 1), s) OR
     NOT final_case_2(x, (x / 2), (len - 1), s) AND NOT final_case_2(x, ((3 * x) + 1), (len - 1), s) OR
     NOT final_case_3(x, (x / 2), (len - 1), s) AND NOT final_case_3(x, ((3 * x) + 1), (len - 1), s) OR

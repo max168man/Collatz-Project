@@ -1,0 +1,15 @@
+(fac
+ (verify_first 0
+  (verify_first-1 nil 3931099012 ("" (grind) nil nil)
+   ((add const-decl "sequence" sequences nil)
+    (seq_with_1 const-decl "sequence" fac nil)
+    (seq_with_2_1 const-decl "sequence" fac nil)
+    (seq_with_3_2_1 const-decl "sequence" fac nil)
+    (insert const-decl "sequence" sequences nil)
+    (nth const-decl "T" sequences nil)
+    (first const-decl "T" sequences nil)
+    (first_element const-decl "int" fac nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   shostak)))
+
