@@ -4,11 +4,11 @@ Parsing algorithm2mod
 algorithm2mod parsed in 0.03 seconds
 Typechecking algorithm2mod
 Parsing Verification
-Verification parsed in 0.02 seconds
+Verification parsed in 0.03 seconds
 Verification is already parsed
 Typechecking Verification
-Verification typechecked in 0.19s: 47 TCCs, 0 proved, 30 subsumed, 17 unproved
-algorithm2mod typechecked in 0.54s: 23 TCCs, 0 proved, 13 subsumed, 10 unproved; 7 msgs
+Verification typechecked in 0.19s: 33 TCCs, 0 proved, 25 subsumed, 8 unproved
+algorithm2mod typechecked in 0.59s: 40 TCCs, 0 proved, 7 subsumed, 33 unproved; 7 msgs
 Warning: (method typecheck* (subtype-judgement t t t)), :operator was
          defined in
          /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/pvs-patches/patch-20210707-trivial-judgements.lisp

@@ -142,10 +142,10 @@ Verification_TCCS: THEORY BEGIN
 	% The subtype TCC (at line 272, column 40) in decl finalcases2_to_verification for  (len - 1)
 	    % expected type  nat
 	  % is subsumed by y_calculation_TCC1
-	% The subtype TCC (at line 279, column 34) in decl finalcases3_to_verification for  (len - 1)
+	% The subtype TCC (at line 278, column 34) in decl finalcases3_to_verification for  (len - 1)
 	    % expected type  nat
 	  % is subsumed by y_calculation_TCC1
-	% The subtype TCC (at line 280, column 40) in decl finalcases3_to_verification for  (len - 1)
+	% The subtype TCC (at line 279, column 40) in decl finalcases3_to_verification for  (len - 1)
 	    % expected type  nat
 	  % is subsumed by y_calculation_TCC1
 	% The subtype TCC (at line 297, column 34) in decl theorem_12_false for  (len - 1)

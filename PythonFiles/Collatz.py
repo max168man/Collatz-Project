@@ -116,7 +116,9 @@ def  recursiveFor(n: int, l: int, origN:int, j: int, qj: int, Y_k: int):
                # print("BVC code: ", binStr)
                 if (verify(collatzNum, binStr)):
                     print("Correct Collatz number ", collatzNum)
-                    print("BVC code: ", binStr)
+                    sys.stdout.write("Binary Verification Code (BVC) for x is ")
+                    sys.stdout.write("<"+binStr+">")
+                    print(", case: 2 < qj < j-2") 
             #    else: print("qj = ", qj, " Verification failed for ", collatzNum)
                         
             mlist.pop()
@@ -155,7 +157,7 @@ for qj in range(1, j):
             print("Correct Collatz number ", x)
             sys.stdout.write("Binary Verification Code (BVC) for x is ")
             sys.stdout.write("<"+binStr+">")
-            print("") 
+            print(", case: qj = 1") 
             
     #    else: print("qj = ", qj, " Verification failed for ", x)
 
@@ -176,7 +178,7 @@ for qj in range(1, j):
                 print("Correct Collatz number ", x)
                 sys.stdout.write("Binary Verification Code (BVC) for x is ")
                 sys.stdout.write("<"+binStr+">")
-                print("")
+                print(", case: qj = 2")
                 
        #     else: print("qj = ", qj, " Verification failed for ", x)
 
@@ -199,7 +201,7 @@ for qj in range(1, j):
                  print("Correct Collatz number ", x)
                  sys.stdout.write("Binary Verification Code (BVC) for x is ")
                  sys.stdout.write("<"+binStr+">")
-                 print("")
+                 print(", case: qj = j - 1")
                  
                  
          #    else: print("qj = ", qj, " Verification failed for ", x)
@@ -234,7 +236,7 @@ for qj in range(1, j):
                  print("Correct Collatz number ", x)
                  sys.stdout.write("Binary Verification Code (BVC) for x is ")
                  sys.stdout.write("<"+binStr+">")
-                 print("")
+                 print(", case: qj = j - 2")
                  
           #   else: print("qj = ", qj, " Verification failed for ", x)
 
