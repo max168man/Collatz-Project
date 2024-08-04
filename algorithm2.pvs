@@ -16,6 +16,7 @@ BEGIN
 IMPORTING Verification % Used to check if numbers are Collatz numbers.
 importing stdio   % Used to print output, helping with bugtesting and understanding the results of the algorithm.
 importing strings % Used to creates BVCs.
+importing algorithm3
 
 %%%
 % concatenate_recur
@@ -292,7 +293,7 @@ mainfor(k, j: int, yk: real): bool =
             FORALL(m:subrange(0, (j - 3))):
                 println("qj = j - 2") AND case4(k, j, yk, m, "")
         ELSE
-            TRUE
+            println("Case 2 < qj < j - 2") AND alg3(qj - 1, j - qj, qj - 1, j, qj, yk)
         ENDIF
 
 %%%

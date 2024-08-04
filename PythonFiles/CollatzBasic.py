@@ -83,7 +83,7 @@ def  recursiveFor(n: int, l: int, origN:int, j: int, qj: int, Y_k: int):
 #        accept = True
         for x in range(0,l+1)[::-1]: 
             mlist.append(x)
-            print(mlist);
+#            print(mlist);
 #            mlist.pop()
             accept = True
             for i in range(0,origN-1): 
@@ -91,7 +91,7 @@ def  recursiveFor(n: int, l: int, origN:int, j: int, qj: int, Y_k: int):
                     accept = False;
                     break;
             if (accept == True):
-                print(mlist); # ordering of m[] is non-increasing.
+             #   print(mlist); # ordering of m[] is non-increasing.
                 sum = 0
                 for i in range(0,origN):
                     sum = sum + math.pow(2,mlist[i]) * math.pow(3,i+1)
@@ -99,7 +99,7 @@ def  recursiveFor(n: int, l: int, origN:int, j: int, qj: int, Y_k: int):
                # print("Collatz number: ", collatzNum)
                 binStr = ""
                 for i in range(0,len(mlist))[::-1]:
-                    print("i= ", i, "mlist[i]= ", mlist[i])
+                  #  print("i= ", i, "mlist[i]= ", mlist[i])
                     if (mlist[i] == 0):
                         binStr = "1" + binStr 
                     else:
@@ -201,7 +201,7 @@ for qj in range(1, j):
                  print("")
                  
                  
-             #else: print("qj = ", qj, " Verification failed for ", x)
+         #    else: print("qj = ", qj, " Verification failed for ", x)
 
         
     if (qj == j-2):

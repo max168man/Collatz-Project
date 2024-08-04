@@ -1,9 +1,9 @@
 
 Context changed to ~/Documents/Collatz_Project/
 Parsing Verification
-Verification parsed in 0.03 seconds
+Verification parsed in 0.05 seconds
 Typechecking Verification
-Verification typechecked in 0.19s: 34 TCCs, 0 proved, 16 subsumed, 18 unproved
+Verification typechecked in 0.55s: 33 TCCs, 0 proved, 25 subsumed, 8 unproved
 Warning: (method typecheck* (subtype-judgement t t t)), :operator was
          defined in
          /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/pvs-patches/patch-20210707-trivial-judgements.lisp

@@ -1197,7 +1197,7 @@
     "formula": "lemma_power_two_false",
     "status": "proved",
     "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
-    "shasum": "e934b449721f496daef0e1628e2c242e18912dfe1462181f3f349b58f8378cdd"
+    "shasum": "d815bdd15c337cadb6481b2f3724702e97ba3cc2ae1d0f2c90ac7e17cfb0fac4"
    },
    "origin": ".prf",
    "proofTree": {
@@ -1971,7 +1971,7 @@
     "formula": "lemma_power_two_true",
     "status": "proved",
     "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
-    "shasum": "e934b449721f496daef0e1628e2c242e18912dfe1462181f3f349b58f8378cdd"
+    "shasum": "d815bdd15c337cadb6481b2f3724702e97ba3cc2ae1d0f2c90ac7e17cfb0fac4"
    },
    "origin": ".prf",
    "proofTree": {

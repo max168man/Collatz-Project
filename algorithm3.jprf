@@ -1,0 +1,27 @@
+{
+ "algorithm3.recursiveListCreation_TCC1": [
+  {
+   "info": {
+    "theory": "algorithm3",
+    "formula": "recursiveListCreation_TCC1",
+    "status": "proved",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "1d97a0a2ac451f8a75eea8038d05d75b578d2e2b97a42d76979829355e2c5e0c"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "recursiveListCreation_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(grind)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ]
+}
