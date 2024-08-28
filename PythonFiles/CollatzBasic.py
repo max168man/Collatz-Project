@@ -77,11 +77,17 @@ def  recursiveFor(n: int, l: int, origN:int, j: int, qj: int, Y_k: int):
     if (n > 1):   # skip the last loop; leave it for termination
         for x in range(0,l+1)[::-1]:
             mlist.append(x)
+            print(f"after append: {mlist}")
             recursiveFor(n-1,l, origN, j, qj, Y_k)
+            print(f"after recursiveFor: {mlist}")
             mlist.pop(origN - n)
+            print(f"after pop: {mlist}")
     else:
+        
 #        accept = True
         for x in range(0,l+1)[::-1]: 
+            continue
+        
             mlist.append(x)
 #            print(mlist);
 #            mlist.pop()
@@ -115,6 +121,7 @@ def  recursiveFor(n: int, l: int, origN:int, j: int, qj: int, Y_k: int):
                 for t in range(0,j-2-len(binStr)): binStr = "0" + binStr      # length of BVC is j-2        
                # print("BVC code: ", binStr)
                 if (verify(collatzNum, binStr)):
+                    print(f"Calculating with params - mlist: {mlist}, origN: {origN}, j: {j}, qj: {qj}, Y_k: {Y_k}")
                     print("Correct Collatz number ", collatzNum)
                     print("BVC code: ", binStr)
             #    else: print("qj = ", qj, " Verification failed for ", collatzNum)

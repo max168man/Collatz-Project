@@ -1,14 +1,19 @@
 
 Context changed to ~/Documents/Collatz_Project/
-Parsing algorithm3
-algorithm3 parsed in 0.01 seconds
-Typechecking algorithm3
+Parsing algorithm3test
+algorithm3test parsed in 0.04 seconds
+Typechecking algorithm3test
 Parsing Verification
 Verification parsed in 0.03 seconds
 Verification is already parsed
 Typechecking Verification
-Verification typechecked in 0.19s: 33 TCCs, 0 proved, 25 subsumed, 8 unproved
-algorithm3 typechecked in 0.35s: 20 TCCs, 0 proved, 9 subsumed, 11 unproved; 1 conversion; 5 msgs
+Verification typechecked in 0.21s: 33 TCCs, 0 proved, 25 subsumed, 8 unproved
+Parsing algorithm3markII
+algorithm3markII parsed in 0.02 seconds
+algorithm3markII is already parsed
+Typechecking algorithm3markII
+algorithm3markII typechecked in 0.39s: 77 TCCs, 0 proved, 21 subsumed, 56 unproved; 25 conversions; 18 msgs
+algorithm3test typechecked in 1.08s: 98 TCCs, 0 proved, 34 subsumed, 64 unproved; 19 conversions; 57 msgs
 Warning: (method typecheck* (subtype-judgement t t t)), :operator was
          defined in
          /home/campus18/mmbraine/Documents/PVSInstall/pvs-7.1.0/nasalib/pvs-patches/patch-20210707-trivial-judgements.lisp
@@ -38,33 +43,16 @@ Warning: Variable condition is never used.
 ; While compiling #'(:internal make_exc 0) at top level:
 Warning: Variable condition is never used.
 Warning: Variable condition is never used.
-; While compiling #'_o at top level:
-Warning: Variable condition is never used.
-Warning: Variable condition is never used.
-Warning: Variable condition is never used.
-Warning: Variable condition is never used.
-Warning: While compiling these undefined functions were referenced:
-         make-pvslist-string.
-; While compiling #'o! at top level:
-Warning: Variable condition is never used.
-Warning: Variable condition is never used.
-Warning: Variable condition is never used.
-Warning: Variable condition is never used.
-Warning: While compiling these undefined functions were referenced:
-         make-pvslist-string.
-; While compiling #'(:internal o 0) at top level:
-Warning: Variable condition is never used.
-Warning: Variable condition is never used.
-Warning: Variable condition is never used.
-Warning: Variable condition is never used.
-Warning: While compiling these undefined functions were referenced:
-         make-pvslist-string.
+; While compiling #'_print_finite_seq at top level:
+Warning: Variable x is never used.
+; While compiling #'print_finite_seq! at top level:
+Warning: Variable x is never used.
 ; While compiling #'_add at top level:
-Warning: Variable E76 is never used.
+Warning: Variable E88 is never used.
 ; While compiling #'add! at top level:
-Warning: Variable E83 is never used.
+Warning: Variable E95 is never used.
 ; While compiling #'(:internal add 0) at top level:
-Warning: Variable E90 is never used.
+Warning: Variable E102 is never used.
 ; While compiling #'_empty_seq at top level:
 Warning: Variable condition is never used.
 Warning: Variable condition is never used.
@@ -101,34 +89,4 @@ Warning: Variable t58388 is never used.
 Warning: Variable t58388 is never used.
 ; While compiling #'(:internal (:internal empty_seq! 2) 0) at top level:
 Warning: Variable t58388 is never used.
-Warning: While compiling these undefined functions were referenced:
-         make-pvslist-string.
-; While compiling #'empty_seq at top level:
-Warning: Variable condition is never used.
-Warning: Variable condition is never used.
-Warning: Variable condition is never used.
-Warning: Variable condition is never used.
-; While compiling #'(:internal empty_seq 2) at top level:
-Warning: Variable x is never used.
-; While compiling #'(:internal (:internal empty_seq 2) 4) at top level:
-Warning: Variable t58388 is never used.
-; While compiling #'(:internal (:internal empty_seq 2) 3) at top level:
-Warning: Variable t58388 is never used.
-; While compiling #'(:internal (:internal empty_seq 2) 2) at top level:
-Warning: Variable t58388 is never used.
-; While compiling #'(:internal (:internal empty_seq 2) 1) at top level:
-Warning: Variable t58388 is never used.
-; While compiling #'(:internal (:internal empty_seq 2) 0) at top level:
-Warning: Variable t58388 is never used.
-Warning: While compiling these undefined functions were referenced:
-         make-pvslist-string.
-; While compiling #'_print_finite_seq at top level:
-Warning: Variable x is never used.
-; While compiling #'print_finite_seq! at top level:
-Warning: Variable x is never used.
-; While compiling #'_print_finite_seq_test at top level:
-Warning: Variable x is never used.
-; While compiling #'print_finite_seq_test! at top level:
-Warning: Variable x is never used.
-; While compiling #'(:internal print_finite_seq_test 0) at top level:
-Warning: Variable x is never used.
+Warning: While compiling these undefined fu

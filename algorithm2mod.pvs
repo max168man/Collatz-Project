@@ -111,7 +111,7 @@ case2summation(top: nat, sum: real): RECURSIVE real =
 
 case2(k, yk, x: int, str: string, j: nat): bool = 
     IF (verification_portal(x, str)) = TRUE THEN
-        print("Correct Collatz number: ") AND println(x) AND print("Binary Vertification Code (BVC) for x is <") AND print(str) AND println(">") AND TRUE
+        print("Correct Collatz number: ") AND println(x) AND print("Binary Vertification Code (BVC) for x is <") AND print(concatenate_recur(str, "1", (j - 2), FALSE)) AND println(">") AND TRUE
         %print(x) AND print(", ") AND println(str) AND TRUE
     ELSE
         print("Invalid Collatz number: Verification failed! ") AND println(x) AND

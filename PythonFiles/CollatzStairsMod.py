@@ -76,9 +76,15 @@ def verify(x: int, s: str) -> bool:
 def  recursiveFor(n: int, l: int, origN:int, j: int, qj: int, Y_k: int):
     if (n > 1):   # skip the last loop; leave it for termination
         for x in range(0,l+1)[::-1]:
+            print(f"mlist before append: {mlist}")
             mlist.append(x)
+            print(f"mlist after append: {mlist}")
             recursiveFor(n-1,l, origN, j, qj, Y_k)
+            print(f"mlist after recursiveForcall: {mlist}")
             mlist.pop(origN - n)
+            print()
+            print(f"mlist after pop: {mlist}")
+
     else:
 #        accept = True
         for x in range(0,l+1)[::-1]: 
@@ -86,9 +92,12 @@ def  recursiveFor(n: int, l: int, origN:int, j: int, qj: int, Y_k: int):
 #            print(mlist);
 #            mlist.pop()
             accept = True
+            #print()
+            #print(f"mlist before checking accept: {mlist}")
             for i in range(0,origN-1): 
                 if (mlist[i] < mlist[i+1]):
                     accept = False;
+                    #print(f"mlist before accept = false: {mlist}, origN - 1: {origN - 1}")
                     break;
             if (accept == True):
              #   print(mlist); # ordering of m[] is non-increasing.
@@ -121,117 +130,129 @@ def  recursiveFor(n: int, l: int, origN:int, j: int, qj: int, Y_k: int):
                         
             mlist.pop()
 
-for k in range (1, 20):
-    for j in range (2, 20):
-        print(f"Generating Collatz numbers for k={k} and j={j}")
-        Y_k = math.pow(2,2*k)-1
-        if (j < 2):
-            print("j is less than 2")
-            sys.exit()
 
-        for qj in range(1, j):
-            if (qj == 1):
-                continue
-                x = math.pow(2,j-1)* Y_k / 3
+k = int(input("Enter the value of k, which determines the root of a subtree: "))
+print("k is:", k)
 
-            #    sys.stdout.write("Traceability code for x is ") #Constructing the binary code
+j = int(input("Enter the value of the j-th stair in the tree rooted at Y_k/3: "))
+print("j is:", j)
+
+#for i in range(2,j+1)[::-1]: print(i)
+
+#for x in range(j-1, -1, -1): print(x)
+                    
+                
+Y_k = math.pow(2,2*k)-1
+print("Y_k/3 =",Y_k/3)
+
+if (j < 2):
+    print("j is less than 2")
+    sys.exit()
+
+for qj in range(1, j):
+    if (qj == 1):
+        continue
+        x = math.pow(2,j-1)* Y_k / 3
+
+    #    sys.stdout.write("Traceability code for x is ") #Constructing the binary code
+        binStr = ""
+        for t in range(1, j-1):
+            binStr = binStr + "0"
+     #   sys.stdout.write("<"+binStr+">")
+     #   print("")                                        # End
+
+        if (verify(x, binStr)):
+            print("Correct Collatz number ", x)
+            sys.stdout.write("Binary Verification Code (BVC) for x is ")
+            sys.stdout.write("<"+binStr+">")
+            print("") 
+            
+    #    else: print("qj = ", qj, " Verification failed for ", x)
+
+        
+    if (qj == 2):
+        continue
+        for i in range(0, j-2):
+            x = (math.pow(2,j-2)* Y_k - math.pow(2,i)*3 ) / 9
+            
+   #         sys.stdout.write("Traceability code for x is ") #Constructing the binary code
+            binStr = ""
+            for t in range(0, j-2):
+                if (t == i): binStr = "1" + binStr
+                else:        binStr =  "0" + binStr
+    #        sys.stdout.write("<"+binStr+">")
+    #        print("")                                        # End
+
+            if (verify(x, binStr)):
+                print("Correct Collatz number ", x)
+                sys.stdout.write("Binary Verification Code (BVC) for x is ")
+                sys.stdout.write("<"+binStr+">")
+                print("")
+                
+       #     else: print("qj = ", qj, " Verification failed for ", x)
+
+            
+    if (qj == j-1):
+         continue
+         sum = 0
+         for i in range(1, j-3):
+             sum = sum + math.pow(3,i)
+             x = (2* Y_k - sum) / math.pow(3,j-1)
+             
+        #     sys.stdout.write("Traceability code for x is ") #Constructing the binary code
+             binStr = ""
+             for t in range(1, j-1):
+                 binStr = binStr + "1"
+       #      sys.stdout.write("<"+binStr+">")
+       #      print("")                                        # End
+
+             if (verify(x, binStr)):
+                 print("Correct Collatz number ", x)
+                 sys.stdout.write("Binary Verification Code (BVC) for x is ")
+                 sys.stdout.write("<"+binStr+">")
+                 print("")
+                 
+                 
+         #    else: print("qj = ", qj, " Verification failed for ", x)
+
+        
+    if (qj == j-2):
+        continue
+        for m in range(0, j-2):
+             sum1 = 0
+             sum2 = 0   
+             for i in range(1, m+1):
+                 sum1 = sum1 + (2 * math.pow(3,i))
+             for i in range(m+1, j-2):
+                 sum2 = sum2 + math.pow(3,i)
+             x = (4 * Y_k - (sum1+sum2)) / math.pow(3,j-2)
+             
+             if (m==0):
+                 binStr = ""
+               #  sys.stdout.write("Traceability code for x is ") #Constructing the binary code
+                 binStr = "0"
+                 for t in range(1, j-2): binStr = binStr + "1"
+              #   sys.stdout.write("<"+binStr+">")
+              #   print("")
+             else:
+             #   sys.stdout.write("Traceability code for x is ") #Constructing the binary code
                 binStr = ""
-                for t in range(1, j-1):
-                    binStr = binStr + "0"
-            #   sys.stdout.write("<"+binStr+">")
-            #   print("")                                        # End
+                for t in range(m+1, j-2): binStr = "1" + binStr
+                binStr = "0" + binStr
+                for t in range(1, m+1): binStr = "1" + binStr
+            #    sys.stdout.write("<"+binStr+">")
+           #     print("")
+             if (verify(x, binStr)):
+                 print("Correct Collatz number ", x)
+                 sys.stdout.write("Binary Verification Code (BVC) for x is ")
+                 sys.stdout.write("<"+binStr+">")
+                 print("")
+                 
+          #   else: print("qj = ", qj, " Verification failed for ", x)
 
-                if (verify(x, binStr)):
-                    print("Correct Collatz number ", x)
-                    sys.stdout.write("Binary Verification Code (BVC) for x is ")
-                    sys.stdout.write("<"+binStr+">")
-                    print("") 
-                    
-            #    else: print("qj = ", qj, " Verification failed for ", x)
-
-                
-            if (qj == 2):
-                continue
-                for i in range(0, j-2):
-                    x = (math.pow(2,j-2)* Y_k - math.pow(2,i)*3 ) / 9
-                    
-        #         sys.stdout.write("Traceability code for x is ") #Constructing the binary code
-                    binStr = ""
-                    for t in range(0, j-2):
-                        if (t == i): binStr = "1" + binStr
-                        else:        binStr =  "0" + binStr
-            #        sys.stdout.write("<"+binStr+">")
-            #        print("")                                        # End
-
-                    if (verify(x, binStr)):
-                        print("Correct Collatz number ", x)
-                        sys.stdout.write("Binary Verification Code (BVC) for x is ")
-                        sys.stdout.write("<"+binStr+">")
-                        print("")
-                        
-            #     else: print("qj = ", qj, " Verification failed for ", x)
-
-                    
-            if (qj == j-1):
-                
-                sum = 0
-                for i in range(1, j-3):
-                    sum = sum + math.pow(3,i)
-                    x = (2* Y_k - sum) / math.pow(3,j-1)
-                    
-                #     sys.stdout.write("Traceability code for x is ") #Constructing the binary code
-                    binStr = ""
-                    for t in range(1, j-1):
-                        binStr = binStr + "1"
-            #      sys.stdout.write("<"+binStr+">")
-            #      print("")                                        # End
-
-                    if (verify(x, binStr)):
-                        print("Correct Collatz number ", x)
-                        sys.stdout.write("Binary Verification Code (BVC) for x is ")
-                        sys.stdout.write("<"+binStr+">")
-                        print("")
-                        
-                        
-                #    else: print("qj = ", qj, " Verification failed for ", x)
-
-                
-            if (qj == j-2):
-                continue
-                for m in range(0, j-2):
-                    sum1 = 0
-                    sum2 = 0   
-                    for i in range(1, m+1):
-                        sum1 = sum1 + (2 * math.pow(3,i))
-                    for i in range(m+1, j-2):
-                        sum2 = sum2 + math.pow(3,i)
-                    x = (4 * Y_k - (sum1+sum2)) / math.pow(3,j-2)
-                    
-                    if (m==0):
-                        binStr = ""
-                    #  sys.stdout.write("Traceability code for x is ") #Constructing the binary code
-                        binStr = "0"
-                        for t in range(1, j-2): binStr = binStr + "1"
-                    #   sys.stdout.write("<"+binStr+">")
-                    #   print("")
-                    else:
-                    #   sys.stdout.write("Traceability code for x is ") #Constructing the binary code
-                        binStr = ""
-                        for t in range(m+1, j-2): binStr = "1" + binStr
-                        binStr = "0" + binStr
-                        for t in range(1, m+1): binStr = "1" + binStr
-                    #    sys.stdout.write("<"+binStr+">")
-                #     print("")
-                    if (verify(x, binStr)):
-                        print("Correct Collatz number ", x)
-                        sys.stdout.write("Binary Verification Code (BVC) for x is ")
-                        sys.stdout.write("<"+binStr+">")
-                        print("")
-                        
-                #   else: print("qj = ", qj, " Verification failed for ", x)
-
-            if (2 < qj < j-2): 
-                continue 
-                # Remaining terms when 2 < qj < j-2
-                recursiveFor(qj-1, j-qj-1,qj-1, j, qj, Y_k)
-                mlist.clear()
+    if (2 < qj < j-2):  
+        # Remaining terms when 2 < qj < j-2
+        print("RECURSIVE FOR")
+        print(f"params: n: {qj - 1}, l: {j-qj - 1}, origN: {qj - 1}, j: {j}, qj: {qj}, Y_k: {Y_k}")
+        recursiveFor(qj-1, j-qj-1,qj-1, j, qj, Y_k)
+        mlist.clear()

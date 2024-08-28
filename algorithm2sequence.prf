@@ -1,0 +1,329 @@
+(algorithm2sequence
+ (empty_string_seq_TCC1 0
+  (empty_string_seq_TCC1-1 nil 3931969527 ("" (subtype-tcc) nil nil)
+   nil nil
+   (empty_string_seq subtype
+    "finite_sequences[finseq[char]].finseq_appl((# length := 0, seq := LAMBDA (i: nat_types[0].below): \"\" #))"
+    "sequence[string]")))
+ (concatenate_recur_TCC1 0
+  (concatenate_recur_TCC1-1 nil 3931969527 ("" (subtype-tcc) nil nil)
+   nil nil
+   (concatenate_recur subtype
+    "((number_fields.-)(algorithm2sequence.n, 1))" "nat")))
+ (concatenate_recur_TCC2 0
+  (concatenate_recur_TCC2-1 nil 3931969527
+   ("" (termination-tcc) nil nil) nil nil
+   (concatenate_recur termination
+    "algorithm2sequence.concatenate_recur(stdstr.concat(algorithm2sequence.str_base, algorithm2sequence.num), algorithm2sequence.num, ((number_fields.-)(algorithm2sequence.n, 1)), booleans.FALSE)"
+    "nil")))
+ (concatenate_recur_TCC3 0
+  (concatenate_recur_TCC3-1 nil 3931969527 ("" (subtype-tcc) nil nil)
+   nil nil
+   (concatenate_recur subtype
+    "((number_fields.-)(algorithm2sequence.n, 1))" "nat")))
+ (concatenate_recur_TCC4 0
+  (concatenate_recur_TCC4-1 nil 3931969527
+   ("" (termination-tcc) nil nil) nil nil
+   (concatenate_recur termination
+    "algorithm2sequence.concatenate_recur(stdstr.concat(algorithm2sequence.num, algorithm2sequence.str_base), algorithm2sequence.num, ((number_fields.-)(algorithm2sequence.n, 1)), booleans.TRUE)"
+    "nil")))
+ (case1_TCC1 0
+  (case1_TCC1-1 nil 3931969527 ("" (subtype-tcc) nil nil) nil nil
+   (case1 subtype "((number_fields.-)(algorithm2sequence.j, 2))"
+    "nat")))
+ (case2summation_TCC1 0
+  (case2summation_TCC1-1 nil 3931969527 ("" (subtype-tcc) nil nil) nil
+   nil
+   (case2summation subtype
+    "((number_fields.-)(algorithm2sequence.top, 1))" "nat")))
+ (case2summation_TCC2 0
+  (case2summation_TCC2-1 nil 3931969527 ("" (termination-tcc) nil nil)
+   nil nil
+   (case2summation termination
+    "algorithm2sequence.case2summation(((number_fields.-)(algorithm2sequence.top, 1)), ((number_fields.+)(algorithm2sequence.sum, (exponentiation.^(3, algorithm2sequence.top)))))"
+    "nil")))
+ (case3subloop_TCC1 0
+  (case3subloop_TCC1-1 nil 3931969527 ("" (subtype-tcc) nil nil) nil
+   nil (case3subloop subtype "algorithm2sequence.t" "naturalnumber")))
+ (case3subloop_TCC2 0
+  (case3subloop_TCC2-1 nil 3931969527 ("" (termination-tcc) nil nil)
+   nil nil
+   (case3subloop termination
+    "algorithm2sequence.case3subloop(algorithm2sequence.j, algorithm2sequence.i, ((number_fields.-)(algorithm2sequence.t, 1)), stdstr.concat(algorithm2sequence.str, \"1\"))"
+    "nil")))
+ (case3subloop_TCC3 0
+  (case3subloop_TCC3-1 nil 3931969527 ("" (termination-tcc) nil nil)
+   nil nil
+   (case3subloop termination
+    "algorithm2sequence.case3subloop(algorithm2sequence.j, algorithm2sequence.i, ((number_fields.-)(algorithm2sequence.t, 1)), stdstr.concat(algorithm2sequence.str, \"0\"))"
+    "nil")))
+ (case3_TCC1 0
+  (case3_TCC1-1 nil 3931969527 ("" (subtype-tcc) nil nil) nil nil
+   (case3 subtype "(number_fields.-)(algorithm2sequence.i, 1)" "nat")))
+ (case3_TCC2 0
+  (case3_TCC2-1 nil 3931969527 ("" (termination-tcc) nil nil) nil nil
+   (case3 termination
+    "algorithm2sequence.case3(algorithm2sequence.k, algorithm2sequence.j, algorithm2sequence.yk, algorithm2sequence.str, (number_fields.-)(algorithm2sequence.i, 1), sequences[string].add(algorithm2sequence.str, algorithm2sequence.seq))"
+    "nil")))
+ (casem0_TCC1 0
+  (casem0_TCC1-1 nil 3931969527 ("" (subtype-tcc) nil nil) nil nil
+   (casem0 subtype "((number_fields.-)(algorithm2sequence.j, 2))"
+    "nat")))
+ (casemnot0_TCC1 0
+  (casemnot0_TCC1-1 nil 3931969527 ("" (subtype-tcc) nil nil) nil nil
+   (casemnot0 subtype
+    "((number_fields.-)((number_fields.-)(algorithm2sequence.j, 3), algorithm2sequence.m))"
+    "nat")))
+ (casemnot0_TCC2 0
+  (casemnot0_TCC2-1 nil 3931969527 ("" (subtype-tcc) nil nil) nil nil
+   (casemnot0 subtype "(algorithm2sequence.m)" "nat")))
+ (case4loop_TCC1 0
+  (case4loop_TCC1-1 nil 3932137073 ("" (subtype-tcc) nil nil) nil nil
+   (case4loop subtype "(number_fields.-)(algorithm2sequence.m, 1)"
+    "nat")))
+ (case4loop_TCC2 0
+  (case4loop_TCC2-1 nil 3932137073 ("" (termination-tcc) nil nil) nil
+   nil
+   (case4loop termination
+    "algorithm2sequence.case4loop(algorithm2sequence.k, algorithm2sequence.j, algorithm2sequence.yk, (number_fields.-)(algorithm2sequence.m, 1), \"\", algorithm2sequence.seq)"
+    "nil")))
+ (mainfor_TCC1 0
+  (mainfor_TCC1-1 nil 3931970888 ("" (subtype-tcc) nil nil) nil nil
+   (mainfor subtype
+    "(number_fields.*((exponentiation.^(2, ((number_fields.-)(algorithm2sequence.j, 1)))), (number_fields./(algorithm2sequence.yk, 3))))"
+    "int")))
+ (mainfor_TCC2 0
+  (mainfor_TCC2-1 nil 3931970888 ("" (subtype-tcc) nil nil) nil nil
+   (mainfor subtype "(number_fields.-)(algorithm2sequence.qj, 1)"
+    "nat")))
+ (mainfor_TCC3 0
+  (mainfor_TCC8-1 nil 3931970888 ("" (termination-tcc) nil nil) nil nil
+   (mainfor termination
+    "algorithm2sequence.mainfor(algorithm2sequence.k, algorithm2sequence.j, algorithm2sequence.yk, (number_fields.-)(algorithm2sequence.qj, 1), algorithm2sequence.seq)"
+    "nil")))
+ (mainfor_TCC4 0
+  (mainfor_TCC3-1 nil 3931970888 ("" (subtype-tcc) nil nil) nil nil
+   (mainfor subtype
+    "number_fields./(((number_fields.-)((number_fields.*(2, algorithm2sequence.yk)), algorithm2sequence.case2summation(((number_fields.-)(algorithm2sequence.j, 2)), 0))), (exponentiation.^(3, ((number_fields.-)(algorithm2sequence.j, 1)))))"
+    "int")))
+ (mainfor_TCC5 0
+  (mainfor_TCC7-1 nil 3931970888 ("" (subtype-tcc) nil nil) nil nil
+   (mainfor subtype "(number_fields.-)(algorithm2sequence.qj, 1)"
+    "nat")))
+ (mainfor_TCC6 0
+  (mainfor_TCC11-1 nil 3931970888 ("" (termination-tcc) nil nil) nil
+   nil
+   (mainfor termination
+    "algorithm2sequence.mainfor(algorithm2sequence.k, algorithm2sequence.j, algorithm2sequence.yk, (number_fields.-)(algorithm2sequence.qj, 1), algorithm2sequence.seq)"
+    "nil")))
+ (mainfor_TCC7 0
+  (mainfor_TCC9-1 nil 3931970888 ("" (subtype-tcc) nil nil) nil nil
+   (mainfor subtype "(number_fields.-)(algorithm2sequence.j, 3)"
+    "nat")))
+ (mainfor_TCC8 0
+  (mainfor_TCC10-1 nil 3931970888 ("" (grind) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (real_gt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil))
+   nil
+   (mainfor subtype "(number_fields.-)(algorithm2sequence.qj, 1)"
+    "nat")))
+ (mainfor_TCC9 0
+  (mainfor_TCC5-1 nil 3931970888 ("" (termination-tcc) nil nil) nil nil
+   (mainfor termination
+    "algorithm2sequence.mainfor(algorithm2sequence.k, algorithm2sequence.j, algorithm2sequence.yk, (number_fields.-)(algorithm2sequence.qj, 1), algorithm2sequence.seq)"
+    "nil")))
+ (mainfor_TCC10 0
+  (mainfor_TCC4-1 nil 3931970888 ("" (subtype-tcc) nil nil) nil nil
+   (mainfor subtype "(number_fields.-)(algorithm2sequence.j, 3)"
+    "nat")))
+ (mainfor_TCC11 0
+  (mainfor_TCC6-1 nil 3931970888 ("" (subtype-tcc) nil nil) nil nil
+   (mainfor subtype "(number_fields.-)(algorithm2sequence.qj, 1)"
+    "nat")))
+ (mainfor_TCC12 0
+  (mainfor_TCC12-1 nil 3932137073 ("" (termination-tcc) nil nil) nil
+   nil
+   (mainfor termination
+    "algorithm2sequence.mainfor(algorithm2sequence.k, algorithm2sequence.j, algorithm2sequence.yk, (number_fields.-)(algorithm2sequence.qj, 1), algorithm2sequence.seq)"
+    "nil")))
+ (mainfor_TCC13 0
+  (mainfor_TCC13-1 nil 3932137073 ("" (subtype-tcc) nil nil) nil nil
+   (mainfor subtype "(number_fields.-)(algorithm2sequence.qj, 1)"
+    "nat")))
+ (mainfor_TCC14 0
+  (mainfor_TCC14-1 nil 3932137073 ("" (termination-tcc) nil nil) nil
+   nil
+   (mainfor termination
+    "algorithm2sequence.mainfor(algorithm2sequence.k, algorithm2sequence.j, algorithm2sequence.yk, (number_fields.-)(algorithm2sequence.qj, 1), algorithm2sequence.seq)"
+    "nil")))
+ (alg2_TCC1 0
+  (alg2_TCC1-1 nil 3931970888 ("" (subtype-tcc) nil nil) nil nil
+   (alg2 subtype
+    "((number_fields.-)(exponentiation.^(2, (number_fields.*(2, algorithm2sequence.k))), 1))"
+    "int")))
+ (alg2_TCC2 0
+  (alg2_TCC2-1 nil 3931970888 ("" (subtype-tcc) nil nil) nil nil
+   (alg2 subtype "(number_fields.-)(algorithm2sequence.j, 1)" "nat")))
+ (allZeros_TCC1 0
+  (allZeros_TCC1-1 nil 3932137073 ("" (subtype-tcc) nil nil) nil nil
+   (allZeros subtype "algorithm2sequence.i" "below[length(str)]")))
+ (allZeros_TCC2 0
+  (allZeros_TCC2-1 nil 3932137073 ("" (subtype-tcc) nil nil) nil nil
+   (allZeros subtype "\"0\"" "{fs | fs`length = 1}")))
+ (allOnes_TCC1 0
+  (allOnes_TCC1-1 nil 3932137073 ("" (subtype-tcc) nil nil) nil nil
+   (allOnes subtype "\"1\"" "{fs | fs`length = 1}")))
+ (countZeroes_TCC1 0
+  (countZeroes_TCC1-1 nil 3932137073 ("" (subtype-tcc) nil nil) nil nil
+   (countZeroes subtype "(number_fields.-)(algorithm2sequence.len, 1)"
+    "nat")))
+ (countZeroes_TCC2 0
+  (countZeroes_TCC2-1 nil 3932137073 ("" (termination-tcc) nil nil) nil
+   nil
+   (countZeroes termination
+    "algorithm2sequence.countZeroes(algorithm2sequence.str, (number_fields.-)(algorithm2sequence.len, 1), (number_fields.+)(algorithm2sequence.count, 1))"
+    "nil")))
+ (countZeroes_TCC3 0
+  (countZeroes_TCC3-1 nil 3932137073 ("" (subtype-tcc) nil nil) nil nil
+   (countZeroes subtype "(number_fields.-)(algorithm2sequence.len, 1)"
+    "nat")))
+ (countZeroes_TCC4 0
+  (countZeroes_TCC4-1 nil 3932137073 ("" (termination-tcc) nil nil) nil
+   nil
+   (countZeroes termination
+    "algorithm2sequence.countZeroes(algorithm2sequence.str, (number_fields.-)(algorithm2sequence.len, 1), algorithm2sequence.count)"
+    "nil")))
+ (countOnes_TCC1 0
+  (countOnes_TCC1-1 nil 3932137073 ("" (subtype-tcc) nil nil) nil nil
+   (countOnes subtype "(number_fields.-)(algorithm2sequence.len, 1)"
+    "nat")))
+ (countOnes_TCC2 0
+  (countOnes_TCC2-1 nil 3932137073 ("" (termination-tcc) nil nil) nil
+   nil
+   (countOnes termination
+    "algorithm2sequence.countOnes(algorithm2sequence.str, (number_fields.-)(algorithm2sequence.len, 1), (number_fields.+)(algorithm2sequence.count, 1))"
+    "nil")))
+ (countOnes_TCC3 0
+  (countOnes_TCC3-1 nil 3932137073 ("" (subtype-tcc) nil nil) nil nil
+   (countOnes subtype "(number_fields.-)(algorithm2sequence.len, 1)"
+    "nat")))
+ (countOnes_TCC4 0
+  (countOnes_TCC4-1 nil 3932137073 ("" (termination-tcc) nil nil) nil
+   nil
+   (countOnes termination
+    "algorithm2sequence.countOnes(algorithm2sequence.str, (number_fields.-)(algorithm2sequence.len, 1), algorithm2sequence.count)"
+    "nil")))
+ (case1allzeros 0
+  (case1allzeros-1 nil 3932137094
+   ("" (skeep)
+    (("" (expand case1string)
+      (("" (lemma case_concatenate_recur_zero)
+        (("" (inst -1 "j - 2" "FALSE")
+          (("1" (assert) nil nil) ("2" (grind) nil nil)) nil))
+        nil))
+      nil))
+    nil)
+   ((case1string const-decl "string" algorithm2sequence nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (- const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (>= const-decl "bool" reals nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (FALSE const-decl "bool" booleans nil)
+    (allZeros const-decl "bool" algorithm2sequence nil)
+    (extract1 const-decl "T" finite_sequences nil)
+    (nth def-decl "T" list_props nil)
+    (finseq_appl const-decl "[below[length(fs)] -> T]" finite_sequences
+     nil)
+    (concatenate_recur def-decl "string" algorithm2sequence nil)
+    (list2finseq const-decl "finseq[T]" list2finseq nil)
+    (length def-decl "nat" list_props nil)
+    (nnint_plus_posint_is_posint application-judgement "posint"
+     integers nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (case_concatenate_recur_zero formula-decl nil algorithm2sequence
+     nil))
+   shostak))
+ (case2allones 0
+  (case2allones-1 nil 3932138321
+   ("" (skeep)
+    (("" (expand case2string)
+      (("" (lemma case_concatenate_recur_one)
+        (("" (inst -1 "j - 2" "false")
+          (("1" (assert) nil nil) ("2" (grind) nil nil)) nil))
+        nil))
+      nil))
+    nil)
+   ((case2string const-decl "string" algorithm2sequence nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (j skolem-const-decl "nat" algorithm2sequence nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (- const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (>= const-decl "bool" reals nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (FALSE const-decl "bool" booleans nil)
+    (allOnes const-decl "bool" algorithm2sequence nil)
+    (extract1 const-decl "T" finite_sequences nil)
+    (nth def-decl "T" list_props nil)
+    (finseq_appl const-decl "[below[length(fs)] -> T]" finite_sequences
+     nil)
+    (concatenate_recur def-decl "string" algorithm2sequence nil)
+    (list2finseq const-decl "finseq[T]" list2finseq nil)
+    (length def-decl "nat" list_props nil)
+    (nnint_plus_posint_is_posint application-judgement "posint"
+     integers nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (case_concatenate_recur_one formula-decl nil algorithm2sequence
+     nil))
+   shostak)))
+

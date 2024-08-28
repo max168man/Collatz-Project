@@ -1,0 +1,400 @@
+%------------------------------------------------------------------------
+%
+% Algorithm 2
+% Authors: Ali Ebnenasir <aebnenas@mtu.edu>, Maxwell Brainerd <mmbraine@mtu.edu>
+% Date: 8/6/2024 - ongoing
+%
+% This is a variant of algorithm 2 that returns all generated BVCs through a
+% sequence. Note that it does not return verified BVCs, however.
+%
+%------------------------------------------------------------------------
+
+algorithm2sequencelength: THEORY
+BEGIN
+
+IMPORTING Verification
+IMPORTING stdio
+IMPORTING algorithm3
+IMPORTING strings
+IMPORTING sequences[int]
+IMPORTING sequences[string]
+IMPORTING finite_sequences
+
+empty_string_seq: sequence[string] = (# length := 0, seq := lambda (i: below[0]): "" #)
+
+
+%%%
+% concatenate_recur
+% param str_base: the "base" string that num is concatenated by.
+% num: the string, presumably a number in the context of this program, that is added to the right.
+% n: the number of times num is concatenated onto str_base
+% l: true if concatenation is to occur to left, false if to right
+%
+% This helper method repeatedly concatenates a string by another string.
+%%%
+
+concatenate_recur(str_base: string, num: string, n: nat, l: bool): RECURSIVE string =
+    % base case: once n equals 0, no more concatenation is requested
+    IF n <= 0 THEN
+        str_base
+    % concatenates to right if left is false and n /= 0 yet.
+    ELSIF l = FALSE THEN
+        concatenate_recur(concat(str_base, num), num, (n - 1), FALSE)
+    % concatenates to left if left is true and n /= 0 yet.
+    ELSE
+        concatenate_recur(concat(num, str_base), num, (n - 1), TRUE)
+    ENDIF
+    MEASURE n
+
+%%%
+% concatenate_recur_mod
+% param str_base: the "base" string that num is concatenated by.
+% num: the string, presumably a number in the context of this program, that is added to the right.
+% bottom: starting number
+% end: when to stop recursive calls
+%
+% l: true if concatenation is to occur to left, false if to right
+%
+% This helper method repeatedly concatenates a string by another string.
+%%%
+
+concatenate_recur_mod(str_base: string, num: string, n: nat, l: bool): RECURSIVE string =
+    % base case: once n equals 0, no more concatenation is requested
+    IF n <= 0 THEN
+        str_base
+    % concatenates to right if left is false and n /= 0 yet.
+    ELSIF l = FALSE THEN
+        concatenate_recur(concat(str_base, num), num, (n - 1), FALSE)
+    % concatenates to left if left is true and n /= 0 yet.
+    ELSE
+        concatenate_recur(concat(num, str_base), num, (n - 1), TRUE)
+    ENDIF
+    MEASURE n
+
+%%%
+% case1
+% param k: base where the stair will be calculated from
+% param j: what "level" the stair is at
+% param yk: a specification of the first stair.
+% param x: a potential Collatz number, will be verified
+% param str: an empty string, a BVC will be constructed from it.
+%
+% This helper method the first case in the main for loop.
+% It is called upon when qj = 1.
+%%%
+
+case1(k, yk, x: int, str: string, j: nat, seq: sequence[string]): sequence[string] = 
+    LET str = concatenate_recur(str, "0", (j-2), FALSE) IN
+    add(concat("(case 1) ", str), seq)
+
+%%%
+%case2summation
+% param top: integer that the summation "starts" at
+% param sum: total sum of all case2summation calculations
+% 
+% This helper method is used for the second case in the main for loop.
+% It calculates the sum of a formula 3^i, from i=top to 1.
+%%%
+
+case2summation(top: nat, sum: real): RECURSIVE real = 
+    IF (top <= 1) THEN
+        sum + 3
+    ELSE
+        case2summation((top - 1), (sum + (3^top)))
+    ENDIF
+    MEASURE top
+    
+
+%%%
+% case2
+% param k: base where the stair will be calculated from
+% param j: what "level" the stair is at
+% param yk: a specification of the first stair.
+% param x: a potential Collatz number, will be verified
+% param str: an empty string, a BVC will be constructed from it.
+%
+% This helper method is used for the second case in the main for loop.
+% It is called upon when qj = j - 1.
+%%%
+
+case2(k, yk, x: int, str: string, j: nat, seq: sequence[string]): sequence[string] = 
+    LET str = concatenate_recur(str, "1", (j - 2), FALSE) IN
+    add(concat("(case 2)", str), seq)
+
+%%%
+% case3subloop
+% param k: base where the stair will be calculated from
+% param j: what "level" the stair is at
+% param yk: a specification of the first stair.
+% param x: a potential Collatz number, will be verified
+% param i: where the outer loop is at
+% param str: an empty string, a BVC will be constructed from it.
+
+case3subloop(j, i, t: int, str: string): RECURSIVE string = 
+    IF t = -1 THEN
+        str
+    ELSIF t = i THEN
+        case3subloop(j, i, (t - 1), concat(str, "1"))
+    ELSE
+        case3subloop(j, i, (t - 1), concat(str, "0"))
+    ENDIF
+    MEASURE t
+
+
+%%%
+% case3
+% param k: base where the stair will be calculated from
+% param j: what "level" the stair is at
+% param yk: a specification of the first stair.
+% param x: a potential Collatz number, will be verified
+% param str: an empty string, a BVC will be constructed from it.
+%
+% This helper method is used for the third case in the main for loop.
+% It is called upon when qj = 2.
+%%%
+
+case3(k, j, yk: int, str: string, i: nat, seq: sequence[string]): RECURSIVE sequence[string] = 
+    IF (i = 0) THEN 
+        LET str = concat("(case3) ", case3subloop(j, i, j - 3, "")) IN
+        add(str, seq)
+    ELSE
+        LET str = case3subloop(j, i, j - 3, "") IN
+        case3(k, j, yk, str, i - 1, add(str, seq))
+    ENDIF
+    MEASURE i
+
+%%%
+% mainfor
+% param k: Value the jth stair is derived from.
+% param j: What the level of the jth stair is.
+% yk: a specification of the first stair.
+%
+% This helper method runs the main for loop of algorithm 2.
+% Once it has reached the last case, 2 < qj < j - 2, it calls a large recursive method in a different file.
+%%%
+
+%%%
+% casem0
+% param k: base where the stair will be calculated from
+% param j: what "level" the stair is at
+% param yk: a specification of the first stair.
+% param m: the current m value within case4's loop.
+% param str: an empty string, a BVC will be constructed from it.
+%
+% This helper method is used for the fourth case in the main for loop, when m=0.
+%%%
+
+casem0(k, j, yk, m: int, str: string, seq: sequence[string]): sequence[string] = 
+    LET str = concatenate_recur("0", "1", (j - 2), FALSE) IN
+    add(concat("(case 4)", str), seq)
+
+%%%
+% casemelse
+% param k: base where the stair will be calculated from
+% param j: what "level" the stair is at
+% param yk: a specification of the first stair.
+% param m: the current m value within case4's loop.
+% param str: an empty string, a BVC will be constructed from it.
+%
+% This helper method is used for the fourth case in the main for loop, when m /= 0.
+%%%
+
+casemnot0(k, j, yk, m: int, str: string, seq: sequence[string]): sequence[string] =  
+        LET str = concatenate_recur(str, "1", (j - 3 - m), FALSE) IN
+        LET str = concatenate_recur(str, "1", (m), TRUE) IN 
+        add(concat("(case 4)", str), seq)
+
+%%%
+% case4
+% param k: base where the stair will be calculated from
+% param j: what "level" the stair is at
+% param yk: a specification of the first stair.
+% param x: a potential Collatz number, will be verified
+% param str: an empty string, a BVC will be constructed from it.
+%
+% This helper method is used for the fourth case in the main for loop.
+% It is called upon when qj = j - 2
+%%%
+% concatenate_recur(str_base: string, num: string, n: nat, l: bool): 
+
+case4loop(k, j, yk: int, m: nat, str: string, seq: sequence[string]): RECURSIVE sequence[string] = 
+    IF (m = 0) THEN
+        casem0(k, j, yk, m, "", seq)
+    ELSE
+        LET seq = casemnot0(k, j, yk, m, "", seq) in case4loop(k, j, yk, m - 1, "", seq)
+    ENDIF
+    MEASURE m
+
+mainfor(k, j, yk: int, qj: nat, seq: sequence[string]): RECURSIVE sequence[string] = 
+    % If qj = 1 (case 1), ceases recursive calls and returns the sequence with the BVC from case 1 added to the sequence.
+    IF (qj = 1) THEN
+        case1(k, yk, ((2^(j - 1)) * (yk / 3)), "", j, seq)
+    % If qj = j - 1 (case 2), recursivily calls mainfor with the BVC from case 2 added to the sequence.
+    ELSIF (qj = j - 1) AND (j > 1) THEN
+        LET seq = case2(k, yk, ((2 * yk) - case2summation((j - 2), 0))/(3^(j - 1)), "", j, seq) IN
+        mainfor(k, j, yk, qj - 1, seq)
+    % If qj = 2 where j > 2 (case 3), recursivily calls mainfor with the BVCs from case 3 added to the sequence.
+    ELSIF (qj = 2 AND j > 2) THEN
+        LET seq = case3(k, j, yk, "", j - 3, seq)
+        IN mainfor(k, j, yk, qj - 1, seq)
+    % If 2 < qj < j - 2 where j > 5 (case 4), recursivily calls mainfor with the BVCs from recursively added to the sequence.
+    ELSIF (qj = j - 2 AND j > 2) THEN
+        LET seq = case4loop(k, j, yk, j - 3, "", seq)
+        IN mainfor(k, j, yk, qj - 1, seq)
+    ELSIF (qj > 2) AND (qj < j - 2) AND (j > 5) THEN 
+        mainfor(k, j, yk, qj - 1, seq)
+    % If any of these cases aren't reached, recursivily calls mainfor with same parameters besides qj being qj - 1.
+    ELSE
+        mainfor(k, j, yk, qj - 1, seq)
+    ENDIF
+    MEASURE qj
+
+%%%
+% alg2
+% param k: Value that the jth stair is derived from. Must be > 1.
+% param j: The jth stair. Must be > 0.
+%
+% This method is the user's interface into algorithm 2. If the user's parameters are valid, it moves onto a helper method.
+%
+%%%
+
+alg2(k: int, j: int): sequence[string] =
+    IF (k < 2) THEN
+        empty_string_seq
+    ELSIF (j < 1) THEN
+        empty_string_seq
+    ELSE
+        %print("Y_k/3 = ") AND println(2^(2 * k) - 1) AND 
+        mainfor(k, j, (2^(2 * k) - 1), j - 1, empty_string_seq)
+    ENDIF
+
+print_list(k: int, j: int): bool =
+    LET seq = alg2(k, j) IN
+        print("[") AND
+        FORALL(x:subrange(0, 100)): 
+        IF x /= 100 THEN
+            print(seq(x)) AND print(", ")
+        ELSE print(x) AND println("]")
+        ENDIF
+    AND TRUE
+
+%%%
+%
+% This method checks if all characters in a string are '0'.
+% It is intended for proofs.
+%
+%%%
+
+allZeros(str: string, len: nat): bool = 
+    FORALL(x:subrange(0, len - 1)):
+        IF (strcmp((substr(str, x, x)), "0")) = 0 THEN
+            TRUE
+        ELSE
+            FALSE
+        ENDIF
+
+%%%
+%
+% This method checks if all characters in a string are '1'.
+% It is intended for proofs.
+%
+%%%
+
+allOnes(str: string, len: nat): bool = 
+    FORALL(x:subrange(0, len - 1)):
+        IF (strcmp((substr(str, x, x)), "1")) = 0 THEN
+            TRUE
+        ELSE
+            FALSE
+        ENDIF
+
+%%%
+%
+% This method counts how many characters in a string match '0'.
+% It is intended for proofs.
+%
+%%%
+
+countZeroes(str: string, len, count: nat): RECURSIVE nat = 
+    IF len = 0 AND (strcmp((substr(str, len, len)), "0")) = 0 THEN
+        count + 1
+    ELSIF len = 0 THEN
+        count
+    ELSIF (strcmp((substr(str, len, len)), "0")) = 0 THEN
+        countZeroes(str, len - 1, count + 1)
+    ELSE
+        countZeroes(str, len - 1, count)
+    ENDIF
+    MEASURE len
+
+%%%
+%
+% This method checks if all characters in a string are '1'.
+% It is intended for proofs.
+%
+%%%
+
+countOnes(str: string, len, count: nat): RECURSIVE nat = 
+    IF len = 0 AND (strcmp((substr(str, len, len)), "1")) = 0 THEN
+        count + 1
+    ELSIF len = 0 THEN
+        count
+    ELSIF (strcmp((substr(str, len, len)), "1")) = 0 THEN
+        countOnes(str, len - 1, count + 1)
+    ELSE
+        countOnes(str, len - 1, count)
+    ENDIF
+    MEASURE len
+
+%%%
+%
+% This method checks if within a string:
+% All but one characters is '0'.
+% The remaining character is '1'.
+%
+% It is intended for proofs.
+%
+%%%
+
+oneOneRestZero(str: string, len: nat): bool =
+    IF countZeroes(str, len, 0) = len - 1 AND
+    countOnes(str, len, 0) = 1 THEN
+        TRUE
+    ELSE
+        FALSE
+    ENDIF
+
+%%%
+%
+% This method checks if within a string:
+% All but one characters is '1'.
+% The remaining character is '0'.
+%
+% It is intended for proofs.
+%
+%%%
+
+oneZeroRestOne(str: string, len: nat): bool =
+    IF countOnes(str, len, 0) = len - 1 AND
+    countZeroes(str, len, 0) = 1 THEN
+        TRUE
+    ELSE
+        FALSE
+    ENDIF
+
+%%%
+%
+% This method checks if within a sequence of strings:
+% How many strings solely consist of the character "zero".
+%
+% It is intended for proofs.
+%
+%%%
+
+%oneStringAllZeroes(seq: sequence[string], len, count: nat): RECURSIVE bool = 
+%    IF (len - 1 = 0) THEN
+%        count + allZeros
+
+
+
+END algorithm2sequencelength

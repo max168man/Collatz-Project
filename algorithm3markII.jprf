@@ -1,0 +1,27 @@
+{
+ "algorithm3markII.seq1_TCC1": [
+  {
+   "info": {
+    "theory": "algorithm3markII",
+    "formula": "seq1_TCC1",
+    "status": "proved",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "96a10c97331975e7730deca9447edaaf71d6880efe60e767da1a5df0f30e8af7"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "seq1_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(grind)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ]
+}

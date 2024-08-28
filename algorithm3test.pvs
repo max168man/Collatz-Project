@@ -1,0 +1,363 @@
+%------------------------------------------------------------------------
+%
+% Algorithm 3 Test
+% Authors: Maxwell Brainerd <mmbraine@mtu.edu>
+% Date: 8/16/2024 - ongoing
+%
+% This is a test file for algorithm 3.
+%------------------------------------------------------------------------
+
+algorithm3test: THEORY
+BEGIN
+
+IMPORTING Verification
+IMPORTING strings
+IMPORTING sequences[int]
+IMPORTING finite_sequences
+IMPORTING algorithm3markII
+
+empty_seq_int: finite_sequence[int] = empty_seq % Base empty sequence that'll be referenced frequently
+
+% 2 length example sequences
+seq22: finite_sequence[int] = add(2, add(2, empty_seq_int))
+seq21: finite_sequence[int] = add(1, add(2, empty_seq_int))
+seq20: finite_sequence[int] = add(0, add(2, empty_seq_int))
+seq11: finite_sequence[int] = add(1, add(1, empty_seq_int))
+seq10: finite_sequence[int] = add(0, add(1, empty_seq_int))
+seq00: finite_sequence[int] = add(0, add(0, empty_seq_int))
+
+% 3 length example sequences
+seq222: finite_sequence[int] = add(2, add(2, add(2, empty_seq_int)))
+seq200: finite_sequence[int] = add(0, add(0, add(2, empty_seq_int)))
+seq111: finite_sequence[int] = add(1, add(1, add(1, empty_seq_int)))
+seq110: finite_sequence[int] = add(0, add(1, add(1, empty_seq_int)))
+seq100: finite_sequence[int] = add(0, add(0, add(1, empty_seq_int)))
+seq000: finite_sequence[int] = add(0, add(0, add(0, empty_seq_int)))
+seq221: finite_sequence[int] = add(1, add(2, add(2, empty_seq_int)))
+
+% 4 length example sequences
+
+seq2111: finite_sequence[int] = add(1, add(1, add(1, add(2, empty_seq_int))))
+seq2110: finite_sequence[int] = add(0, add(1, add(1, add(2, empty_seq_int))))
+seq2100: finite_sequence[int] = add(0, add(0, add(1, add(2, empty_seq_int))))
+seq2000: finite_sequence[int] = add(0, add(0, add(0, add(2, empty_seq_int))))
+seq1111: finite_sequence[int] = add(1, add(1, add(1, add(1, empty_seq_int))))
+seq1110: finite_sequence[int] = add(0, add(1, add(1, add(1, empty_seq_int))))
+seq1100: finite_sequence[int] = add(0, add(0, add(1, add(1, empty_seq_int))))
+seq1000: finite_sequence[int] = add(0, add(0, add(0, add(1, empty_seq_int))))
+seq0000: finite_sequence[int] = add(0, add(0, add(0, add(0, empty_seq_int))))
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                                                            %
+% This modified version of the BVC calculation algorithm prints out data throughout the generation of a BVC. %
+% It is useful for bugtesting and has been kept around for potential future use.                             %
+%                                                                                                            %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+BVCcalculatorBoolcase0(j: nat, str: string, seq: finite_sequence[int]): bool = 
+  IF seq(0) = 0 THEN
+    print("case i = 0, seq(i) = 0, ") AND 
+    LET str = (concat("1", str)) IN
+    println(concatenate_recur(str, "0", j - 2 - length(str), TRUE))
+  ELSIF seq(0) = seq(1) THEN
+    print("case i = 0, seq(i) = seq(i + 1), ") AND
+    LET str = (concat("1", str)) IN
+    println(concatenate_recur(str, "0", j - 2 - length(str), TRUE))
+  ELSE
+    print("case i = 0, else, ") AND
+    LET str = (concat("1", concatenate_recur(str, "0", seq(0) - seq(1), TRUE))) 
+    IN println(concatenate_recur(str, "0", j - 2 - length(str), TRUE))
+  ENDIF
+
+BVCcalculatorBool(i, j: nat, str: string, seq: finite_sequence[int]): RECURSIVE bool =
+  IF (i = 0) THEN
+    BVCcalculatorBoolcase0(j, str, seq)
+  ELSIF (seq(i) = 0) THEN
+    println("case seq(i) = 0: ") AND
+    println(concat("1", str)) AND 
+    BVCcalculatorBool(i - 1, j, concat("1", str), seq)
+  ELSIF (i = length(seq) - 1) THEN
+    print ("Case i = len(mlist) - 1: ") AND
+    println(concat("1", concatenate_recur(str, "0", seq(i), TRUE))) AND 
+    LET str = concat("1", concatenate_recur(str, "0", seq(i), TRUE)) IN
+      BVCcalculatorBool(i - 1, j, str, seq)
+  ELSIF (seq(i) = seq(i + 1)) THEN
+    print ("Case mlist[i] = mlist[i + 1]: ") AND
+    println(concat("1", str)) AND 
+    LET str = concat("1", str) IN
+      BVCcalculatorBool(i - 1, j, str, seq)
+  ELSE
+    print ("Case else ") AND
+    println(concatenate_recur(str, "0", seq(i) - seq(i + 1), TRUE)) AND 
+    LET str = concat("1", concatenate_recur(str, "0", seq(i) - seq(i + 1), TRUE)) IN
+      BVCcalculatorBool(i - 1, j, str, seq)
+  ENDIF
+  MEASURE i
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                       %
+% These tests ensure the correctness of BVC generation in recursiveFor. %
+%                                                                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% BVC generation (bool) test: k = 5, j = 6 (2 length) ALL PASSED
+
+BoolBVCcalculatorTest22(j: nat): bool = % Expected: 1100
+  LET seq = seq22 in BVCcalculatorBool(length(seq) - 1, j, "", seq)
+
+BoolBVCcalculatorTest21(j: nat): bool = % Expected: 1010
+  LET seq = seq21 in BVCcalculatorBool(length(seq) - 1, j, "", seq)
+  
+BoolBVCcalculatorTest20(j: nat): bool = % Expected: 1001
+  LET seq = seq20 in BVCcalculatorBool(length(seq) - 1, j, "", seq)
+
+BoolBVCcalculatorTest11(j: nat): bool = % Expected: 0110
+  LET seq = seq11 in BVCcalculatorBool(length(seq) - 1, j, "", seq)
+
+BoolBVCcalculatorTest10(j: nat): bool = % Expected: 0101
+  LET seq = seq10 in BVCcalculatorBool(length(seq) - 1, j, "", seq)
+
+BoolBVCcalculatorTest00(j: nat): bool = % Expected: 0011
+  LET seq = seq00 in BVCcalculatorBool(length(seq) - 1, j, "", seq)
+
+% BVC generation (bool) test: k = 5, j = 7 (3 length) ALL PASSED
+
+BoolBVCcalculatorTest222(j: nat): bool = % Expected: 11100
+  LET seq = seq222 in BVCcalculatorBool(length(seq) - 1, j, "", seq)
+
+BoolBVCcalculatorTest200(j: nat): bool = % Expected: 10011
+  LET seq = seq200 in BVCcalculatorBool(length(seq) - 1, j, "", seq)
+  
+BoolBVCcalculatorTest111(j: nat): bool = % Expected: 01110
+  LET seq = seq111 in BVCcalculatorBool(length(seq) - 1, j, "", seq)
+
+BoolBVCcalculatorTest110(j: nat): bool = % Expected: 01101
+  LET seq = seq110 in BVCcalculatorBool(length(seq) - 1, j, "", seq)
+
+BoolBVCcalculatorTest100(j: nat): bool = % Expected: 01011
+  LET seq = seq100 in BVCcalculatorBool(length(seq) - 1, j, "", seq)
+
+BoolBVCcalculatorTest000(j: nat): bool = % Expected: 00111
+  LET seq = seq000 in BVCcalculatorBool(length(seq) - 1, j, "", seq)
+
+BoolBVCcalculatorTest221(j: nat): bool = % Expected: 11010
+  LET seq = seq221 in BVCcalculatorBool(length(seq) - 1, j, "", seq)
+
+% BVC generation (bool) test: k = 5, j = 8 (4 length) ALL PASSED
+
+BoolBVCcalculatorTest2111(j: nat): bool = % Expected: 101110
+  LET seq = seq2111 in BVCcalculatorBool(length(seq) - 1, j, "", seq)
+
+BoolBVCcalculatorTest2110(j: nat): bool = % Expected: 101101
+  LET seq = seq2110 in BVCcalculatorBool(length(seq) - 1, j, "", seq)
+  
+BoolBVCcalculatorTest2100(j: nat): bool = % Expected: 101011
+  LET seq = seq2100 in BVCcalculatorBool(length(seq) - 1, j, "", seq)
+
+BoolBVCcalculatorTest2000(j: nat): bool = % Expected: 100111
+  LET seq = seq2000 in BVCcalculatorBool(length(seq) - 1, j, "", seq)
+
+BoolBVCcalculatorTest1111(j: nat): bool = % Expected: 011110
+  LET seq = seq1111 in BVCcalculatorBool(length(seq) - 1, j, "", seq)
+
+BoolBVCcalculatorTest1110(j: nat): bool = % Expected: 011101
+  LET seq = seq1110 in BVCcalculatorBool(length(seq) - 1, j, "", seq)
+
+BoolBVCcalculatorTest1100(j: nat): bool = % Expected: 011011
+  LET seq = seq1100 in BVCcalculatorBool(length(seq) - 1, j, "", seq)
+
+BoolBVCcalculatorTest1000(j: nat): bool = % Expected: 010111
+  LET seq = seq1000 in BVCcalculatorBool(length(seq) - 1, j, "", seq)
+
+BoolBVCcalculatorTest0000(j: nat): bool = % Expected: 001111
+  LET seq = seq0000 in BVCcalculatorBool(length(seq) - 1, j, "", seq)
+
+% BVC generation test: k = 5, j = 6 (2 length) ALL PASSED
+
+BVCcalculatorTest22(j: nat): string = % Expected: 1100
+  LET seq = seq22 in BVCcalculator(length(seq) - 1, j, "", seq)
+
+BVCcalculatorTest21(j: nat): string = % Expected: 1010
+  LET seq = seq21 in BVCcalculator(length(seq) - 1, j, "", seq)
+  
+BVCcalculatorTest20(j: nat): string = % Expected: 1001 
+  LET seq = seq20 in BVCcalculator(length(seq) - 1, j, "", seq)
+
+BVCcalculatorTest11(j: nat): string = % Expected: 0110
+  LET seq = seq11 in BVCcalculator(length(seq) - 1, j, "", seq)
+
+BVCcalculatorTest10(j: nat): string = % Expected: 0101
+  LET seq = seq10 in BVCcalculator(length(seq) - 1, j, "", seq)
+
+BVCcalculatorTest00(j: nat): string = % Expected: 0011
+  LET seq = seq00 in BVCcalculator(length(seq) - 1, j, "", seq)
+
+% BVC generation test: k = 5, j = 7 (3 length) ALL PASSED
+
+BVCcalculatorTest222(j: nat): string = % Expected: 11100
+  LET seq = seq222 in BVCcalculator(length(seq) - 1, j, "", seq)
+
+BVCcalculatorTest200(j: nat): string = % Expected: 10011
+  LET seq = seq200 in BVCcalculator(length(seq) - 1, j, "", seq)
+  
+BVCcalculatorTest111(j: nat): string = % Expected: 01110
+  LET seq = seq111 in BVCcalculator(length(seq) - 1, j, "", seq)
+
+BVCcalculatorTest110(j: nat): string = % Expected: 01101
+  LET seq = seq110 in BVCcalculator(length(seq) - 1, j, "", seq)
+
+BVCcalculatorTest100(j: nat): string = % Expected: 01011
+  LET seq = seq100 in BVCcalculator(length(seq) - 1, j, "", seq)
+
+BVCcalculatorTest000(j: nat): string = % Expected: 00111
+  LET seq = seq000 in BVCcalculator(length(seq) - 1, j, "", seq)
+
+BVCcalculatorTest221(j: nat): string = % Expected: 11010
+  LET seq = seq221 in BVCcalculator(length(seq) - 1, j, "", seq)
+
+% BVC generation test: k = 5, j = 8 (4 length) ALL PASSED
+
+BVCcalculatorTest2111(j: nat): string = % Expected: 101110
+  LET seq = seq2111 in BVCcalculator(length(seq) - 1, j, "", seq)
+
+BVCcalculatorTest2110(j: nat): string = % Expected: 101101
+  LET seq = seq2110 in BVCcalculator(length(seq) - 1, j, "", seq)
+  
+BVCcalculatorTest2100(j: nat): string = % Expected: 101011
+  LET seq = seq2100 in BVCcalculator(length(seq) - 1, j, "", seq)
+
+BVCcalculatorTest2000(j: nat): string = % Expected: 100111
+  LET seq = seq2000 in BVCcalculator(length(seq) - 1, j, "", seq)
+
+BVCcalculatorTest1111(j: nat): string = % Expected: 011110
+  LET seq = seq1111 in BVCcalculator(length(seq) - 1, j, "", seq)
+
+BVCcalculatorTest1110(j: nat): string = % Expected: 011101
+  LET seq = seq1110 in BVCcalculator(length(seq) - 1, j, "", seq)
+
+BVCcalculatorTest1100(j: nat): string = % Expected: 011011
+  LET seq = seq1100 in BVCcalculator(length(seq) - 1, j, "", seq)
+
+BVCcalculatorTest1000(j: nat): string = % Expected: 010111
+  LET seq = seq1000 in BVCcalculator(length(seq) - 1, j, "", seq)
+
+BVCcalculatorTest0000(j: nat): string = % Expected: 001111
+  LET seq = seq0000 in BVCcalculator(length(seq) - 1, j, "", seq)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                                  %
+% These tests ensure the correctness of Collatz number generation in recursiveFor. %
+%                                                                                  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%
+%
+% These first four tests are for non integer Collatz number results.
+%
+%%%
+
+% Input data: 
+% origN: 3
+% Y_k: 1023
+% j: 7
+% qj: 4
+%
+% Expected Output data:
+% 99.11 (892/9)
+% PASSED
+
+collatzNumTest1(origN, Y_k: int, j, qj: nat): real =
+  LET seq = seq222 IN
+    collatzNumCalculator(origN, Y_k, j, qj, seq)
+
+% Input data: 
+% origN: 3
+% Y_k: 1023
+% j: 7
+% qj: 4
+%
+% Expected Output data:
+% 100.44 (904/9)
+% PASSED
+
+collatzNumTest2(origN, Y_k: int, j, qj: nat): real =
+  LET seq = seq200 IN
+    collatzNumCalculator(origN, Y_k, j, qj, seq)
+
+% Input data: 
+% origN: 4
+% Y_k: 1023
+% j: 8
+% qj: 5
+%
+% Expected Output data:
+% 33.17 (896/27)
+
+collatzNumTest3(origN, Y_k: int, j, qj: nat): real =
+  LET seq = seq0000 IN
+    collatzNumCalculator(origN, Y_k, j, qj, seq)
+
+% Input data: 
+% origN: 2
+% Y_k: 1023
+% j: 6
+% qj: 3
+%
+% Expected Output data:
+% 302.3 (2720/9)
+% PASSED
+
+collatzNumTest4(origN, Y_k: int, j, qj: nat): real =
+  LET seq = seq11 IN
+    collatzNumCalculator(origN, Y_k, j, qj, seq)
+
+%%%
+%
+% These next two tests are for non integer Collatz number results.
+%
+%%%
+
+% Input data: 
+% origN: 2
+% Y_k: 15
+% j: 6
+% qj: 3
+%
+% Expected Output data:
+% 4
+% PASSED
+
+collatzNumTest5(origN, Y_k: int, j, qj: nat): real =
+  LET seq = seq00 IN
+    collatzNumCalculator(origN, Y_k, j, qj, seq)
+
+% Input data: 
+% origN: 3
+% Y_k: 274877906943.0
+% j: 8
+% qj: 4
+%
+% Expected Output data:
+% 54296870506.0
+% PASSED
+
+i: VAR nat
+
+
+seq41: finite_sequence[int] = add(1, add(4, empty_seq_int))
+caseAcceptTest1(origN, Y_k: int, j, qj: nat): boolean =
+  LET seq = seq41 IN case_accept(origN, Y_k, j, qj, seq)
+
+else_test1(n, l: nat, origN, j, qj, Y_k: int): boolean =
+ LET seq = seq000 IN else_loop(l, origN, j, qj, Y_k, seq)
+
+delete_test1(index: nat): boolean = 
+  delete_finite_seq_bool(index, seq2100)
+
+delete_test1real(index: nat): boolean = 
+  print_finite_seq(delete_finite_seq(index, seq2100))
+
+recursiveForTest(n, l, origN, j, qj, Y_k: int): boolean = 
+  recursiveFor(n, l, origN, j, qj, Y_k, empty_seq)
+
+END algorithm3test

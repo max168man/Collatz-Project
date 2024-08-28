@@ -1,0 +1,241 @@
+%------------------------------------------------------------------------
+%
+% Algorithm 3
+% Authors: Ali Ebnenasir <aebnenas@mtu.edu>, Maxwell Brainerd <mmbraine@mtu.edu>
+% Date: 7/26/2024 - ongoing
+%
+% This is a helper algorithm to algorithm 2.
+% It uses a nested for loop with variable depth n to compute Collatz numbers of the
+% jth stair where 2 < qj < j - 2.
+%
+%------------------------------------------------------------------------
+
+algorithm3markII: THEORY
+BEGIN
+
+IMPORTING Verification
+IMPORTING strings
+IMPORTING sequences[int]
+IMPORTING finite_sequences
+
+empty_seq_int: finite_sequence[int] = empty_seq % Base empty sequence that'll be referenced
+
+%%%
+% concatenate_recur
+% param str_base: the "base" string that num is concatenated by.
+% num: the string, presumably a number in the context of this program, that is added to the right.
+% n: the number of times num is concatenated onto str_base
+% l: true if concatenation is to occur to left, false if to right
+%
+% This helper method repeatedly concatenates a string by another string.
+%%%
+
+concatenate_recur(str_base: string, num: string, n: nat, l: bool): RECURSIVE string =
+    % base case: once n equals 0, no more concatenation is requested
+    IF n <= 0 THEN
+        str_base
+    % concatenates to right if left is false and n /= 0 yet.
+    ELSIF l = FALSE THEN
+        concatenate_recur(concat(str_base, num), num, (n - 1), FALSE)
+    % concatenates to left if left is true and n /= 0 yet.
+    ELSE
+        concatenate_recur(concat(num, str_base), num, (n - 1), TRUE)
+    ENDIF
+    MEASURE n
+
+%%%
+%
+% BVCcalculatorCase0
+% This helper function to BVCcalculator generates the final BVC
+%
+%%%
+
+BVCcalculatorCase0(j: nat, str: string, seq: finite_sequence[int]): string = 
+  IF seq(0) = 0 THEN
+    LET str = (concat("1", str)) IN
+    concatenate_recur(str, "0", j - 2 - length(str), TRUE)
+  ELSIF seq(0) = seq(1) THEN
+    LET str = (concat("1", str)) IN
+    concatenate_recur(str, "0", j - 2 - length(str), TRUE)
+  ELSE
+    LET str = (concat("1", concatenate_recur(str, "0", seq(0) - seq(1), TRUE))) 
+    IN concatenate_recur(str, "0", j - 2 - length(str), TRUE)
+  ENDIF
+
+%%%
+%
+% BVCcalculator
+% This function generates a BVC for use in castNnot1.
+%
+%%%
+
+BVCcalculator(i, j: nat, str: string, seq: finite_sequence[int]): RECURSIVE string =
+  IF (i = 0) THEN
+    BVCcalculatorCase0(j, str, seq)
+  ELSIF (seq(i) = 0) THEN
+    BVCcalculator(i - 1, j, concat("1", str), seq)
+  ELSIF (i = length(seq) - 1) THEN
+    LET str = concat("1", concatenate_recur(str, "0", seq(i), TRUE)) IN
+      BVCcalculator(i - 1, j, str, seq)
+  ELSIF (seq(i) = seq(i + 1)) THEN
+    LET str = concat("1", str) IN
+      BVCcalculator(i - 1, j, str, seq)
+  ELSE
+    LET str = concat("1", concatenate_recur(str, "0", seq(i) - seq(i + 1), TRUE)) IN
+      BVCcalculator(i - 1, j, str, seq)
+  ENDIF
+  MEASURE i
+  
+%%%
+%
+% sumCalculator
+% This function generates a sum for use in collatzNumCalculator.
+%
+%%%
+
+sumCalculator(i, origN, sum: int, seq: finite_sequence[int]): RECURSIVE real =
+  IF i = (origN - 1) THEN 
+    sum + ((2^(seq(i))) * (3^(i + 1)))
+  ELSE
+    LET sum = sum + ((2^(seq(i))) * (3^(i + 1))) IN
+      sumCalculator((i + 1), origN, sum, seq)
+  ENDIF
+  MEASURE i
+
+%%%
+%
+% collatzNumCalculator
+% This function generates a Collatz number to test in verify.
+%
+%%%
+
+collatzNumCalculator(origN, Y_k: int, j, qj: nat, seq: finite_sequence[int]): real = 
+  LET sum = sumCalculator(0, origN, 0, seq) IN
+    (((2^(j - qj)) * Y_k) - sum) / (3^qj)
+
+%%%
+%
+% caseNnotgreaterthan1_test
+%
+% This function checks if within the range 0 to nc - 1, if any number in the sequence is less than it's successor.
+% If this case occurs, it returns false
+%
+
+printList(seq: finite_sequence[int]): boolean = 
+    FORALL(x: subrange(0, length(seq) - 1)):
+        print(seq(x))
+
+%%%
+%
+% case_accept
+%
+% This is a helper method to else_loop.
+% If caseNnotgreaterthan1_innerfor returns true, case_accept will be reached.
+% A collatz number and BVC are calculated from the parameters, and this is checked via verification.
+%
+%%%
+
+case_accept(origN, Y_k: int, j, qj: nat, seq: finite_sequence[int]): boolean =
+  IF NOT integer_pred(collatzNumCalculator(origN, Y_k, j, qj, seq)) THEN
+    println("Not int") AND println(collatzNumCalculator(origN, Y_k, j, qj, seq)) AND TRUE
+  ELSIF 
+    LET collatzNum = collatzNumCalculator(origN, Y_k, j, qj, seq) IN
+    LET BVC = BVCcalculator((length(seq) - 1), j, "", seq) IN 
+    verification_portal(collatzNum, BVC) = TRUE THEN TRUE
+  ELSE
+    println(collatzNumCalculator(origN, Y_k, j, qj, seq)) AND
+    println(BVCcalculator((length(seq) - 1), j, "", seq)) AND
+    FALSE
+  ENDIF
+
+%%%
+%
+% caseNnotgreaterthan1_innerfor
+%
+% This is a helper method to else_loop.
+% It checks if throughout the entire list from i to origN - 1, if there is any case where list[i] < list[i + 1].
+% If this occurs, it returns false.
+%
+%%%
+
+caseNnotgreaterthan1_innerfor(seq: finite_sequence[int], origN: nat):  boolean = 
+  FORALL(x: subrange(0, (origN - 1))):
+    IF (seq(x) < seq(x + 1)) THEN 
+      FALSE
+    ELSE 
+      TRUE
+    ENDIF
+
+%%%
+%
+% else_loop
+%
+% This recursive boolean is called if n is not greater than 1.
+% 
+%%%
+
+else_loop(l: nat, origN, j, qj, Y_k: int, seq: finite_sequence[int]): RECURSIVE boolean = 
+  IF l = 0 AND LET seq = add(l, seq) IN caseNnotgreaterthan1_innerfor(seq, origN - 1) = TRUE THEN
+    LET collatzNum = collatzNumCalculator(origN, Y_k, j, qj, seq) IN
+    LET BVC = BVCcalculator(length(seq) - 1, origN, "", seq) IN
+    verification_portal(collatzNum, BVC) AND TRUE
+  ELSIF
+    LET seq = add(l, seq) IN caseNnotgreaterthan1_innerfor(seq, origN - 1) = TRUE THEN
+      LET collatzNum = collatzNumCalculator(origN, Y_k, j, qj, seq) IN
+      LET BVC = BVCcalculator(length(seq) - 1, origN, "", seq) IN
+      verification_portal(collatzNum, BVC) AND else_loop(l - 1, origN, j, qj, Y_k, seq)
+  ELSE 
+      else_loop(l - 1, origN, j, qj, Y_k, seq)
+  ENDIF
+  MEASURE l
+
+%remove_index(seq, emptyseq: finite_sequence[int], forbidden_index: {i: nat | i < length(seq)}): RECURSIVE finite_sequence[int] =
+%  IF 
+
+%%%
+%
+% print_finite_seq
+%
+% This useful testing method prints a finite sequence out from start to finish.
+%
+%%%
+
+print_finite_seq(seq: finite_sequence[int]): boolean = 
+  FORALL(x:subrange(0, length(seq) - 1)):
+    print(seq(x))
+
+
+delete_finite_seq_helper(len, current_index: nat, seq: sequence[int], base_seq: finite_sequence[int]): RECURSIVE finite_sequence[int] = 
+  IF current_index = 0 THEN 
+    base_seq
+  ELSE
+    LET base_seq = add(seq(len - current_index), base_seq) IN delete_finite_seq_helper(len, current_index - 1, seq, base_seq)
+  ENDIF
+  MEASURE current_index
+
+delete_finite_seq(index: nat, seq: finite_sequence[int]): finite_sequence[int] =
+  delete_finite_seq_helper((length(seq) - 1), (length(seq) - 1), delete(index, seq), empty_seq)
+
+delete_finite_seq_helper_bool(len, current_index: nat, seq: sequence[int], base_seq: finite_sequence[int]): RECURSIVE bool = 
+  IF current_index = 0 THEN 
+    print("current index: ") AND println(current_index) AND print_finite_seq(base_seq) AND TRUE
+  ELSE
+    print("current index: ") AND println(current_index) AND print_finite_seq(add(seq(len - current_index), base_seq)) AND println("") AND LET base_seq = add(seq(len - current_index), base_seq) IN delete_finite_seq_helper_bool(len, current_index - 1, seq, base_seq)
+  ENDIF
+  MEASURE current_index
+
+delete_finite_seq_bool(index: nat, seq: finite_sequence[int]): boolean =
+  delete_finite_seq_helper_bool((length(seq) - 1), (length(seq) - 1), delete(index, seq), empty_seq)
+
+recursiveFor(n: nat, l, origN, j, qj, Y_k: int, seq: finite_sequence[int]): RECURSIVE bool = 
+  IF n = 1 THEN 
+    TRUE
+  ELSE 
+    print("Before append: ") AND
+    print_finite_seq(add(l, seq)) AND
+    recursiveFor(n - 1, l, origN, j, qj, Y_k, add(l, seq)) AND
+    recursiveFor(n, l - 1, origN, j, qj, Y_k, (delete_finite_seq(origN - n, seq)))
+  ENDIF
+    measure n
+
+END algorithm3markII

@@ -18,7 +18,47 @@ IMPORTING strings
 IMPORTING sequences[int]
 IMPORTING finite_sequences
 
-empty_sequence: sequence[int] = (LAMBDA (n: nat): 0)
+empty_sequence: sequence[int] = (LAMBDA (n: nat): 0) % base empty sequence
+
+% test sequences: seq3 = 3, 2, 1
+
+empty_seq_int: finite_sequence[int] = empty_seq
+
+
+seq1: finite_sequence[int] = add(1, empty_seq_int)
+seq2: finite_sequence[int] = add(2, seq1)
+seq3: finite_sequence[int] = add(3, seq2)
+
+
+seq4: finite_sequence[int] = add(4, add(3, add(2, add(1, empty_seq_int))))
+seqbased: finite_sequence[int] = add(1, empty_seq_int)
+
+seq5: finite_sequence[int] = o(seq4, seqbased) 
+
+print_finite_seq(seq: finite_sequence[int]): boolean = 
+  FORALL(x:subrange(0, length(seq) - 1)):
+    print(seq6(x))
+
+print_finite_seq_test(x: int): boolean = 
+  print_finite_seq(seq5)
+
+
+append_loop(seq, base_seq: sequence[int], seq_length: nat): RECURSIVE sequence[int] = 
+  IF seq_length = 0 THEN
+    add(seq(0), base_seq)
+  ELSE
+    append_loop(seq, add(seq(seq_length - 1), base_seq), seq_length - 1)
+  ENDIF
+  MEASURE seq_length
+
+
+append(x: int, seq, base_seq: sequence[int], seq_length: nat): sequence[int] =
+  append_loop(seq, add(x, base_seq), seq_length)
+
+
+seq1_append: sequence[int] = append(1, empty_sequence, empty_sequence, 0)
+seq2_append: sequence[int] = append(2, seq1_append, empty_sequence, 1)
+seq3_append: sequence[int] = append(3, seq2_append, empty_sequence, 2)
 
 % This testing method is used to print every member of a sequence, starting from the first to the last.
 print_list(seq_length: nat, seq: sequence[nat]): bool =
@@ -46,44 +86,52 @@ recursiveListCreation(l, seq_length: nat, seq: sequence[int]): RECURSIVE sequenc
   ENDIF
   MEASURE l
     
+caseNnotgreaterthan1_innerfor(n, origN, Y_k: int, x, l, j, qj, seq_length: nat, seq: sequence[int]):  boolean = 
+  FORALL(x: subrange(0, seq_length - 1)):
+    IF (seq(x) < seq(x + 1)) THEN 
+      FALSE
+    ELSE 
+      TRUE
+    ENDIF
+
 %%%
-% alg3
-% param n: Length of the summation in the later "num" calculation
-% origN: 
-% Y_k:
-% l: Maximum exponent for the powers of 2 used in the summation for num
-% j: Current stair
-% qj: Passed from algorithm 2
-% seq: An empty sequence used for later calculations.
 %
-% This algorithm uses a nested for loop to compute Collatz numbers of the j-th stair where 2 < qj < j - 2.
+% caseNnotgreaterthan1_test
+%
+% This function checks if within the range 0 to nc - 1, if any number in the sequence is less than it's successor.
+% If this case occurs, it returns false
+%
 %%%
 
-recursiveFor(n, origN, Y_k: int, l, j, qj: nat, seq: sequence[int], seq_length: nat): RECURSIVE boolean = % Corresponds to line 1 in algorithm
-  println("") AND print("Beginning list (1): ") AND print_list(seq_length, seq)  AND
-  IF n > 1 THEN
-    print("case n > 1, n = ") AND println(n) AND 
-    % Adds every value starting from l to 0 to 
-    FORALL(x:subrange(0, l)):
-        print("x = ") AND println(l-x) AND print("Beginning list: ") AND print_list(seq_length, seq)  AND 
-        recursiveFor(n - 1, origN, Y_k, l, j, qj, add(l-x, seq), seq_length + 1)
-  ELSE
-    println("case n <= 1") AND 
-    LET sequence = seq IN recursiveListCreationBool(l, 0, sequence)
-  ENDIF
-MEASURE n
+caseNnotgreaterthan1_accept(nc: nat, seq: sequence[int]): boolean = 
 
-recursiveForEnhanced(n, origN, Y_k: int, x, l, j, qj: nat, seq: sequence[int], seq_length: nat): RECURSIVE boolean =
-  IF n = 1 THEN
-    LET sequence = seq IN recursiveListCreationBool(l, 0, sequence)
-  ELSIF x >= 0 THEN
-    print("x = ") AND println(l-x) AND print("Beginning list: ") AND print_list(seq_length, seq) AND
-    recursiveForEnhanced(n - 1, origN, Y_k, x, l, j, qj, add(l-x, seq), seq_length + 1) AND
-    recursiveForEnhanced(n, origN, Y_k, x - 1, l, j, qj, delete(origN - n, (add(l-x, seq))), seq_length + 1)
-  ELSE
-    TRUE
-  ENDIF
-  MEASURE n
+% Can print through list for testing
+
+FORALL(x: subrange(0, nc - 1)):
+  print(seq(x))
+AND
+  println("")
+AND
+
+FORALL(x: subrange(0, nc - 1)):
+    IF (seq(x) < seq(x + 1)) THEN 
+      FALSE
+    ELSE 
+      TRUE
+    ENDIF
+  
+% Test function
+call_test(seq_length: nat): boolean =
+  LET seq = seq3_append IN caseNnotgreaterthan1_accept(seq_length, seq)
+
+%caseNnotgreaterthan1(n, origN, Y_k: int, x, l, j, qj: nat, seq:  sequence[int], seq_length: nat): RECURSIVE boolean =
+%  IF x = 0 THEN
+
+
+%recursiveForEnhanced(n, origN, Y_k: int, x, l, j, qj: nat, seq: sequence[int], seq_length: nat): RECURSIVE boolean =
+%  IF (n > 1) THEN
+    
+
 %%%
 % alg3
 % param n: Length of the summation in the later "num" calculation
@@ -97,7 +145,10 @@ recursiveForEnhanced(n, origN, Y_k: int, x, l, j, qj: nat, seq: sequence[int], s
 % It is essentially a "portal" to the actual recursiveFor algorithm; this is done so an empty sequence can be passed into recursiveFor, for later use.
 %%%
 
-alg3(n, origN, Y_k: int, l, j, qj: nat): boolean =
-  print("alg3 reached, n = ") AND println(n) AND LET sequence = empty_sequence in recursiveForEnhanced(n, origN, Y_k, l, l, j, qj, sequence, 0)
+% n = n - 1
+% origN 
+%alg3(n, origN, Y_k: int, l, j, qj: nat): boolean =
+%  print("alg3 reached, n = ") AND println(n) AND LET sequence = empty_sequence in recursiveForEnhanced(n, origN, Y_k, l, l, j, qj, sequence, 0)
+
 
 END algorithm3
