@@ -204,6 +204,13 @@ print_finite_seq(seq: finite_sequence[int]): boolean =
   FORALL(x:subrange(0, length(seq) - 1)):
     print(seq(x))
 
+%%%
+%
+% delete_finite_seq_helper
+%
+% This recursive method deletes an entry in a finite sequence.
+%
+%%%
 
 delete_finite_seq_helper(len, current_index: nat, seq: sequence[int], base_seq: finite_sequence[int]): RECURSIVE finite_sequence[int] = 
   IF current_index = 0 THEN 
@@ -213,8 +220,22 @@ delete_finite_seq_helper(len, current_index: nat, seq: sequence[int], base_seq: 
   ENDIF
   MEASURE current_index
 
+%%%
+%
+% This method calls upon a helper method to delete an entry in a finite_sequence.
+%
+%%%
+
 delete_finite_seq(index: nat, seq: finite_sequence[int]): finite_sequence[int] =
   delete_finite_seq_helper((length(seq) - 1), (length(seq) - 1), delete(index, seq), empty_seq)
+
+%%%
+%
+% delete_finite_seq_helper_bool
+%
+% This testing method allows for the testing of an algorithm that deletes a number from a finite sequence.
+%
+%%%
 
 delete_finite_seq_helper_bool(len, current_index: nat, seq: sequence[int], base_seq: finite_sequence[int]): RECURSIVE bool = 
   IF current_index = 0 THEN 
